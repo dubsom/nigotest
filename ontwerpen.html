@@ -26,7 +26,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #e2e8dc;
+      border-bottom: 1px solid #dfe8d9;
     }
 
     .logo {
@@ -44,7 +44,7 @@
 
     .title {
       text-align: center;
-      padding: 50px 20px 10px;
+      padding: 45px 20px 10px;
     }
 
     .title h1 {
@@ -58,12 +58,12 @@
     }
 
     .designer {
-      max-width: 1250px;
+      max-width: 1280px;
       margin: auto;
       padding: 40px 5% 80px;
 
       display: grid;
-      grid-template-columns: 360px 1fr;
+      grid-template-columns: 370px 1fr;
       gap: 50px;
     }
 
@@ -71,7 +71,9 @@
       background: white;
       padding: 28px;
       border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(50, 70, 40, 0.08);
+
+      box-shadow:
+        0 8px 30px rgba(50, 70, 40, 0.08);
     }
 
     .panel h2 {
@@ -93,13 +95,17 @@
     }
 
     input,
+    select,
+    button {
+      font-family: inherit;
+    }
+
+    input,
     select {
       width: 100%;
       padding: 12px;
-
       border: 1px solid #ccd5c7;
       border-radius: 8px;
-
       font-size: 15px;
       background: white;
     }
@@ -110,6 +116,13 @@
       border-color: #648c4c;
     }
 
+    .small-info {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #74806e;
+      margin-top: 10px;
+    }
+
     .preview {
       display: flex;
       flex-direction: column;
@@ -117,10 +130,18 @@
     }
 
     .preview h2 {
-      margin-bottom: 25px;
+      margin-bottom: 8px;
     }
 
-    /* HOUTEN KAART */
+    .drag-hint {
+      font-size: 14px;
+      color: #74806e;
+      margin-bottom: 20px;
+    }
+
+    /* =========================
+       HOUTEN KAART
+       ========================= */
 
     .card {
       width: 510px;
@@ -131,8 +152,8 @@
       background-image:
         repeating-linear-gradient(
           3deg,
-          rgba(80, 45, 20, 0.04) 0px,
-          rgba(80, 45, 20, 0.04) 1px,
+          rgba(80, 45, 20, 0.045) 0px,
+          rgba(80, 45, 20, 0.045) 1px,
           transparent 1px,
           transparent 7px
         );
@@ -142,43 +163,82 @@
       box-shadow:
         0 25px 50px rgba(0, 0, 0, 0.18);
 
-      padding: 42px;
-
       position: relative;
       overflow: hidden;
 
       color: #2d241d;
+
+      touch-action: none;
+
+      user-select: none;
     }
+
+    /* ALLE VERSLEEPBARE ELEMENTEN */
+
+    .draggable {
+      position: absolute;
+      cursor: grab;
+      touch-action: none;
+    }
+
+    .draggable:active {
+      cursor: grabbing;
+    }
+
+    .draggable:hover {
+      outline: 1px dashed rgba(45, 36, 29, 0.35);
+      outline-offset: 5px;
+    }
+
+    /* NAAM */
 
     .card-name {
+      left: 40px;
+      top: 42px;
+
       font-size: 32px;
       font-weight: bold;
-      margin-bottom: 8px;
+
       max-width: 320px;
+      white-space: nowrap;
     }
+
+    /* BEDRIJF */
 
     .card-company {
+      left: 40px;
+      top: 88px;
+
       font-size: 18px;
-      margin-bottom: 58px;
-      max-width: 300px;
+
+      max-width: 310px;
+      white-space: nowrap;
     }
 
+    /* CONTACT */
+
     .contact {
+      left: 40px;
+      top: 190px;
+
       font-size: 15px;
       line-height: 1.8;
+
       max-width: 320px;
+    }
+
+    .contact div {
+      white-space: nowrap;
     }
 
     /* LOGO */
 
     .card-logo {
-      position: absolute;
-
-      top: 28px;
       right: 30px;
+      top: 28px;
 
       width: 100px;
-      height: 75px;
+      max-height: 75px;
 
       object-fit: contain;
 
@@ -188,10 +248,8 @@
     /* QR */
 
     .qr-container {
-      position: absolute;
-
       right: 30px;
-      bottom: 30px;
+      bottom: 28px;
 
       width: 105px;
       height: 105px;
@@ -199,6 +257,7 @@
       background: white;
 
       padding: 7px;
+
       border-radius: 4px;
     }
 
@@ -206,14 +265,50 @@
       width: 100%;
       height: 100%;
       display: block;
+
+      pointer-events: none;
     }
 
-    /* ORDER */
+    /* =========================
+       KNOPPEN
+       ========================= */
+
+    .tool-buttons {
+      width: 510px;
+
+      display: flex;
+      gap: 10px;
+
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .small-button {
+      border: none;
+
+      background: #e4ecdf;
+      color: #355a26;
+
+      padding: 10px 15px;
+
+      border-radius: 8px;
+
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .small-button:hover {
+      background: #d2dfcb;
+    }
+
+    /* =========================
+       BESTELLING
+       ========================= */
 
     .order-box {
       width: 510px;
 
-      margin-top: 30px;
+      margin-top: 20px;
 
       background: white;
 
@@ -259,15 +354,6 @@
       background: #355c25;
     }
 
-    .qr-info {
-      margin-top: 12px;
-
-      font-size: 13px;
-      line-height: 1.5;
-
-      color: #74806e;
-    }
-
     @media (max-width: 850px) {
 
       .designer {
@@ -275,18 +361,16 @@
       }
 
       .card,
-      .order-box {
+      .order-box,
+      .tool-buttons {
         width: 100%;
         max-width: 510px;
-      }
-
-      .card {
-        height: 310px;
       }
 
       .title h1 {
         font-size: 34px;
       }
+
     }
   </style>
 </head>
@@ -314,7 +398,7 @@
   </h1>
 
   <p>
-    Vul je gegevens in en bekijk direct het resultaat.
+    Vul je gegevens in en plaats alles waar jij het wilt.
   </p>
 
 </section>
@@ -323,7 +407,9 @@
 <main class="designer">
 
 
-  <!-- INSTELLINGEN -->
+  <!-- ======================
+       LINKER BEDIENINGSPANEEL
+       ====================== -->
 
   <section class="panel">
 
@@ -387,6 +473,46 @@
     >
 
 
+    <!-- LETTERTYPE -->
+
+    <h3 class="section-title">
+      Tekststijl
+    </h3>
+
+
+    <label for="lettertype">
+      Lettertype
+    </label>
+
+    <select id="lettertype">
+
+      <option value="Arial, sans-serif">
+        Arial
+      </option>
+
+      <option value="Verdana, sans-serif">
+        Verdana
+      </option>
+
+      <option value="Trebuchet MS, sans-serif">
+        Trebuchet
+      </option>
+
+      <option value="Georgia, serif">
+        Georgia
+      </option>
+
+      <option value="Times New Roman, serif">
+        Times New Roman
+      </option>
+
+      <option value="Courier New, monospace">
+        Courier
+      </option>
+
+    </select>
+
+
     <!-- QR -->
 
     <h3 class="section-title">
@@ -427,10 +553,12 @@
     </select>
 
 
-    <div class="qr-info">
+    <div class="small-info">
+
       Bij "Contact opslaan" worden naam,
       bedrijf, telefoon, e-mail en website
       automatisch in de QR-code verwerkt.
+
     </div>
 
 
@@ -439,6 +567,7 @@
     <h3 class="section-title">
       Logo
     </h3>
+
 
     <label for="logoUpload">
       Upload je logo
@@ -519,13 +648,19 @@
 
 
 
-  <!-- LIVE VOORBEELD -->
+  <!-- ======================
+       LIVE VOORBEELD
+       ====================== -->
 
   <section class="preview">
 
     <h2>
       Live voorbeeld
     </h2>
+
+    <div class="drag-hint">
+      Sleep de tekst, het logo of de QR-code naar de gewenste plaats.
+    </div>
 
 
     <div
@@ -534,30 +669,32 @@
     >
 
 
-      <img
-        id="kaartLogo"
-        class="card-logo"
-        alt="Logo"
-      >
-
+      <!-- NAAM -->
 
       <div
-        class="card-name"
+        class="card-name draggable"
         id="voorbeeldNaam"
       >
         Jan Peeters
       </div>
 
 
+      <!-- BEDRIJF -->
+
       <div
-        class="card-company"
+        class="card-company draggable"
         id="voorbeeldBedrijf"
       >
         JP Houtwerken
       </div>
 
 
-      <div class="contact">
+      <!-- CONTACT -->
+
+      <div
+        class="contact draggable"
+        id="contactBlok"
+      >
 
         <div id="voorbeeldTelefoon">
           0470 12 34 56
@@ -574,14 +711,27 @@
       </div>
 
 
+      <!-- LOGO -->
+
+      <img
+        id="kaartLogo"
+        class="card-logo draggable"
+        alt="Logo"
+        draggable="false"
+      >
+
+
+      <!-- QR -->
+
       <div
-        class="qr-container"
+        class="qr-container draggable"
         id="qrContainer"
       >
 
         <img
           id="qrImage"
           alt="QR-code"
+          draggable="false"
         >
 
       </div>
@@ -589,8 +739,22 @@
     </div>
 
 
+    <!-- RESET -->
 
-    <!-- PRIJS -->
+    <div class="tool-buttons">
+
+      <button
+        class="small-button"
+        id="resetPosities"
+        type="button"
+      >
+        Posities herstellen
+      </button>
+
+    </div>
+
+
+    <!-- ORDER -->
 
     <div class="order-box">
 
@@ -632,7 +796,9 @@
 
 <script>
 
-  /* VELDEN */
+  /* =========================
+     FORMULIERVELDEN
+     ========================= */
 
   const naam =
     document.getElementById("naam");
@@ -649,6 +815,9 @@
   const website =
     document.getElementById("website");
 
+  const lettertype =
+    document.getElementById("lettertype");
+
   const qrType =
     document.getElementById("qrType");
 
@@ -662,8 +831,30 @@
     document.getElementById("logoUpload");
 
 
+  /* =========================
+     KAART-ELEMENTEN
+     ========================= */
+
   const kaart =
     document.getElementById("kaart");
+
+  const voorbeeldNaam =
+    document.getElementById("voorbeeldNaam");
+
+  const voorbeeldBedrijf =
+    document.getElementById("voorbeeldBedrijf");
+
+  const voorbeeldTelefoon =
+    document.getElementById("voorbeeldTelefoon");
+
+  const voorbeeldEmail =
+    document.getElementById("voorbeeldEmail");
+
+  const voorbeeldWebsite =
+    document.getElementById("voorbeeldWebsite");
+
+  const contactBlok =
+    document.getElementById("contactBlok");
 
   const kaartLogo =
     document.getElementById("kaartLogo");
@@ -675,38 +866,38 @@
     document.getElementById("qrContainer");
 
 
-  /* KAART BIJWERKEN */
+  /* =========================
+     LIVE KAART BIJWERKEN
+     ========================= */
 
   function updateKaart() {
 
-    document.getElementById(
-      "voorbeeldNaam"
-    ).textContent =
+    voorbeeldNaam.textContent =
       naam.value;
 
-
-    document.getElementById(
-      "voorbeeldBedrijf"
-    ).textContent =
+    voorbeeldBedrijf.textContent =
       bedrijf.value;
 
-
-    document.getElementById(
-      "voorbeeldTelefoon"
-    ).textContent =
+    voorbeeldTelefoon.textContent =
       telefoon.value;
 
-
-    document.getElementById(
-      "voorbeeldEmail"
-    ).textContent =
+    voorbeeldEmail.textContent =
       email.value;
 
-
-    document.getElementById(
-      "voorbeeldWebsite"
-    ).textContent =
+    voorbeeldWebsite.textContent =
       website.value;
+
+
+    /* LETTERTYPE */
+
+    voorbeeldNaam.style.fontFamily =
+      lettertype.value;
+
+    voorbeeldBedrijf.style.fontFamily =
+      lettertype.value;
+
+    contactBlok.style.fontFamily =
+      lettertype.value;
 
 
     /* HOUT */
@@ -764,18 +955,17 @@
   }
 
 
-  /* QR-CODE */
+  /* =========================
+     QR-CODE
+     ========================= */
 
   function updateQR() {
 
     const type =
       qrType.value;
 
-
     let qrData = "";
 
-
-    /* CONTACT / VCARD */
 
     if (type === "contact") {
 
@@ -791,8 +981,6 @@ END:VCARD`;
 
     }
 
-
-    /* WEBSITE */
 
     else if (type === "website") {
 
@@ -811,13 +999,10 @@ END:VCARD`;
 
       }
 
-
       qrData = url;
 
     }
 
-
-    /* EMAIL */
 
     else if (type === "email") {
 
@@ -828,8 +1013,6 @@ END:VCARD`;
     }
 
 
-    /* TELEFOON */
-
     else if (type === "telefoon") {
 
       const nummer =
@@ -838,14 +1021,11 @@ END:VCARD`;
           ""
         );
 
-
       qrData =
         "tel:" + nummer;
 
     }
 
-
-    /* WHATSAPP */
 
     else if (type === "whatsapp") {
 
@@ -855,11 +1035,6 @@ END:VCARD`;
           ""
         );
 
-
-      /*
-        Belgische nummers:
-        0470... wordt 32470...
-      */
 
       if (
         nummer.startsWith("0")
@@ -879,8 +1054,6 @@ END:VCARD`;
     }
 
 
-    /* GEEN QR */
-
     if (
       type === "geen" ||
       !qrData
@@ -898,11 +1071,6 @@ END:VCARD`;
       "block";
 
 
-    /*
-      Voorlopig gebruiken we een
-      externe QR-generator.
-    */
-
     qrImage.src =
       "https://api.qrserver.com/v1/create-qr-code/?size=250x250&margin=10&data=" +
       encodeURIComponent(qrData);
@@ -910,7 +1078,9 @@ END:VCARD`;
   }
 
 
-  /* LOGO UPLOAD */
+  /* =========================
+     LOGO UPLOAD
+     ========================= */
 
   logoUpload.addEventListener(
     "change",
@@ -954,7 +1124,259 @@ END:VCARD`;
   );
 
 
-  /* LIVE EVENTS */
+  /* =========================
+     VERSLEPEN
+     ========================= */
+
+  function maakVersleepbaar(element) {
+
+    let bezig = false;
+
+    let startX = 0;
+    let startY = 0;
+
+    let beginLeft = 0;
+    let beginTop = 0;
+
+
+    element.addEventListener(
+      "pointerdown",
+      function(event) {
+
+        event.preventDefault();
+
+        bezig = true;
+
+
+        const kaartRect =
+          kaart.getBoundingClientRect();
+
+        const elementRect =
+          element.getBoundingClientRect();
+
+
+        startX =
+          event.clientX;
+
+        startY =
+          event.clientY;
+
+
+        beginLeft =
+          elementRect.left -
+          kaartRect.left;
+
+        beginTop =
+          elementRect.top -
+          kaartRect.top;
+
+
+        element.style.left =
+          beginLeft + "px";
+
+        element.style.top =
+          beginTop + "px";
+
+        element.style.right =
+          "auto";
+
+        element.style.bottom =
+          "auto";
+
+
+        element.setPointerCapture(
+          event.pointerId
+        );
+
+      }
+    );
+
+
+    element.addEventListener(
+      "pointermove",
+      function(event) {
+
+        if (!bezig) {
+          return;
+        }
+
+
+        const verschilX =
+          event.clientX -
+          startX;
+
+        const verschilY =
+          event.clientY -
+          startY;
+
+
+        let nieuweLeft =
+          beginLeft +
+          verschilX;
+
+        let nieuweTop =
+          beginTop +
+          verschilY;
+
+
+        /*
+          Zorg dat het element
+          binnen het kaartje blijft.
+        */
+
+        const maxLeft =
+          kaart.clientWidth -
+          element.offsetWidth;
+
+        const maxTop =
+          kaart.clientHeight -
+          element.offsetHeight;
+
+
+        nieuweLeft =
+          Math.max(
+            0,
+            Math.min(
+              nieuweLeft,
+              maxLeft
+            )
+          );
+
+
+        nieuweTop =
+          Math.max(
+            0,
+            Math.min(
+              nieuweTop,
+              maxTop
+            )
+          );
+
+
+        element.style.left =
+          nieuweLeft + "px";
+
+        element.style.top =
+          nieuweTop + "px";
+
+      }
+    );
+
+
+    function stopVerslepen(event) {
+
+      if (!bezig) {
+        return;
+      }
+
+      bezig = false;
+
+
+      try {
+
+        element.releasePointerCapture(
+          event.pointerId
+        );
+
+      }
+
+      catch (fout) {
+      }
+
+    }
+
+
+    element.addEventListener(
+      "pointerup",
+      stopVerslepen
+    );
+
+
+    element.addEventListener(
+      "pointercancel",
+      stopVerslepen
+    );
+
+  }
+
+
+  /* ELEMENTEN VERSLEEPBAAR MAKEN */
+
+  maakVersleepbaar(
+    voorbeeldNaam
+  );
+
+  maakVersleepbaar(
+    voorbeeldBedrijf
+  );
+
+  maakVersleepbaar(
+    contactBlok
+  );
+
+  maakVersleepbaar(
+    kaartLogo
+  );
+
+  maakVersleepbaar(
+    qrContainer
+  );
+
+
+  /* =========================
+     POSITIES HERSTELLEN
+     ========================= */
+
+  function herstelPosities() {
+
+    voorbeeldNaam.style.left =
+      "40px";
+
+    voorbeeldNaam.style.top =
+      "42px";
+
+
+    voorbeeldBedrijf.style.left =
+      "40px";
+
+    voorbeeldBedrijf.style.top =
+      "88px";
+
+
+    contactBlok.style.left =
+      "40px";
+
+    contactBlok.style.top =
+      "190px";
+
+
+    kaartLogo.style.left =
+      "380px";
+
+    kaartLogo.style.top =
+      "28px";
+
+
+    qrContainer.style.left =
+      "375px";
+
+    qrContainer.style.top =
+      "197px";
+
+  }
+
+
+  document.getElementById(
+    "resetPosities"
+  ).addEventListener(
+    "click",
+    herstelPosities
+  );
+
+
+  /* =========================
+     LIVE EVENTS
+     ========================= */
 
   naam.addEventListener(
     "input",
@@ -981,6 +1403,11 @@ END:VCARD`;
     updateKaart
   );
 
+  lettertype.addEventListener(
+    "change",
+    updateKaart
+  );
+
   qrType.addEventListener(
     "change",
     updateKaart
@@ -1004,5 +1431,4 @@ END:VCARD`;
 </script>
 
 </body>
-
 </html>
