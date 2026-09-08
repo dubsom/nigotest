@@ -4,36 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>TreeTap | Houten smart visitekaartjes</title>
-
-  <meta
-    name="description"
-    content="Ontwerp unieke houten smart visitekaartjes met QR en NFC. Natuurlijk materiaal, lasergravure en digitale connectiviteit."
-  >
+  <title>TreeTap | Houten visitekaartjes</title>
+  <meta name="description" content="Ontwerp jouw eigen houten visitekaartje met TreeTap. Natuurlijk hout, lasergravure, QR-code en NFC.">
 
   <style>
     :root {
-      --green-950: #17351c;
-      --green-900: #214626;
-      --green-800: #2d5b31;
-      --green-700: #3f7442;
-      --green-600: #588d52;
-      --green-200: #dce9d7;
-      --green-100: #edf4e9;
-      --green-50: #f5f8f1;
-
-      --wood: #c99961;
-      --wood-light: #e3c28f;
-      --brown: #4b321f;
-
-      --cream: #faf9f4;
+      --green-dark: #173f2a;
+      --green: #347a4a;
+      --green-mid: #5b965d;
+      --green-light: #eaf3e7;
+      --green-soft: #f4f8f1;
+      --cream: #faf8f1;
+      --wood: #dcae70;
+      --wood-light: #e8c58f;
+      --brown: #432a1d;
+      --text: #183223;
+      --muted: #637066;
       --white: #ffffff;
-
-      --text: #223024;
-      --muted: #687467;
-
-      --shadow:
-        0 18px 50px rgba(28, 55, 31, 0.10);
+      --border: #dce7d9;
+      --shadow: 0 20px 50px rgba(23,63,42,.12);
     }
 
     * {
@@ -48,12 +37,7 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
-
-      background:
-        radial-gradient(circle at 8% 8%, rgba(90, 140, 80, .10), transparent 25%),
-        radial-gradient(circle at 92% 20%, rgba(90, 140, 80, .09), transparent 22%),
-        var(--green-50);
-
+      background: var(--cream);
       line-height: 1.6;
     }
 
@@ -63,6 +47,7 @@
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
     button,
@@ -72,431 +57,362 @@
 
     /* HEADER */
 
-    .site-header {
+    .header {
       position: sticky;
       top: 0;
       z-index: 1000;
-
-      background: rgba(255, 255, 255, .95);
-      backdrop-filter: blur(12px);
-
-      border-bottom: 1px solid rgba(35, 75, 40, .10);
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
     }
 
-    .nav-wrap {
-      max-width: 1240px;
-      min-height: 86px;
-
+    .nav {
+      max-width: 1180px;
       margin: auto;
-      padding: 10px 24px;
-
+      padding: 13px 24px;
+      min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      gap: 25px;
+      gap: 30px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      text-decoration: none;
+      flex-shrink: 0;
     }
 
     .brand img {
       display: block;
-      width: 250px;
-      max-height: 68px;
+      width: 190px;
+      max-height: 58px;
       object-fit: contain;
+      object-position: left center;
     }
 
-    .desktop-nav {
+    .nav-links {
       display: flex;
       align-items: center;
       gap: 28px;
-    }
-
-    .desktop-nav a {
-      text-decoration: none;
       font-weight: 700;
       font-size: 15px;
-      color: var(--green-950);
     }
 
-    .desktop-nav a:hover {
-      color: var(--green-600);
+    .nav-links a {
+      transition: .2s ease;
     }
 
-    .nav-cta {
-      background: var(--green-700);
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .nav-cta,
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
+      border-radius: 12px;
+      background: var(--green);
       color: white !important;
-
-      padding: 12px 18px;
-      border-radius: 10px;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(52,122,74,.18);
+      transition: .2s ease;
     }
 
-    .nav-cta:hover {
-      background: var(--green-800);
+    .nav-cta:hover,
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
     }
 
     .menu-button {
       display: none;
-
-      width: 48px;
-      height: 48px;
-
       border: 0;
+      background: var(--green-light);
+      color: var(--green-dark);
+      width: 46px;
+      height: 46px;
       border-radius: 10px;
-
-      background: var(--green-100);
-      color: var(--green-950);
-
-      font-size: 25px;
+      font-size: 24px;
       cursor: pointer;
-    }
-
-    .mobile-nav {
-      display: none;
-      padding: 0 20px 20px;
-      background: white;
-    }
-
-    .mobile-nav.open {
-      display: grid;
-      gap: 9px;
-    }
-
-    .mobile-nav a {
-      display: block;
-      padding: 14px;
-      border-radius: 10px;
-
-      text-decoration: none;
-      font-weight: 700;
-
-      background: #f5f8f2;
-    }
-
-    .mobile-nav .mobile-cta {
-      background: var(--green-700);
-      color: white;
-      text-align: center;
     }
 
     /* HERO */
 
     .hero {
-      min-height: 660px;
-
-      display: grid;
-      place-items: center;
-
-      padding: 70px 24px 90px;
+      position: relative;
       overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(91,150,93,.16), transparent 25%),
+        radial-gradient(circle at 90% 15%, rgba(91,150,93,.12), transparent 24%),
+        linear-gradient(135deg, #f4f8ef, #fbfaf4);
     }
 
-    .hero-grid {
-      width: 100%;
-      max-width: 1240px;
+    .hero::before {
+      content: "🌿";
+      position: absolute;
+      right: -30px;
+      bottom: -100px;
+      font-size: 300px;
+      opacity: .045;
+      transform: rotate(-25deg);
+      pointer-events: none;
+    }
 
+    .hero-inner {
+      max-width: 1180px;
+      margin: auto;
+      padding: 90px 24px 100px;
       display: grid;
-      grid-template-columns: 1.02fr .98fr;
-
-      gap: 70px;
+      grid-template-columns: 1fr 1fr;
       align-items: center;
+      gap: 70px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-
-      padding: 8px 12px;
-      border-radius: 999px;
-
-      background: var(--green-100);
-      color: var(--green-800);
-
+      gap: 8px;
+      padding: 8px 13px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--green);
       font-size: 13px;
-      font-weight: 800;
-
+      font-weight: 900;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
     }
 
     .hero h1 {
-      margin: 22px 0 20px;
-
-      font-size: clamp(46px, 6vw, 76px);
+      margin: 20px 0 18px;
+      font-size: clamp(48px, 6vw, 78px);
       line-height: .98;
-
-      letter-spacing: -2.4px;
-      color: var(--green-950);
+      letter-spacing: -3px;
+      color: var(--green-dark);
     }
 
     .hero h1 span {
-      color: var(--green-600);
+      color: var(--green-mid);
     }
 
-    .hero-copy {
-      max-width: 640px;
-      margin-bottom: 28px;
-
+    .hero-text {
+      max-width: 600px;
+      margin: 0 0 28px;
+      font-size: 19px;
       color: var(--muted);
-      font-size: 20px;
     }
 
-    .hero-actions {
+    .hero-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 13px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      min-height: 52px;
-      padding: 14px 22px;
-
-      border-radius: 11px;
-      text-decoration: none;
-
-      font-weight: 800;
-    }
-
-    .btn-primary {
-      background: var(--green-700);
-      color: white;
-
-      box-shadow:
-        0 10px 25px rgba(63, 116, 66, .25);
-    }
-
-    .btn-primary:hover {
-      background: var(--green-800);
+      gap: 12px;
+      margin-bottom: 26px;
     }
 
     .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
       background: white;
-      border: 1px solid var(--green-200);
-      color: var(--green-900);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--green-dark);
+      font-weight: 800;
+      transition: .2s ease;
     }
 
-    .hero-points {
-      margin-top: 30px;
+    .btn-secondary:hover {
+      border-color: var(--green);
+      transform: translateY(-2px);
+    }
 
+    .checks {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
-
-      color: #667161;
+      gap: 17px;
+      color: var(--muted);
       font-size: 14px;
     }
 
-    .hero-points span::before {
+    .checks span::before {
       content: "✓";
       margin-right: 7px;
-
-      color: var(--green-600);
+      color: var(--green);
       font-weight: 900;
     }
 
-    /* HERO VISUAL */
+    /* CARD MOCKUP */
 
-    .hero-visual {
+    .card-area {
       position: relative;
-
-      min-height: 470px;
-
-      display: grid;
-      place-items: center;
+      min-height: 410px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .leaf {
       position: absolute;
-
-      width: 160px;
-      height: 80px;
-
+      width: 180px;
+      height: 70px;
       border-radius: 100% 0 100% 0;
-
-      background:
-        linear-gradient(135deg, #5d9857, #2f6336);
-
-      opacity: .18;
+      background: rgba(73,132,72,.16);
     }
 
     .leaf-one {
-      top: 40px;
-      right: 10px;
-
-      transform: rotate(26deg);
+      right: 5px;
+      top: 35px;
+      transform: rotate(-15deg);
     }
 
     .leaf-two {
-      bottom: 35px;
-      left: 10px;
-
-      transform: rotate(-25deg);
+      left: 35px;
+      bottom: 25px;
+      transform: rotate(125deg);
     }
 
     .wood-card {
       position: relative;
-
-      width: 500px;
-      max-width: 95%;
-
-      aspect-ratio: 85 / 55;
-
-      padding: 38px;
-
+      z-index: 2;
+      width: min(100%, 510px);
+      aspect-ratio: 1.586 / 1;
       border-radius: 18px;
+      padding: 30px 32px;
+      overflow: hidden;
+      color: #342116;
+      transform: rotate(-2deg);
+      box-shadow: 0 32px 45px rgba(49,52,34,.22);
 
-      color: #3b281a;
-
-      background-color: var(--wood-light);
-
-      background-image:
+      background:
         repeating-linear-gradient(
-          4deg,
-          rgba(95, 57, 24, .05) 0px,
-          rgba(95, 57, 24, .05) 1px,
+          2deg,
+          rgba(112,70,32,.045) 0px,
+          rgba(112,70,32,.045) 1px,
           transparent 1px,
-          transparent 8px
-        );
-
-      box-shadow:
-        0 30px 60px rgba(55, 37, 20, .24);
-
-      transform: rotate(-3deg);
+          transparent 7px
+        ),
+        linear-gradient(100deg, #e8c187, #dca96c 52%, #e5bb7c);
     }
 
     .wood-card::after {
       content: "";
-
       position: absolute;
-      inset: 8px;
-
-      border-radius: 13px;
-
-      border: 1px solid rgba(80, 50, 25, .08);
-
+      inset: 0;
+      opacity: .18;
       pointer-events: none;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0 13px,
+          rgba(93,57,27,.14) 14px,
+          transparent 15px
+        );
     }
 
-    .mock-brand {
-      font-size: 30px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    .mock-tagline {
-      margin-top: 2px;
-
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .mock-contact {
-      position: absolute;
-
-      left: 38px;
-      bottom: 36px;
-
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    .mock-logo {
-      position: absolute;
-
-      right: 34px;
-      top: 34px;
-
-      width: 125px;
-      height: 125px;
-
+    .card-logo {
+      position: relative;
+      z-index: 2;
+      width: 105px;
+      height: 105px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .mock-logo img {
-      width: 100%;
-      height: 100%;
+    .card-logo img {
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
+      mix-blend-mode: multiply;
     }
 
-    .mock-qr {
+    .card-tagline {
+      position: relative;
+      z-index: 2;
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .6px;
+    }
+
+    .card-contact {
       position: absolute;
+      z-index: 2;
+      left: 32px;
+      bottom: 27px;
+      font-size: 13px;
+      line-height: 1.55;
+    }
 
-      right: 44px;
-      bottom: 34px;
-
-      width: 84px;
-      height: 84px;
-
+    .qr {
+      position: absolute;
+      z-index: 2;
+      right: 30px;
+      bottom: 28px;
+      width: 82px;
+      height: 82px;
       display: grid;
       place-items: center;
-
-      border: 6px solid #3b281a;
-
-      font-size: 16px;
+      border: 4px solid #3d281b;
+      font-size: 17px;
       font-weight: 900;
     }
 
-    .visual-badge {
+    .nfc-chip {
       position: absolute;
-
-      bottom: 12px;
-      right: 5px;
-
-      padding: 12px 16px;
-
-      border-radius: 11px;
-
-      background: white;
-
-      box-shadow: var(--shadow);
-
-      font-size: 14px;
-      font-weight: 800;
-
-      color: var(--green-800);
+      z-index: 2;
+      right: 29px;
+      top: 27px;
+      font-size: 22px;
     }
 
-    /* ECO STRIP */
+    .card-note {
+      position: absolute;
+      z-index: 3;
+      right: 5px;
+      bottom: -25px;
+      padding: 11px 16px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--green-dark);
+    }
 
-    .eco-strip {
-      background: var(--green-950);
+    /* USP BAR */
+
+    .usp-bar {
+      background: var(--green-dark);
       color: white;
     }
 
-    .eco-inner {
-      max-width: 1240px;
+    .usp-inner {
+      max-width: 1180px;
       margin: auto;
-
-      padding: 24px;
-
+      padding: 25px 24px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-
-      gap: 12px;
-    }
-
-    .eco-item {
+      grid-template-columns: repeat(4,1fr);
+      gap: 20px;
       text-align: center;
-
-      padding: 10px;
-      font-size: 14px;
     }
 
-    .eco-item strong {
+    .usp strong {
       display: block;
       margin-bottom: 3px;
-      font-size: 16px;
+      font-size: 15px;
+    }
+
+    .usp span {
+      font-size: 12px;
+      opacity: .82;
     }
 
     /* SECTIONS */
@@ -511,461 +427,402 @@
     }
 
     .section-heading {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto 50px;
       text-align: center;
     }
 
-    .section-heading .small {
-      color: var(--green-600);
-
+    .mini-title {
+      color: var(--green);
       text-transform: uppercase;
-      letter-spacing: 1.8px;
-
       font-size: 13px;
       font-weight: 900;
+      letter-spacing: 2px;
     }
 
     .section-heading h2 {
       margin: 10px 0 12px;
-
-      font-size: clamp(34px, 4vw, 50px);
-      line-height: 1.05;
-
-      color: var(--green-950);
+      font-size: clamp(34px,4vw,50px);
+      line-height: 1.1;
+      color: var(--green-dark);
     }
 
     .section-heading p {
-      margin: 0;
-
       color: var(--muted);
-      font-size: 18px;
+      font-size: 17px;
     }
 
-    .benefit-grid {
+    .benefits {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4,1fr);
       gap: 18px;
     }
 
     .benefit {
-      min-height: 215px;
-
-      padding: 28px;
-
-      border: 1px solid var(--green-200);
-      border-radius: 16px;
-
-      background: rgba(255, 255, 255, .94);
-
-      box-shadow:
-        0 12px 35px rgba(35, 65, 35, .05);
+      padding: 30px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(23,63,42,.05);
     }
 
     .benefit-icon {
-      width: 48px;
-      height: 48px;
-
+      width: 52px;
+      height: 52px;
       display: grid;
       place-items: center;
-
       margin-bottom: 18px;
-
-      border-radius: 12px;
-
-      background: var(--green-100);
-
-      font-size: 24px;
+      background: var(--green-light);
+      border-radius: 14px;
+      font-size: 25px;
     }
 
     .benefit h3 {
-      margin: 0 0 9px;
-      color: var(--green-900);
+      margin: 0 0 8px;
+      color: var(--green-dark);
     }
 
     .benefit p {
       margin: 0;
-
       color: var(--muted);
-      font-size: 15px;
+      font-size: 14px;
     }
 
-    .how-section {
-      background:
-        linear-gradient(180deg, #ffffff, #f7f8f3);
+    /* HOW */
+
+    .how {
+      background: white;
     }
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(3,1fr);
+      gap: 22px;
     }
 
     .step {
-      padding: 30px 24px;
-
-      border-radius: 16px;
-
-      background: white;
-
-      border: 1px solid #e2e8de;
-
-      box-shadow:
-        0 10px 30px rgba(35, 65, 35, .05);
+      position: relative;
+      padding: 32px;
+      background: var(--green-soft);
+      border-radius: 20px;
+      border: 1px solid var(--border);
     }
 
     .step-number {
-      width: 42px;
-      height: 42px;
-
-      display: grid;
-      place-items: center;
-
-      margin-bottom: 20px;
-
-      border-radius: 50%;
-
-      background: var(--green-700);
-      color: white;
-
+      font-size: 44px;
       font-weight: 900;
+      color: rgba(52,122,74,.22);
     }
 
     .step h3 {
-      margin: 0 0 8px;
+      margin: 4px 0 8px;
+      font-size: 22px;
+      color: var(--green-dark);
     }
 
     .step p {
       margin: 0;
-
       color: var(--muted);
-      font-size: 15px;
     }
 
-    .wood-grid {
+    /* NFC */
+
+    .smart-section {
+      background:
+        radial-gradient(circle at 80% 30%, rgba(91,150,93,.18), transparent 25%),
+        var(--green-light);
+    }
+
+    .smart-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 70px;
     }
 
-    .wood-type {
-      overflow: hidden;
-
-      border-radius: 18px;
-
-      background: white;
-
-      border: 1px solid #e2e7df;
-
-      box-shadow: var(--shadow);
+    .smart-content h2 {
+      margin: 10px 0 18px;
+      color: var(--green-dark);
+      font-size: clamp(36px,4vw,54px);
+      line-height: 1.08;
     }
 
-    .wood-swatch {
-      height: 205px;
+    .smart-content p {
+      color: var(--muted);
+      font-size: 17px;
+    }
 
+    .smart-list {
+      margin: 25px 0 30px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .smart-list li {
+      margin: 10px 0;
+      font-weight: 700;
+    }
+
+    .smart-list li::before {
+      content: "✓";
+      color: var(--green);
+      margin-right: 10px;
+    }
+
+    .nfc-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nfc-circle {
+      width: 310px;
+      height: 310px;
+      border-radius: 50%;
+      background: var(--green-dark);
       display: grid;
       place-items: center;
+      color: white;
+      box-shadow: 0 30px 60px rgba(23,63,42,.25);
+      text-align: center;
+    }
 
+    .nfc-circle .icon {
+      display: block;
+      font-size: 90px;
+      line-height: 1;
+    }
+
+    .nfc-circle strong {
+      display: block;
+      margin-top: 10px;
       font-size: 24px;
-      font-weight: 900;
-
-      color: #4a311e;
-    }
-
-    .wood-maple {
-      background:
-        repeating-linear-gradient(
-          5deg,
-          #e2bf89 0px,
-          #e2bf89 6px,
-          #dcb47b 7px
-        );
-    }
-
-    .wood-walnut {
-      color: #f6ead9;
-
-      background:
-        repeating-linear-gradient(
-          5deg,
-          #83583d 0px,
-          #83583d 6px,
-          #765038 7px
-        );
-    }
-
-    .wood-bamboo {
-      background:
-        repeating-linear-gradient(
-          90deg,
-          #d0a45c 0px,
-          #d0a45c 18px,
-          #c6974e 19px
-        );
-    }
-
-    .wood-copy {
-      padding: 22px;
-    }
-
-    .wood-copy h3 {
-      margin: 0 0 8px;
-    }
-
-    .wood-copy p {
-      margin: 0;
-
-      color: var(--muted);
-      font-size: 15px;
     }
 
     /* CTA */
 
-    .cta-section {
-      padding: 90px 24px 110px;
-    }
-
-    .cta-box {
-      max-width: 1120px;
-      margin: auto;
-
-      padding: 60px;
-
-      border-radius: 24px;
-
+    .final-cta {
+      padding: 90px 24px;
+      background: var(--green-dark);
       color: white;
-
-      background:
-        radial-gradient(circle at 10% 10%, rgba(255, 255, 255, .12), transparent 30%),
-        linear-gradient(135deg, var(--green-900), var(--green-700));
-
-      box-shadow:
-        0 25px 60px rgba(35, 75, 40, .20);
-
       text-align: center;
     }
 
-    .cta-box h2 {
-      margin: 0 0 14px;
-
-      font-size: clamp(34px, 4vw, 52px);
-      line-height: 1.05;
+    .final-cta h2 {
+      max-width: 760px;
+      margin: 0 auto 15px;
+      font-size: clamp(35px,4vw,52px);
+      line-height: 1.1;
     }
 
-    .cta-box p {
-      max-width: 660px;
-
+    .final-cta p {
+      max-width: 650px;
       margin: 0 auto 28px;
-
-      color: #e6f1e1;
-      font-size: 18px;
+      opacity: .8;
     }
 
-    .cta-box .btn {
+    .final-cta .btn-primary {
       background: white;
-      color: var(--green-900);
+      color: var(--green-dark) !important;
     }
 
     /* FOOTER */
 
     footer {
-      background: #142c18;
-      color: #dfeadc;
+      background: #102d1e;
+      color: rgba(255,255,255,.75);
+      padding: 35px 24px;
     }
 
     .footer-inner {
       max-width: 1180px;
       margin: auto;
-
-      padding: 45px 24px;
-
       display: flex;
-      justify-content: space-between;
       align-items: center;
-
+      justify-content: space-between;
       gap: 30px;
     }
 
-    .footer-brand {
-      font-weight: 900;
-      letter-spacing: 1.5px;
+    .footer-logo {
+      width: 160px;
+      filter: brightness(0) invert(1);
+      opacity: .9;
     }
 
-    .footer-copy {
-      color: #aebdab;
+    .footer-text {
+      text-align: right;
       font-size: 13px;
     }
 
     /* MOBILE */
 
-    @media (max-width: 950px) {
+    @media (max-width: 900px) {
 
-      .desktop-nav {
-        display: none;
+      .nav {
+        min-height: 72px;
+        padding: 10px 18px;
+      }
+
+      .brand img {
+        width: 155px;
+        max-height: 48px;
       }
 
       .menu-button {
-        display: grid;
-        place-items: center;
+        display: block;
       }
 
-      .brand img {
-        width: 215px;
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        box-shadow: 0 15px 30px rgba(23,63,42,.12);
       }
 
-      .hero {
-        padding-top: 48px;
+      .nav-links.open {
+        display: flex;
       }
 
-      .hero-grid {
+      .nav-links a {
+        padding: 13px 10px;
+      }
+
+      .nav-cta {
+        margin-top: 7px;
+      }
+
+      .hero-inner {
         grid-template-columns: 1fr;
-        gap: 55px;
-      }
-
-      .hero-copy {
-        font-size: 18px;
-      }
-
-      .hero-visual {
-        min-height: 390px;
-      }
-
-      .eco-inner {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .benefit-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .steps {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-    }
-
-    @media (max-width: 650px) {
-
-      .nav-wrap {
-        min-height: 74px;
-        padding: 8px 16px;
-      }
-
-      .brand img {
-        width: 175px;
-        max-width: 64vw;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 45px 18px 65px;
-      }
-
-      .hero-grid {
-        gap: 40px;
+        gap: 35px;
+        padding: 60px 20px 75px;
       }
 
       .hero h1 {
-        font-size: clamp(43px, 13vw, 61px);
-        letter-spacing: -1.8px;
+        letter-spacing: -2px;
       }
 
-      .hero-copy {
+      .hero-text {
         font-size: 17px;
       }
 
-      .hero-actions {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .hero-points {
-        display: grid;
-        gap: 8px;
-      }
-
-      .hero-visual {
-        min-height: 320px;
+      .card-area {
+        min-height: auto;
+        padding: 10px 0 25px;
       }
 
       .wood-card {
-        padding: 24px;
-        transform: rotate(-2deg);
+        width: 100%;
       }
 
-      .mock-brand {
-        font-size: 21px;
+      .usp-inner {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .mock-tagline,
-      .mock-contact {
-        font-size: 11px;
+      .benefits {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .mock-contact {
-        left: 24px;
-        bottom: 24px;
-      }
-
-      .mock-logo {
-        right: 22px;
-        top: 22px;
-
-        width: 78px;
-        height: 78px;
-      }
-
-      .mock-qr {
-        width: 60px;
-        height: 60px;
-
-        right: 22px;
-        bottom: 22px;
-
-        border-width: 4px;
-
-        font-size: 11px;
-      }
-
-      .visual-badge {
-        font-size: 12px;
-        padding: 9px 11px;
-      }
-
-      .eco-inner {
+      .smart-grid {
         grid-template-columns: 1fr;
-        padding: 20px;
+        gap: 45px;
       }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
 
       .section {
-        padding: 70px 18px;
+        padding: 68px 18px;
       }
 
-      .section-heading {
-        margin-bottom: 35px;
+      .hero-inner {
+        padding-left: 18px;
+        padding-right: 18px;
       }
 
-      .benefit-grid,
-      .steps,
-      .wood-grid {
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+      }
+
+      .checks {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .wood-card {
+        padding: 20px;
+        border-radius: 14px;
+      }
+
+      .card-logo {
+        width: 72px;
+        height: 72px;
+      }
+
+      .card-contact {
+        left: 20px;
+        bottom: 18px;
+        font-size: 10px;
+      }
+
+      .qr {
+        width: 60px;
+        height: 60px;
+        right: 20px;
+        bottom: 18px;
+        border-width: 3px;
+        font-size: 13px;
+      }
+
+      .nfc-chip {
+        top: 18px;
+        right: 20px;
+        font-size: 18px;
+      }
+
+      .card-note {
+        right: 0;
+        bottom: -34px;
+        font-size: 11px;
+      }
+
+      .usp-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px 12px;
+      }
+
+      .benefits {
         grid-template-columns: 1fr;
       }
 
-      .benefit {
-        min-height: auto;
+      .nfc-circle {
+        width: 240px;
+        height: 240px;
       }
 
-      .cta-section {
-        padding: 60px 18px 80px;
-      }
-
-      .cta-box {
-        padding: 40px 22px;
-        border-radius: 18px;
+      .nfc-circle .icon {
+        font-size: 70px;
       }
 
       .footer-inner {
@@ -973,15 +830,18 @@
         text-align: center;
       }
 
+      .footer-text {
+        text-align: center;
+      }
     }
+
   </style>
 </head>
 
 <body>
 
-<header class="site-header">
-
-  <div class="nav-wrap">
+<header class="header">
+  <nav class="nav">
 
     <a href="index.html" class="brand">
       <img
@@ -990,550 +850,354 @@
       >
     </a>
 
-    <nav class="desktop-nav">
-
-      <a href="index.html">
-        Home
-      </a>
-
-      <a href="#waarom">
-        Waarom hout?
-      </a>
-
-      <a href="#werking">
-        Hoe werkt het?
-      </a>
-
-      <a href="#hout">
-        Houtsoorten
-      </a>
-
-      <a
-        href="ontwerpen.html"
-        class="nav-cta"
-      >
-        Ontwerp je kaartje
-      </a>
-
-    </nav>
-
     <button
       class="menu-button"
       id="menuButton"
       aria-label="Menu openen"
-      aria-expanded="false"
     >
       ☰
     </button>
 
-  </div>
-
-  <nav
-    class="mobile-nav"
-    id="mobileNav"
-  >
-
-    <a href="index.html">
-      Home
-    </a>
-
-    <a href="#waarom">
-      Waarom hout?
-    </a>
-
-    <a href="#werking">
-      Hoe werkt het?
-    </a>
-
-    <a href="#hout">
-      Houtsoorten
-    </a>
-
-    <a
-      href="ontwerpen.html"
-      class="mobile-cta"
-    >
-      Ontwerp je kaartje →
-    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#waarom">Waarom hout?</a>
+      <a href="#hoe">Hoe werkt het?</a>
+      <a href="#smart">QR & NFC</a>
+      <a href="ontwerpen.html" class="nav-cta">
+        Ontwerp je kaartje
+      </a>
+    </div>
 
   </nav>
-
 </header>
 
 
-<section class="hero">
+<main>
 
-  <div class="hero-grid">
+  <!-- HERO -->
 
-    <div>
+  <section class="hero">
+    <div class="hero-inner">
 
-      <div class="eyebrow">
-        🌿 Echt hout • Smart card • Lasergravure
+      <div>
+        <div class="eyebrow">
+          🌱 Echt hout • Lasergravure
+        </div>
+
+        <h1>
+          Kleine kaart.<br>
+          <span>Grote indruk.</span>
+        </h1>
+
+        <p class="hero-text">
+          Ontwerp online jouw eigen houten visitekaartje.
+          Een natuurlijke uitstraling, unieke houtnerf en
+          een ontwerp dat met precisie in het hout wordt gegraveerd.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="ontwerpen.html" class="btn-primary">
+            Ontwerp je kaartje →
+          </a>
+
+          <a href="#hoe" class="btn-secondary">
+            Bekijk hoe het werkt
+          </a>
+
+        </div>
+
+        <div class="checks">
+          <span>Zelf online ontwerpen</span>
+          <span>Unieke houtlook</span>
+          <span>QR-code mogelijk</span>
+          <span>NFC mogelijk</span>
+        </div>
       </div>
 
-      <h1>
-        Kleine kaart.<br>
-        <span>Grote indruk.</span>
-      </h1>
 
-      <p class="hero-copy">
-        Ontwerp online jouw eigen houten smart visitekaartje.
-        Natuurlijk materiaal, unieke houtnerf en digitale connectiviteit
-        via QR en later ook NFC.
-      </p>
+      <div class="card-area">
 
-      <div class="hero-actions">
+        <div class="leaf leaf-one"></div>
+        <div class="leaf leaf-two"></div>
 
-        <a
-          href="ontwerpen.html"
-          class="btn btn-primary"
-        >
-          Ontwerp je kaartje →
+        <div class="wood-card">
+
+          <div class="card-logo">
+            <img
+              src="treetap-logo-round.png"
+              alt="TreeTap TT logo"
+            >
+          </div>
+
+          <div class="card-tagline">
+            NATURE CONNECTS
+          </div>
+
+          <div class="nfc-chip">
+            ))) 
+          </div>
+
+          <div class="card-contact">
+            Jan Peeters<br>
+            0470 12 34 56<br>
+            jan@bedrijf.be
+          </div>
+
+          <div class="qr">
+            QR
+          </div>
+
+        </div>
+
+        <div class="card-note">
+          🌱 Elk kaartje heeft zijn eigen nerf
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- USP -->
+
+  <section class="usp-bar">
+    <div class="usp-inner">
+
+      <div class="usp">
+        <strong>🌿 Natuurlijk</strong>
+        <span>Echt hout als basis</span>
+      </div>
+
+      <div class="usp">
+        <strong>♻ Bewust</strong>
+        <span>Een alternatief voor standaard papier</span>
+      </div>
+
+      <div class="usp">
+        <strong>✦ Uniek</strong>
+        <span>Geen twee houtnerven zijn hetzelfde</span>
+      </div>
+
+      <div class="usp">
+        <strong>⌁ Smart</strong>
+        <span>QR-code en NFC mogelijk</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- WAAROM HOUT -->
+
+  <section class="section" id="waarom">
+    <div class="section-inner">
+
+      <div class="section-heading">
+
+        <div class="mini-title">
+          Waarom hout?
+        </div>
+
+        <h2>
+          Een visitekaartje dat niet voelt als wegwerp.
+        </h2>
+
+        <p>
+          Hout geeft een warme, natuurlijke uitstraling en maakt
+          van een eenvoudig contactmoment iets dat mensen onthouden.
+        </p>
+
+      </div>
+
+
+      <div class="benefits">
+
+        <article class="benefit">
+          <div class="benefit-icon">🌱</div>
+          <h3>Natuurlijk</h3>
+          <p>
+            De natuurlijke structuur van hout geeft ieder kaartje
+            zijn eigen karakter.
+          </p>
+        </article>
+
+        <article class="benefit">
+          <div class="benefit-icon">✨</div>
+          <h3>Opvallend</h3>
+          <p>
+            Een houten visitekaartje valt meteen op tussen
+            traditionele papieren kaartjes.
+          </p>
+        </article>
+
+        <article class="benefit">
+          <div class="benefit-icon">🔥</div>
+          <h3>Lasergravure</h3>
+          <p>
+            Tekst, logo's en QR-codes worden nauwkeurig
+            in het oppervlak gegraveerd.
+          </p>
+        </article>
+
+        <article class="benefit">
+          <div class="benefit-icon">📲</div>
+          <h3>Smart</h3>
+          <p>
+            Combineer het fysieke kaartje met een QR-code
+            of optionele NFC-functionaliteit.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- HOE WERKT HET -->
+
+  <section class="section how" id="hoe">
+    <div class="section-inner">
+
+      <div class="section-heading">
+
+        <div class="mini-title">
+          Van idee naar hout
+        </div>
+
+        <h2>
+          Zo maak je jouw TreeTap.
+        </h2>
+
+        <p>
+          Ontwerpen hoeft niet ingewikkeld te zijn.
+        </p>
+
+      </div>
+
+
+      <div class="steps">
+
+        <article class="step">
+          <div class="step-number">01</div>
+          <h3>Ontwerp</h3>
+          <p>
+            Voeg je naam, bedrijf, contactgegevens,
+            logo en QR-code toe.
+          </p>
+        </article>
+
+        <article class="step">
+          <div class="step-number">02</div>
+          <h3>Kies</h3>
+          <p>
+            Kies je houtsoort, aantal kaartjes en
+            eventuele NFC-functionaliteit.
+          </p>
+        </article>
+
+        <article class="step">
+          <div class="step-number">03</div>
+          <h3>Wij graveren</h3>
+          <p>
+            Het definitieve ontwerp kan daarna worden
+            voorbereid voor nauwkeurige lasergravure.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- QR NFC -->
+
+  <section class="section smart-section" id="smart">
+    <div class="section-inner smart-grid">
+
+      <div class="smart-content">
+
+        <div class="mini-title">
+          Fysiek ontmoet digitaal
+        </div>
+
+        <h2>
+          Meer dan alleen een visitekaartje.
+        </h2>
+
+        <p>
+          Met een QR-code of NFC kan iemand rechtstreeks vanaf
+          jouw houten kaartje naar jouw digitale informatie gaan.
+        </p>
+
+        <ul class="smart-list">
+          <li>Link naar jouw website</li>
+          <li>Digitale contactgegevens</li>
+          <li>Sociale media of portfolio</li>
+          <li>QR-code geïntegreerd in het ontwerp</li>
+          <li>Optionele NFC-chip</li>
+        </ul>
+
+        <a href="ontwerpen.html" class="btn-primary">
+          Maak jouw ontwerp →
         </a>
 
-        <a
-          href="#werking"
-          class="btn btn-secondary"
-        >
-          Bekijk hoe het werkt
-        </a>
-
       </div>
 
-      <div class="hero-points">
 
-        <span>
-          Zelf online ontwerpen
-        </span>
+      <div class="nfc-visual">
 
-        <span>
-          Unieke houtlook
-        </span>
-
-        <span>
-          QR & NFC mogelijk
-        </span>
+        <div class="nfc-circle">
+          <div>
+            <span class="icon">📲</span>
+            <strong>Tap. Connect.</strong>
+            <span>TreeTap</span>
+          </div>
+        </div>
 
       </div>
 
     </div>
+  </section>
 
 
-    <div class="hero-visual">
+  <!-- CTA -->
 
-      <div class="leaf leaf-one"></div>
-      <div class="leaf leaf-two"></div>
-
-      <div class="wood-card">
-
-        <div class="mock-brand">
-          TreeTap
-        </div>
-
-        <div class="mock-tagline">
-          Nature connects
-        </div>
-
-        <div class="mock-contact">
-          Jan Peeters<br>
-          0470 12 34 56<br>
-          jan@bedrijf.be
-        </div>
-
-        <div class="mock-logo">
-          <img
-            src="treetap-logo-round.png"
-            alt="TreeTap TT-logo"
-          >
-        </div>
-
-        <div class="mock-qr">
-          QR
-        </div>
-
-      </div>
-
-      <div class="visual-badge">
-        🌱 Elk kaartje heeft zijn eigen nerf
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="eco-strip">
-
-  <div class="eco-inner">
-
-    <div class="eco-item">
-      <strong>🌿 Natuurlijk</strong>
-      Echt hout als basis
-    </div>
-
-    <div class="eco-item">
-      <strong>♻ Bewust</strong>
-      Een alternatief voor standaard papier
-    </div>
-
-    <div class="eco-item">
-      <strong>✦ Uniek</strong>
-      Geen twee houtnerven zijn hetzelfde
-    </div>
-
-    <div class="eco-item">
-      <strong>⌁ Smart</strong>
-      QR en NFC voor directe connectie
-    </div>
-
-  </div>
-
-</section>
-
-
-<section
-  class="section"
-  id="waarom"
->
-
-  <div class="section-inner">
-
-    <div class="section-heading">
-
-      <div class="small">
-        Waarom hout?
-      </div>
-
-      <h2>
-        Een visitekaartje dat niet voelt als wegwerp.
-      </h2>
-
-      <p>
-        Hout geeft een warme, natuurlijke uitstraling
-        en maakt van een eenvoudig contactmoment iets
-        dat mensen onthouden.
-      </p>
-
-    </div>
-
-    <div class="benefit-grid">
-
-      <article class="benefit">
-
-        <div class="benefit-icon">
-          🌱
-        </div>
-
-        <h3>
-          Natuurlijk karakter
-        </h3>
-
-        <p>
-          De zichtbare houtnerf zorgt ervoor dat ieder
-          kaartje net iets anders oogt.
-        </p>
-
-      </article>
-
-      <article class="benefit">
-
-        <div class="benefit-icon">
-          ✨
-        </div>
-
-        <h3>
-          Premium uitstraling
-        </h3>
-
-        <p>
-          Hout voelt opvallend en stevig aan en geeft
-          je merk meteen meer karakter.
-        </p>
-
-      </article>
-
-      <article class="benefit">
-
-        <div class="benefit-icon">
-          🔥
-        </div>
-
-        <h3>
-          Laser gegraveerd
-        </h3>
-
-        <p>
-          Tekst, logo en QR-code worden rechtstreeks
-          in het materiaal aangebracht.
-        </p>
-
-      </article>
-
-      <article class="benefit">
-
-        <div class="benefit-icon">
-          📲
-        </div>
-
-        <h3>
-          Smart connect
-        </h3>
-
-        <p>
-          Combineer hout met QR en later NFC voor
-          directe digitale contactinformatie.
-        </p>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section
-  class="section how-section"
-  id="werking"
->
-
-  <div class="section-inner">
-
-    <div class="section-heading">
-
-      <div class="small">
-        Simpel proces
-      </div>
-
-      <h2>
-        Van idee naar hout.
-      </h2>
-
-      <p>
-        Geen ingewikkeld bestelproces. Je maakt je
-        ontwerp online en wij bereiden het voor op productie.
-      </p>
-
-    </div>
-
-    <div class="steps">
-
-      <article class="step">
-
-        <div class="step-number">
-          1
-        </div>
-
-        <h3>
-          Kies je hout
-        </h3>
-
-        <p>
-          Kies de houtsoort en het gewenste aantal
-          visitekaartjes.
-        </p>
-
-      </article>
-
-      <article class="step">
-
-        <div class="step-number">
-          2
-        </div>
-
-        <h3>
-          Maak je ontwerp
-        </h3>
-
-        <p>
-          Voeg naam, contactgegevens, logo en QR-code toe.
-        </p>
-
-      </article>
-
-      <article class="step">
-
-        <div class="step-number">
-          3
-        </div>
-
-        <h3>
-          Maak het smart
-        </h3>
-
-        <p>
-          Voeg QR toe en later ook NFC voor directe digitale connectie.
-        </p>
-
-      </article>
-
-      <article class="step">
-
-        <div class="step-number">
-          4
-        </div>
-
-        <h3>
-          Wij graveren
-        </h3>
-
-        <p>
-          Het uiteindelijke ontwerp wordt voorbereid
-          en met de laser in het hout gegraveerd.
-        </p>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section
-  class="section"
-  id="hout"
->
-
-  <div class="section-inner">
-
-    <div class="section-heading">
-
-      <div class="small">
-        Kies je uitstraling
-      </div>
-
-      <h2>
-        Drie houtlooks om mee te starten.
-      </h2>
-
-      <p>
-        Vergelijk verschillende houtstijlen
-        in de TreeTap-ontwerper.
-      </p>
-
-    </div>
-
-    <div class="wood-grid">
-
-      <article class="wood-type">
-
-        <div class="wood-swatch wood-maple">
-          Esdoorn
-        </div>
-
-        <div class="wood-copy">
-
-          <h3>
-            Esdoorn
-          </h3>
-
-          <p>
-            Licht en rustig. Een mooie basis voor
-            donkere lasergravure.
-          </p>
-
-        </div>
-
-      </article>
-
-      <article class="wood-type">
-
-        <div class="wood-swatch wood-walnut">
-          Walnoot
-        </div>
-
-        <div class="wood-copy">
-
-          <h3>
-            Walnoot
-          </h3>
-
-          <p>
-            Donkerder en luxueus, met een uitgesproken
-            natuurlijke uitstraling.
-          </p>
-
-        </div>
-
-      </article>
-
-      <article class="wood-type">
-
-        <div class="wood-swatch wood-bamboo">
-          Bamboe
-        </div>
-
-        <div class="wood-copy">
-
-          <h3>
-            Bamboe
-          </h3>
-
-          <p>
-            Warm, helder en strak. Past goed bij een
-            moderne eco-uitstraling.
-          </p>
-
-        </div>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="cta-section">
-
-  <div class="cta-box">
+  <section class="final-cta">
 
     <h2>
-      Klaar om je eerste TreeTap te maken?
+      Klaar om jouw kaartje tot leven te brengen?
     </h2>
 
     <p>
-      Kies tussen de eenvoudige editor of de professionele
-      editor en experimenteer met tekst, QR, logo,
-      houtsoort en plaatsing.
+      Begin met een eenvoudig ontwerp of ga volledig aan de slag
+      in de professionele TreeTap-editor.
     </p>
 
-    <a
-      href="ontwerpen.html"
-      class="btn"
-    >
-      Start met ontwerpen →
+    <a href="ontwerpen.html" class="btn-primary">
+      Ontwerp je TreeTap →
     </a>
 
-  </div>
+  </section>
 
-</section>
+</main>
 
 
 <footer>
 
   <div class="footer-inner">
 
-    <div>
+    <img
+      src="treetap-logo-horizontal.png"
+      class="footer-logo"
+      alt="TreeTap"
+    >
 
-      <div class="footer-brand">
-        TREETAP
-      </div>
-
-      <div class="footer-copy">
-        Nature connects.
-      </div>
-
-    </div>
-
-    <div class="footer-copy">
-      Wooden Smart Cards • 2026
+    <div class="footer-text">
+      TreeTap • Nature connects<br>
+      Wooden Smart Cards
     </div>
 
   </div>
@@ -1543,64 +1207,30 @@
 
 <script>
 
-const menuButton =
-  document.getElementById(
-    "menuButton"
-  );
+  const menuButton = document.getElementById("menuButton");
+  const navLinks = document.getElementById("navLinks");
 
-const mobileNav =
-  document.getElementById(
-    "mobileNav"
-  );
+  menuButton.addEventListener("click", function () {
+    navLinks.classList.toggle("open");
 
-menuButton.addEventListener(
-  "click",
-  function() {
+    if (navLinks.classList.contains("open")) {
+      menuButton.textContent = "×";
+    } else {
+      menuButton.textContent = "☰";
+    }
+  });
 
-    const open =
-      mobileNav.classList.toggle(
-        "open"
-      );
 
-    menuButton.setAttribute(
-      "aria-expanded",
-      open
-    );
+  document.querySelectorAll(".nav-links a").forEach(function(link) {
 
-    menuButton.textContent =
-      open
-      ? "✕"
-      : "☰";
+    link.addEventListener("click", function() {
 
-  }
-);
+      navLinks.classList.remove("open");
+      menuButton.textContent = "☰";
 
-mobileNav.querySelectorAll(
-  "a"
-).forEach(
-  link => {
+    });
 
-    link.addEventListener(
-      "click",
-      function() {
-
-        mobileNav.classList.remove(
-          "open"
-        );
-
-        menuButton.textContent =
-          "☰";
-
-        menuButton.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-      }
-    );
-
-  }
-);
+  });
 
 </script>
 
