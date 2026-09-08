@@ -57,9 +57,8 @@
       max-width: 1200px;
       margin: auto;
       padding: 40px 5% 80px;
-
       display: grid;
-      grid-template-columns: 330px 1fr;
+      grid-template-columns: 340px 1fr;
       gap: 50px;
     }
 
@@ -102,9 +101,7 @@
     .card {
       width: 510px;
       height: 330px;
-
       background-color: #d8b07a;
-
       background-image:
         repeating-linear-gradient(
           4deg,
@@ -113,12 +110,9 @@
           transparent 1px,
           transparent 7px
         );
-
       border-radius: 14px;
       box-shadow: 0 20px 45px rgba(0,0,0,0.20);
-
       padding: 45px;
-
       position: relative;
       overflow: hidden;
     }
@@ -131,7 +125,7 @@
 
     .card-company {
       font-size: 19px;
-      margin-bottom: 65px;
+      margin-bottom: 55px;
     }
 
     .contact {
@@ -139,30 +133,37 @@
       line-height: 1.8;
     }
 
+    .card-logo {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 90px;
+      max-height: 70px;
+      object-fit: contain;
+      display: none;
+    }
+
     .qr {
       position: absolute;
       right: 35px;
       bottom: 35px;
+      width: 95px;
+      height: 95px;
+      background: white;
+      padding: 5px;
+    }
 
-      width: 85px;
-      height: 85px;
-
-      border: 3px solid #2d241d;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-weight: bold;
+    .qr img {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
 
     .order-box {
       width: 510px;
       margin-top: 30px;
-
       background: white;
       padding: 25px;
-
       border-radius: 14px;
     }
 
@@ -179,26 +180,16 @@
 
     .button {
       display: inline-block;
-
       margin-top: 20px;
-
       background: #3d2a1e;
       color: white;
-
       padding: 15px 30px;
-
       border-radius: 8px;
-
       text-decoration: none;
       font-weight: bold;
     }
 
-    .button:hover {
-      background: #604532;
-    }
-
     @media (max-width: 850px) {
-
       .designer {
         grid-template-columns: 1fr;
       }
@@ -208,244 +199,102 @@
         width: 100%;
         max-width: 510px;
       }
-
-      .card {
-        height: 310px;
-      }
-
-      .title h1 {
-        font-size: 34px;
-      }
     }
   </style>
 </head>
 
-
 <body>
 
 <header>
-
-  <div class="logo">
-    WOODCARD
-  </div>
-
-  <a href="index.html">
-    ← Terug naar home
-  </a>
-
+  <div class="logo">WOODCARD</div>
+  <a href="index.html">← Terug naar home</a>
 </header>
 
-
 <section class="title">
-
   <h1>Ontwerp je houten kaartje</h1>
-
-  <p>
-    Vul je gegevens in en bekijk direct het resultaat.
-  </p>
-
+  <p>Vul je gegevens in en bekijk direct het resultaat.</p>
 </section>
-
 
 <main class="designer">
 
-
-  <!-- LINKERKANT -->
-
   <section class="panel">
-
     <h2>Jouw gegevens</h2>
 
+    <label for="naam">Naam</label>
+    <input type="text" id="naam" value="Jan Peeters">
 
-    <label for="naam">
-      Naam
-    </label>
+    <label for="bedrijf">Bedrijf / functie</label>
+    <input type="text" id="bedrijf" value="JP Houtwerken">
 
-    <input
-      type="text"
-      id="naam"
-      value="Jan Peeters"
-    >
+    <label for="telefoon">Telefoon</label>
+    <input type="text" id="telefoon" value="0470 12 34 56">
 
+    <label for="email">E-mail</label>
+    <input type="email" id="email" value="jan@jphout.be">
 
-    <label for="bedrijf">
-      Bedrijf / functie
-    </label>
+    <label for="website">Website</label>
+    <input type="text" id="website" value="https://www.jphout.be">
 
-    <input
-      type="text"
-      id="bedrijf"
-      value="JP Houtwerken"
-    >
+    <label for="logoUpload">Logo uploaden</label>
+    <input type="file" id="logoUpload" accept="image/*">
 
-
-    <label for="telefoon">
-      Telefoon
-    </label>
-
-    <input
-      type="text"
-      id="telefoon"
-      value="0470 12 34 56"
-    >
-
-
-    <label for="email">
-      E-mail
-    </label>
-
-    <input
-      type="email"
-      id="email"
-      value="jan@jphout.be"
-    >
-
-
-    <label for="website">
-      Website
-    </label>
-
-    <input
-      type="text"
-      id="website"
-      value="www.jphout.be"
-    >
-
-
-    <label for="hout">
-      Houtsoort
-    </label>
-
+    <label for="hout">Houtsoort</label>
     <select id="hout">
-
-      <option
-        value="#d8b07a"
-        data-name="Esdoorn"
-      >
-        Esdoorn
-      </option>
-
-      <option
-        value="#9a6748"
-        data-name="Walnoot"
-      >
-        Walnoot
-      </option>
-
-      <option
-        value="#c99b5d"
-        data-name="Bamboe"
-      >
-        Bamboe
-      </option>
-
+      <option value="#d8b07a" data-name="Esdoorn">Esdoorn</option>
+      <option value="#9a6748" data-name="Walnoot">Walnoot</option>
+      <option value="#c99b5d" data-name="Bamboe">Bamboe</option>
     </select>
 
-
-    <label for="aantal">
-      Aantal kaartjes
-    </label>
-
+    <label for="aantal">Aantal kaartjes</label>
     <select id="aantal">
-
-      <option value="25">
-        25 kaartjes
-      </option>
-
-      <option value="50">
-        50 kaartjes
-      </option>
-
-      <option value="100" selected>
-        100 kaartjes
-      </option>
-
-      <option value="250">
-        250 kaartjes
-      </option>
-
+      <option value="25">25 kaartjes</option>
+      <option value="50">50 kaartjes</option>
+      <option value="100" selected>100 kaartjes</option>
+      <option value="250">250 kaartjes</option>
     </select>
-
   </section>
-
-
-
-  <!-- RECHTERKANT -->
 
   <section class="preview">
 
     <h2>Live voorbeeld</h2>
 
-
     <div class="card" id="kaart">
 
-      <div
-        class="card-name"
-        id="voorbeeldNaam"
-      >
+      <img id="kaartLogo" class="card-logo" alt="Logo">
+
+      <div class="card-name" id="voorbeeldNaam">
         Jan Peeters
       </div>
 
-
-      <div
-        class="card-company"
-        id="voorbeeldBedrijf"
-      >
+      <div class="card-company" id="voorbeeldBedrijf">
         JP Houtwerken
       </div>
 
-
       <div class="contact">
-
-        <div id="voorbeeldTelefoon">
-          0470 12 34 56
-        </div>
-
-        <div id="voorbeeldEmail">
-          jan@jphout.be
-        </div>
-
-        <div id="voorbeeldWebsite">
-          www.jphout.be
-        </div>
-
+        <div id="voorbeeldTelefoon">0470 12 34 56</div>
+        <div id="voorbeeldEmail">jan@jphout.be</div>
+        <div id="voorbeeldWebsite">https://www.jphout.be</div>
       </div>
 
-
       <div class="qr">
-        QR
+        <img id="qrImage" alt="QR-code">
       </div>
 
     </div>
 
-
-
     <div class="order-box">
 
-      <strong>
-        Jouw keuze
-      </strong>
+      <strong>Jouw keuze</strong>
 
-      <div
-        class="selection"
-        id="samenvatting"
-      >
+      <div class="selection" id="samenvatting">
         Esdoorn • 100 kaartjes
       </div>
 
-
-      <div
-        class="price"
-        id="prijs"
-      >
+      <div class="price" id="prijs">
         €59
       </div>
 
-
-      <a
-        href="#"
-        class="button"
-      >
+      <a href="#" class="button">
         Bestellen →
       </a>
 
@@ -455,149 +304,82 @@
 
 </main>
 
-
-
 <script>
+  const naam = document.getElementById("naam");
+  const bedrijf = document.getElementById("bedrijf");
+  const telefoon = document.getElementById("telefoon");
+  const email = document.getElementById("email");
+  const website = document.getElementById("website");
+  const hout = document.getElementById("hout");
+  const aantal = document.getElementById("aantal");
+  const logoUpload = document.getElementById("logoUpload");
 
-  const naam =
-    document.getElementById("naam");
-
-  const bedrijf =
-    document.getElementById("bedrijf");
-
-  const telefoon =
-    document.getElementById("telefoon");
-
-  const email =
-    document.getElementById("email");
-
-  const website =
-    document.getElementById("website");
-
-  const hout =
-    document.getElementById("hout");
-
-  const aantal =
-    document.getElementById("aantal");
-
+  const kaartLogo = document.getElementById("kaartLogo");
+  const qrImage = document.getElementById("qrImage");
 
   function updateKaart() {
+    document.getElementById("voorbeeldNaam").textContent = naam.value;
+    document.getElementById("voorbeeldBedrijf").textContent = bedrijf.value;
+    document.getElementById("voorbeeldTelefoon").textContent = telefoon.value;
+    document.getElementById("voorbeeldEmail").textContent = email.value;
+    document.getElementById("voorbeeldWebsite").textContent = website.value;
 
-    document.getElementById(
-      "voorbeeldNaam"
-    ).textContent = naam.value;
-
-
-    document.getElementById(
-      "voorbeeldBedrijf"
-    ).textContent = bedrijf.value;
-
-
-    document.getElementById(
-      "voorbeeldTelefoon"
-    ).textContent = telefoon.value;
-
-
-    document.getElementById(
-      "voorbeeldEmail"
-    ).textContent = email.value;
-
-
-    document.getElementById(
-      "voorbeeldWebsite"
-    ).textContent = website.value;
-
-
-    const kaart =
-      document.getElementById("kaart");
-
-    kaart.style.backgroundColor =
-      hout.value;
-
+    document.getElementById("kaart").style.backgroundColor = hout.value;
 
     const houtNaam =
-      hout.options[
-        hout.selectedIndex
-      ].dataset.name;
+      hout.options[hout.selectedIndex].dataset.name;
 
+    const aantalKaarten = Number(aantal.value);
 
-    const aantalKaarten =
-      Number(aantal.value);
-
-
-    document.getElementById(
-      "samenvatting"
-    ).textContent =
-      houtNaam +
-      " • " +
-      aantalKaarten +
-      " kaartjes";
-
+    document.getElementById("samenvatting").textContent =
+      houtNaam + " • " + aantalKaarten + " kaartjes";
 
     let prijs = 29;
 
+    if (aantalKaarten === 50) prijs = 39;
+    if (aantalKaarten === 100) prijs = 59;
+    if (aantalKaarten === 250) prijs = 109;
 
-    if (aantalKaarten === 50) {
-      prijs = 39;
-    }
-
-
-    if (aantalKaarten === 100) {
-      prijs = 59;
-    }
-
-
-    if (aantalKaarten === 250) {
-      prijs = 109;
-    }
-
-
-    document.getElementById(
-      "prijs"
-    ).textContent =
+    document.getElementById("prijs").textContent =
       "€" + prijs;
 
+    const qrData =
+      website.value.trim() ||
+      email.value.trim() ||
+      telefoon.value.trim();
+
+    qrImage.src =
+      "https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=" +
+      encodeURIComponent(qrData);
   }
 
+  logoUpload.addEventListener("change", function(event) {
+    const bestand = event.target.files[0];
 
-  naam.addEventListener(
-    "input",
-    updateKaart
-  );
+    if (!bestand) {
+      kaartLogo.style.display = "none";
+      return;
+    }
 
-  bedrijf.addEventListener(
-    "input",
-    updateKaart
-  );
+    const reader = new FileReader();
 
-  telefoon.addEventListener(
-    "input",
-    updateKaart
-  );
+    reader.onload = function(e) {
+      kaartLogo.src = e.target.result;
+      kaartLogo.style.display = "block";
+    };
 
-  email.addEventListener(
-    "input",
-    updateKaart
-  );
+    reader.readAsDataURL(bestand);
+  });
 
-  website.addEventListener(
-    "input",
-    updateKaart
-  );
-
-  hout.addEventListener(
-    "change",
-    updateKaart
-  );
-
-  aantal.addEventListener(
-    "change",
-    updateKaart
-  );
-
+  naam.addEventListener("input", updateKaart);
+  bedrijf.addEventListener("input", updateKaart);
+  telefoon.addEventListener("input", updateKaart);
+  email.addEventListener("input", updateKaart);
+  website.addEventListener("input", updateKaart);
+  hout.addEventListener("change", updateKaart);
+  aantal.addEventListener("change", updateKaart);
 
   updateKaart();
-
 </script>
 
 </body>
