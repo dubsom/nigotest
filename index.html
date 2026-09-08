@@ -29,9 +29,15 @@
     }
 
     .logo {
-      font-size: 26px;
-      font-weight: bold;
-      letter-spacing: 2px;
+        display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  display: block;
     }
 
     nav a {
@@ -184,7 +190,9 @@
 <body>
 
   <header>
-    <div class="logo">WOODCARD</div>
+    <div class="logo">
+  <img src="woodcard-logo.png" alt="WoodCard">
+</div>
 
     <nav>
       <a href="#">Home</a>
