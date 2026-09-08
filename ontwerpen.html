@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Ontwerp je kaartje | WoodCard</title>
 
   <style>
@@ -14,26 +16,28 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #f5f0e8;
-      color: #2d241d;
+      background: #f2f6ed;
+      color: #263522;
     }
 
     header {
       background: white;
-      padding: 22px 6%;
+      padding: 20px 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid #e2e8dc;
     }
 
     .logo {
       font-size: 26px;
       font-weight: bold;
       letter-spacing: 2px;
+      color: #3f6b2a;
     }
 
     header a {
-      color: #2d241d;
+      color: #355a26;
       text-decoration: none;
       font-weight: bold;
     }
@@ -49,34 +53,42 @@
     }
 
     .title p {
-      color: #6b5c51;
+      color: #687562;
       font-size: 18px;
     }
 
     .designer {
-      max-width: 1200px;
+      max-width: 1250px;
       margin: auto;
       padding: 40px 5% 80px;
 
       display: grid;
-      grid-template-columns: 330px 1fr;
+      grid-template-columns: 360px 1fr;
       gap: 50px;
     }
 
     .panel {
       background: white;
       padding: 28px;
-      border-radius: 14px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(50, 70, 40, 0.08);
     }
 
     .panel h2 {
-      margin-bottom: 25px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid #e2e7de;
+      color: #3f6b2a;
     }
 
     label {
       display: block;
       font-weight: bold;
-      margin-top: 18px;
+      margin-top: 17px;
       margin-bottom: 7px;
     }
 
@@ -84,9 +96,18 @@
     select {
       width: 100%;
       padding: 12px;
-      border: 1px solid #cfc5bb;
-      border-radius: 7px;
-      font-size: 16px;
+
+      border: 1px solid #ccd5c7;
+      border-radius: 8px;
+
+      font-size: 15px;
+      background: white;
+    }
+
+    input:focus,
+    select:focus {
+      outline: 2px solid #9fbd8c;
+      border-color: #648c4c;
     }
 
     .preview {
@@ -99,6 +120,8 @@
       margin-bottom: 25px;
     }
 
+    /* HOUTEN KAART */
+
     .card {
       width: 510px;
       height: 330px;
@@ -107,73 +130,112 @@
 
       background-image:
         repeating-linear-gradient(
-          4deg,
-          rgba(70, 40, 20, 0.04) 0px,
-          rgba(70, 40, 20, 0.04) 1px,
+          3deg,
+          rgba(80, 45, 20, 0.04) 0px,
+          rgba(80, 45, 20, 0.04) 1px,
           transparent 1px,
           transparent 7px
         );
 
       border-radius: 14px;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.20);
 
-      padding: 45px;
+      box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.18);
+
+      padding: 42px;
 
       position: relative;
       overflow: hidden;
+
+      color: #2d241d;
     }
 
     .card-name {
-      font-size: 34px;
+      font-size: 32px;
       font-weight: bold;
       margin-bottom: 8px;
+      max-width: 320px;
     }
 
     .card-company {
-      font-size: 19px;
-      margin-bottom: 65px;
+      font-size: 18px;
+      margin-bottom: 58px;
+      max-width: 300px;
     }
 
     .contact {
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.8;
+      max-width: 320px;
     }
 
-    .qr {
+    /* LOGO */
+
+    .card-logo {
       position: absolute;
-      right: 35px;
-      bottom: 35px;
 
-      width: 85px;
-      height: 85px;
+      top: 28px;
+      right: 30px;
 
-      border: 3px solid #2d241d;
+      width: 100px;
+      height: 75px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      object-fit: contain;
 
-      font-weight: bold;
+      display: none;
     }
+
+    /* QR */
+
+    .qr-container {
+      position: absolute;
+
+      right: 30px;
+      bottom: 30px;
+
+      width: 105px;
+      height: 105px;
+
+      background: white;
+
+      padding: 7px;
+      border-radius: 4px;
+    }
+
+    .qr-container img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* ORDER */
 
     .order-box {
       width: 510px;
+
       margin-top: 30px;
 
       background: white;
-      padding: 25px;
+
+      padding: 26px;
 
       border-radius: 14px;
+
+      box-shadow:
+        0 8px 30px rgba(50, 70, 40, 0.08);
     }
 
     .selection {
-      color: #6b5c51;
+      color: #687562;
       margin-top: 8px;
     }
 
     .price {
-      font-size: 30px;
+      font-size: 32px;
       font-weight: bold;
+
+      color: #3f6b2a;
+
       margin-top: 20px;
     }
 
@@ -182,10 +244,10 @@
 
       margin-top: 20px;
 
-      background: #3d2a1e;
-      color: white;
-
       padding: 15px 30px;
+
+      background: #477532;
+      color: white;
 
       border-radius: 8px;
 
@@ -194,7 +256,16 @@
     }
 
     .button:hover {
-      background: #604532;
+      background: #355c25;
+    }
+
+    .qr-info {
+      margin-top: 12px;
+
+      font-size: 13px;
+      line-height: 1.5;
+
+      color: #74806e;
     }
 
     @media (max-width: 850px) {
@@ -238,7 +309,9 @@
 
 <section class="title">
 
-  <h1>Ontwerp je houten kaartje</h1>
+  <h1>
+    Ontwerp je houten visitekaartje
+  </h1>
 
   <p>
     Vul je gegevens in en bekijk direct het resultaat.
@@ -250,11 +323,13 @@
 <main class="designer">
 
 
-  <!-- LINKERKANT -->
+  <!-- INSTELLINGEN -->
 
   <section class="panel">
 
-    <h2>Jouw gegevens</h2>
+    <h2>
+      Jouw gegevens
+    </h2>
 
 
     <label for="naam">
@@ -308,8 +383,79 @@
     <input
       type="text"
       id="website"
-      value="www.jphout.be"
+      value="https://www.jphout.be"
     >
+
+
+    <!-- QR -->
+
+    <h3 class="section-title">
+      QR-code
+    </h3>
+
+
+    <label for="qrType">
+      Wat moet de QR-code doen?
+    </label>
+
+    <select id="qrType">
+
+      <option value="contact">
+        Contact opslaan
+      </option>
+
+      <option value="website">
+        Website openen
+      </option>
+
+      <option value="email">
+        E-mail sturen
+      </option>
+
+      <option value="telefoon">
+        Telefoon bellen
+      </option>
+
+      <option value="whatsapp">
+        WhatsApp openen
+      </option>
+
+      <option value="geen">
+        Geen QR-code
+      </option>
+
+    </select>
+
+
+    <div class="qr-info">
+      Bij "Contact opslaan" worden naam,
+      bedrijf, telefoon, e-mail en website
+      automatisch in de QR-code verwerkt.
+    </div>
+
+
+    <!-- LOGO -->
+
+    <h3 class="section-title">
+      Logo
+    </h3>
+
+    <label for="logoUpload">
+      Upload je logo
+    </label>
+
+    <input
+      type="file"
+      id="logoUpload"
+      accept="image/*"
+    >
+
+
+    <!-- PRODUCT -->
+
+    <h3 class="section-title">
+      Kaartje
+    </h3>
 
 
     <label for="hout">
@@ -326,7 +472,7 @@
       </option>
 
       <option
-        value="#9a6748"
+        value="#906044"
         data-name="Walnoot"
       >
         Walnoot
@@ -356,7 +502,10 @@
         50 kaartjes
       </option>
 
-      <option value="100" selected>
+      <option
+        value="100"
+        selected
+      >
         100 kaartjes
       </option>
 
@@ -370,14 +519,27 @@
 
 
 
-  <!-- RECHTERKANT -->
+  <!-- LIVE VOORBEELD -->
 
   <section class="preview">
 
-    <h2>Live voorbeeld</h2>
+    <h2>
+      Live voorbeeld
+    </h2>
 
 
-    <div class="card" id="kaart">
+    <div
+      class="card"
+      id="kaart"
+    >
+
+
+      <img
+        id="kaartLogo"
+        class="card-logo"
+        alt="Logo"
+      >
+
 
       <div
         class="card-name"
@@ -406,25 +568,36 @@
         </div>
 
         <div id="voorbeeldWebsite">
-          www.jphout.be
+          https://www.jphout.be
         </div>
 
       </div>
 
 
-      <div class="qr">
-        QR
+      <div
+        class="qr-container"
+        id="qrContainer"
+      >
+
+        <img
+          id="qrImage"
+          alt="QR-code"
+        >
+
       </div>
 
     </div>
 
 
 
+    <!-- PRIJS -->
+
     <div class="order-box">
 
       <strong>
         Jouw keuze
       </strong>
+
 
       <div
         class="selection"
@@ -459,6 +632,8 @@
 
 <script>
 
+  /* VELDEN */
+
   const naam =
     document.getElementById("naam");
 
@@ -474,42 +649,67 @@
   const website =
     document.getElementById("website");
 
+  const qrType =
+    document.getElementById("qrType");
+
   const hout =
     document.getElementById("hout");
 
   const aantal =
     document.getElementById("aantal");
 
+  const logoUpload =
+    document.getElementById("logoUpload");
+
+
+  const kaart =
+    document.getElementById("kaart");
+
+  const kaartLogo =
+    document.getElementById("kaartLogo");
+
+  const qrImage =
+    document.getElementById("qrImage");
+
+  const qrContainer =
+    document.getElementById("qrContainer");
+
+
+  /* KAART BIJWERKEN */
 
   function updateKaart() {
 
     document.getElementById(
       "voorbeeldNaam"
-    ).textContent = naam.value;
+    ).textContent =
+      naam.value;
 
 
     document.getElementById(
       "voorbeeldBedrijf"
-    ).textContent = bedrijf.value;
+    ).textContent =
+      bedrijf.value;
 
 
     document.getElementById(
       "voorbeeldTelefoon"
-    ).textContent = telefoon.value;
+    ).textContent =
+      telefoon.value;
 
 
     document.getElementById(
       "voorbeeldEmail"
-    ).textContent = email.value;
+    ).textContent =
+      email.value;
 
 
     document.getElementById(
       "voorbeeldWebsite"
-    ).textContent = website.value;
+    ).textContent =
+      website.value;
 
 
-    const kaart =
-      document.getElementById("kaart");
+    /* HOUT */
 
     kaart.style.backgroundColor =
       hout.value;
@@ -520,6 +720,8 @@
         hout.selectedIndex
       ].dataset.name;
 
+
+    /* AANTAL */
 
     const aantalKaarten =
       Number(aantal.value);
@@ -534,18 +736,17 @@
       " kaartjes";
 
 
-    let prijs = 29;
+    /* PRIJS */
 
+    let prijs = 29;
 
     if (aantalKaarten === 50) {
       prijs = 39;
     }
 
-
     if (aantalKaarten === 100) {
       prijs = 59;
     }
-
 
     if (aantalKaarten === 250) {
       prijs = 109;
@@ -557,8 +758,203 @@
     ).textContent =
       "€" + prijs;
 
+
+    updateQR();
+
   }
 
+
+  /* QR-CODE */
+
+  function updateQR() {
+
+    const type =
+      qrType.value;
+
+
+    let qrData = "";
+
+
+    /* CONTACT / VCARD */
+
+    if (type === "contact") {
+
+      qrData =
+`BEGIN:VCARD
+VERSION:3.0
+FN:${naam.value}
+ORG:${bedrijf.value}
+TEL:${telefoon.value}
+EMAIL:${email.value}
+URL:${website.value}
+END:VCARD`;
+
+    }
+
+
+    /* WEBSITE */
+
+    else if (type === "website") {
+
+      let url =
+        website.value.trim();
+
+
+      if (
+        url &&
+        !url.startsWith("http://") &&
+        !url.startsWith("https://")
+      ) {
+
+        url =
+          "https://" + url;
+
+      }
+
+
+      qrData = url;
+
+    }
+
+
+    /* EMAIL */
+
+    else if (type === "email") {
+
+      qrData =
+        "mailto:" +
+        email.value.trim();
+
+    }
+
+
+    /* TELEFOON */
+
+    else if (type === "telefoon") {
+
+      const nummer =
+        telefoon.value.replace(
+          /\s+/g,
+          ""
+        );
+
+
+      qrData =
+        "tel:" + nummer;
+
+    }
+
+
+    /* WHATSAPP */
+
+    else if (type === "whatsapp") {
+
+      let nummer =
+        telefoon.value.replace(
+          /\D/g,
+          ""
+        );
+
+
+      /*
+        Belgische nummers:
+        0470... wordt 32470...
+      */
+
+      if (
+        nummer.startsWith("0")
+      ) {
+
+        nummer =
+          "32" +
+          nummer.substring(1);
+
+      }
+
+
+      qrData =
+        "https://wa.me/" +
+        nummer;
+
+    }
+
+
+    /* GEEN QR */
+
+    if (
+      type === "geen" ||
+      !qrData
+    ) {
+
+      qrContainer.style.display =
+        "none";
+
+      return;
+
+    }
+
+
+    qrContainer.style.display =
+      "block";
+
+
+    /*
+      Voorlopig gebruiken we een
+      externe QR-generator.
+    */
+
+    qrImage.src =
+      "https://api.qrserver.com/v1/create-qr-code/?size=250x250&margin=10&data=" +
+      encodeURIComponent(qrData);
+
+  }
+
+
+  /* LOGO UPLOAD */
+
+  logoUpload.addEventListener(
+    "change",
+    function(event) {
+
+      const bestand =
+        event.target.files[0];
+
+
+      if (!bestand) {
+
+        kaartLogo.style.display =
+          "none";
+
+        return;
+
+      }
+
+
+      const reader =
+        new FileReader();
+
+
+      reader.onload =
+        function(e) {
+
+          kaartLogo.src =
+            e.target.result;
+
+          kaartLogo.style.display =
+            "block";
+
+        };
+
+
+      reader.readAsDataURL(
+        bestand
+      );
+
+    }
+  );
+
+
+  /* LIVE EVENTS */
 
   naam.addEventListener(
     "input",
@@ -585,6 +981,11 @@
     updateKaart
   );
 
+  qrType.addEventListener(
+    "change",
+    updateKaart
+  );
+
   hout.addEventListener(
     "change",
     updateKaart
@@ -596,9 +997,12 @@
   );
 
 
+  /* START */
+
   updateKaart();
 
 </script>
 
 </body>
+
 </html>
