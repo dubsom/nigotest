@@ -12,66 +12,113 @@
   --green:#3f7442;
   --green2:#5d8f55;
   --light:#eaf3e6;
-  --bg:#f4f8f1;
-  --white:#fff;
+  --pale:#f4f8f1;
+  --white:#ffffff;
   --border:#d7e2d3;
-  --muted:#6d7868;
+  --muted:#697665;
   --brown:#352318;
+  --wood:#d9ae72;
+  --shadow:0 14px 38px rgba(30,65,35,.09);
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  color:#253226;
-  background:var(--bg);
+  color:#243126;
+
+  background:
+    radial-gradient(circle at 8% 8%,rgba(72,120,65,.10),transparent 24%),
+    radial-gradient(circle at 92% 20%,rgba(72,120,65,.08),transparent 22%),
+    var(--pale);
 }
 
-button,input,select{
+button,
+input,
+select{
   font:inherit;
 }
 
-button{cursor:pointer}
+button{
+  cursor:pointer;
+}
 
 /* HEADER */
 
 header{
   position:sticky;
   top:0;
-  z-index:100;
-  min-height:80px;
-  padding:10px 5%;
+  z-index:1000;
+
+  min-height:78px;
+
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
+
+  padding:8px 5%;
+
   background:rgba(255,255,255,.96);
   border-bottom:1px solid var(--border);
+
+  backdrop-filter:blur(12px);
 }
 
 .brand img{
+  display:block;
+
   width:240px;
   max-width:55vw;
-  max-height:65px;
+  max-height:64px;
+
   object-fit:contain;
 }
 
-header a{
-  color:var(--dark);
+.home-link{
   text-decoration:none;
-  font-weight:bold;
+  color:var(--dark);
+  font-weight:800;
 }
 
 /* INTRO */
 
 .intro{
+  max-width:1100px;
+  margin:auto;
+
+  padding:38px 20px 15px;
+
   text-align:center;
-  padding:38px 20px 18px;
+}
+
+.eco-label{
+  display:inline-block;
+
+  padding:7px 11px;
+
+  background:var(--light);
+  color:var(--green);
+
+  border-radius:999px;
+
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1px;
 }
 
 .intro h1{
-  margin:0 0 10px;
+  margin:14px 0 9px;
+
   font-size:clamp(34px,5vw,50px);
+  line-height:1.05;
+
   color:var(--dark);
 }
 
@@ -82,103 +129,144 @@ header a{
 
 /* MODE */
 
-.mode{
+.mode-wrap{
   max-width:1050px;
-  margin:20px auto 30px;
+  margin:20px auto 28px;
   padding:0 20px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
 }
 
-.mode button{
-  border:1px solid var(--border);
-  border-radius:13px;
-  padding:17px;
+.mode-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+
+  padding:8px;
+
   background:white;
+
+  border:1px solid var(--border);
+  border-radius:15px;
+
+  box-shadow:var(--shadow);
+}
+
+.mode-btn{
+  border:0;
+  border-radius:10px;
+
+  padding:16px;
+
+  background:#f2f6ef;
   color:var(--dark);
+
   text-align:left;
 }
 
-.mode button strong{
+.mode-btn strong{
   display:block;
-  font-size:18px;
   margin-bottom:4px;
+  font-size:17px;
 }
 
-.mode button span{
-  font-size:13px;
+.mode-btn span{
   color:var(--muted);
+  font-size:13px;
 }
 
-.mode button.active{
+.mode-btn.active{
   background:var(--green);
   color:white;
 }
 
-.mode button.active span{
+.mode-btn.active span{
   color:#e8f3e4;
 }
 
-/* APP */
-
-.app{
-  max-width:1450px;
-  margin:auto;
-  padding:0 22px 80px;
-  display:grid;
-  grid-template-columns:330px minmax(540px,1fr) 310px;
-  gap:22px;
-  align-items:start;
-}
+/* GENERAL */
 
 .panel{
   background:white;
+
   border:1px solid var(--border);
   border-radius:16px;
+
   padding:22px;
-  box-shadow:0 12px 35px rgba(30,65,35,.07);
+
+  box-shadow:var(--shadow);
 }
 
 .panel h2{
   margin:0 0 18px;
+
   color:var(--dark);
+
   font-size:21px;
 }
 
 .section-title{
-  margin:27px 0 10px;
+  margin:26px 0 10px;
   padding-top:18px;
+
   border-top:1px solid #e4ebe1;
+
   color:var(--green);
+
+  font-size:16px;
 }
 
 label{
   display:block;
+
   margin:13px 0 6px;
+
   font-size:14px;
-  font-weight:bold;
+  font-weight:800;
 }
 
-input,select{
+input,
+select{
   width:100%;
+
   padding:11px;
-  border:1px solid #cad6c6;
+
+  border:1px solid #cad5c6;
   border-radius:8px;
+
   background:white;
+  color:#243126;
 }
 
 input:focus,
 select:focus{
-  outline:2px solid #a5c69a;
+  outline:2px solid #a4c599;
   border-color:var(--green);
 }
 
 .help{
   margin-top:8px;
+
+  color:var(--muted);
+
   font-size:12px;
   line-height:1.5;
-  color:var(--muted);
+}
+
+/* DESKTOP */
+
+.desktop-app{
+  max-width:1450px;
+
+  margin:auto;
+  padding:0 22px 80px;
+
+  display:grid;
+
+  grid-template-columns:
+    330px minmax(540px,1fr) 310px;
+
+  gap:22px;
+
+  align-items:start;
 }
 
 /* PREVIEW */
@@ -187,45 +275,61 @@ select:focus{
   display:flex;
   justify-content:space-between;
   align-items:center;
+
   gap:10px;
-  margin-bottom:15px;
+
+  margin-bottom:14px;
 }
 
-.preview-head h2{margin:0}
+.preview-head h2{
+  margin:0;
+}
 
 .small-btn{
   border:0;
   border-radius:8px;
-  padding:9px 12px;
+
+  padding:9px 11px;
+
   background:var(--light);
   color:var(--dark);
-  font-weight:bold;
+
+  font-weight:800;
 }
 
 .scene{
-  min-height:530px;
-  padding:30px;
+  min-height:525px;
+
   display:grid;
   place-items:center;
+
+  padding:30px;
+
   border-radius:15px;
+
   overflow:hidden;
 
   background:
-    radial-gradient(circle at 15% 15%,rgba(74,124,67,.20),transparent 28%),
-    radial-gradient(circle at 85% 80%,rgba(74,124,67,.14),transparent 25%),
-    linear-gradient(145deg,#ded0b7,#f4efe6);
+    radial-gradient(circle at 15% 15%,rgba(72,120,65,.18),transparent 28%),
+    radial-gradient(circle at 85% 80%,rgba(72,120,65,.13),transparent 25%),
+    linear-gradient(145deg,#dfd0b8,#f4efe6);
 }
 
-/* CARD */
+/* DESKTOP CARD */
 
-#card{
+#desktopCard{
+  position:relative;
+
   width:510px;
   height:330px;
-  position:relative;
+
   overflow:hidden;
+
   border-radius:15px;
+
   color:var(--brown);
-  background-color:#d9ae72;
+
+  background-color:var(--wood);
 
   background-image:
     repeating-linear-gradient(
@@ -236,12 +340,14 @@ select:focus{
       transparent 7px
     );
 
-  box-shadow:0 28px 55px rgba(55,35,20,.25);
-  touch-action:none;
+  box-shadow:
+    0 28px 55px rgba(55,35,20,.25);
+
   user-select:none;
+  touch-action:none;
 }
 
-#card.portrait{
+#desktopCard.portrait{
   width:330px;
   height:510px;
 }
@@ -251,13 +357,8 @@ select:focus{
   touch-action:none;
 }
 
-body.pro .element{
+body.professional .element{
   cursor:grab;
-}
-
-body.pro .element:hover{
-  outline:1px dashed rgba(35,90,40,.6);
-  outline-offset:5px;
 }
 
 .element.selected{
@@ -265,59 +366,65 @@ body.pro .element:hover{
   outline-offset:5px;
 }
 
-#nameElement{
+#desktopName{
   left:40px;
   top:42px;
+
   font-size:34px;
   font-weight:700;
+
   white-space:nowrap;
 }
 
-#companyElement{
+#desktopCompany{
   left:40px;
-  top:90px;
+  top:91px;
+
   font-size:20px;
   font-weight:600;
+
   white-space:nowrap;
 }
 
-#contactElement{
+#desktopContact{
   left:40px;
   top:195px;
+
   font-size:15px;
   line-height:1.75;
+
   white-space:nowrap;
 }
 
-#logoElement{
+#desktopLogo{
   left:375px;
   top:30px;
+
   width:95px;
   max-height:90px;
+
   object-fit:contain;
+
   display:none;
 }
 
-#qrElement{
+#desktopQr{
   left:365px;
   top:185px;
+
   width:120px;
   height:120px;
+
   background:transparent;
 }
 
-#qrElement img{
+#desktopQr img{
   width:100%;
   height:100%;
-  object-fit:contain;
-  pointer-events:none;
-}
 
-.preview-note{
-  margin-top:14px;
-  text-align:center;
-  font-size:13px;
-  color:var(--muted);
+  object-fit:contain;
+
+  pointer-events:none;
 }
 
 /* CONTROLS */
@@ -330,125 +437,124 @@ body.pro .element:hover{
 .stepper button{
   width:36px;
   height:36px;
-  border:1px solid #cad6c6;
-  background:#f5f8f3;
-  font-weight:bold;
+
+  border:1px solid #cad5c6;
+
+  background:#f4f7f2;
+
+  font-weight:900;
 }
 
 .stepper span{
   min-width:55px;
+
   text-align:center;
-  font-weight:bold;
+
+  font-weight:800;
 }
 
-#proPanel{
+#professionalPanel{
   display:none;
 }
 
-body.pro #proPanel{
+body.professional #professionalPanel{
   display:block;
 }
 
 .selected-title{
-  margin-bottom:15px;
+  margin-bottom:14px;
+
   padding:10px;
+
   border-radius:8px;
+
   background:var(--light);
-  font-weight:bold;
+
+  font-weight:800;
 }
 
-.control-buttons{
+.position-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
+
   gap:7px;
+
   margin-top:8px;
 }
 
-.control-buttons button{
-  border:1px solid #cad6c6;
+.position-grid button{
+  border:1px solid #cad5c6;
   border-radius:7px;
-  padding:10px 4px;
-  background:#f6f8f4;
+
+  padding:9px 3px;
+
+  background:#f5f8f3;
   color:var(--dark);
-  font-weight:bold;
+
+  font-weight:800;
 }
 
-.control-buttons button:hover,
-.control-buttons button.active{
-  color:white;
+.position-grid button:hover{
   background:var(--green);
-  border-color:var(--green);
+  color:white;
 }
 
-.style-buttons{
+.style-row{
   display:flex;
   gap:7px;
-  margin-top:10px;
+
+  margin-top:8px;
 }
 
-.style-buttons button{
+.style-row button{
   flex:1;
-  border:1px solid #cad6c6;
-  border-radius:7px;
-  padding:9px;
-  background:#f6f8f4;
-}
 
-.style-buttons button.active{
-  background:var(--green);
-  color:white;
+  padding:9px;
+
+  border:1px solid #cad5c6;
+  border-radius:7px;
+
+  background:#f5f8f3;
 }
 
 .element-list{
   display:grid;
   gap:7px;
+
   margin-top:10px;
 }
 
 .element-list button{
   border:0;
   border-radius:8px;
+
   padding:10px;
+
   background:#edf3e9;
   color:var(--dark);
+
   text-align:left;
-  font-weight:bold;
-}
-
-.save-actions{
-  display:grid;
-  gap:9px;
-}
-
-.save-actions button{
-  border:0;
-  border-radius:8px;
-  padding:12px;
-  font-weight:bold;
-}
-
-.save{
-  background:#dfeadb;
-  color:var(--dark);
-}
-
-.export{
-  background:var(--green);
-  color:white;
+  font-weight:800;
 }
 
 /* ORDER */
 
-.order{
-  margin-top:20px;
+.order-box{
+  margin-top:18px;
+
   padding:22px;
+
   display:grid;
   grid-template-columns:1fr auto;
+
   gap:20px;
+
   align-items:end;
-  border:1px solid var(--border);
-  border-radius:15px;
+
   background:white;
+
+  border:1px solid var(--border);
+  border-radius:14px;
 }
 
 .summary{
@@ -457,974 +563,1624 @@ body.pro #proPanel{
 }
 
 .price{
-  margin-top:8px;
+  margin-top:7px;
+
+  color:var(--green);
+
   font-size:38px;
   font-weight:900;
-  color:var(--green);
 }
 
 .buy{
   border:0;
   border-radius:10px;
-  padding:15px 25px;
+
+  padding:15px 24px;
+
   background:var(--green);
   color:white;
-  font-weight:bold;
+
+  font-weight:900;
 }
 
-/* MOBILE */
+/* ======================
+   MOBILE - ECHTE APP
+   ====================== */
 
-@media(max-width:1150px){
-  .app{
+.mobile-app{
+  display:none;
+}
+
+.mobile-step{
+  display:none;
+}
+
+.mobile-step.active{
+  display:block;
+}
+
+.mobile-content{
+  padding:10px 14px 105px;
+}
+
+.mobile-panel{
+  padding:18px;
+}
+
+/* RESPONSIVE MOBILE CARD */
+
+.mobile-card-area{
+  width:100%;
+
+  display:flex;
+  justify-content:center;
+
+  padding:10px 0 20px;
+}
+
+#mobileCard{
+  position:relative;
+
+  width:min(92vw,430px);
+  height:auto;
+
+  aspect-ratio:85 / 55;
+
+  overflow:hidden;
+
+  border-radius:3vw;
+
+  color:var(--brown);
+
+  background-color:var(--wood);
+
+  background-image:
+    repeating-linear-gradient(
+      4deg,
+      rgba(75,45,20,.05) 0,
+      rgba(75,45,20,.05) 1px,
+      transparent 1px,
+      transparent 2%
+    );
+
+  box-shadow:
+    0 18px 35px rgba(55,35,20,.22);
+}
+
+#mobileCard.portrait{
+  width:min(72vw,310px);
+
+  aspect-ratio:55 / 85;
+}
+
+/*
+  Alle mobiele elementen worden
+  PROCENTUEEL geplaatst.
+*/
+
+.mobile-card-element{
+  position:absolute;
+}
+
+#mNamePreview{
+  left:7.8%;
+  top:12%;
+
+  max-width:70%;
+
+  font-size:clamp(20px,7vw,34px);
+  font-weight:700;
+
+  white-space:nowrap;
+}
+
+#mCompanyPreview{
+  left:7.8%;
+  top:28%;
+
+  max-width:65%;
+
+  font-size:clamp(14px,4.4vw,20px);
+  font-weight:600;
+
+  white-space:nowrap;
+}
+
+#mContactPreview{
+  left:7.8%;
+  top:59%;
+
+  max-width:64%;
+
+  font-size:clamp(10px,3.2vw,15px);
+  line-height:1.65;
+
+  white-space:nowrap;
+}
+
+#mLogoPreview{
+  right:6%;
+  top:9%;
+
+  width:19%;
+  max-height:28%;
+
+  object-fit:contain;
+
+  display:none;
+}
+
+#mQrPreview{
+  right:5%;
+  bottom:7%;
+
+  width:23%;
+
+  aspect-ratio:1 / 1;
+}
+
+#mQrPreview img{
+  width:100%;
+  height:100%;
+
+  object-fit:contain;
+}
+
+/* Portrait mobile positioning */
+
+#mobileCard.portrait #mNamePreview{
+  left:9%;
+  top:9%;
+
+  max-width:80%;
+
+  font-size:clamp(19px,6vw,30px);
+}
+
+#mobileCard.portrait #mCompanyPreview{
+  left:9%;
+  top:18%;
+
+  max-width:80%;
+}
+
+#mobileCard.portrait #mContactPreview{
+  left:9%;
+  top:52%;
+}
+
+#mobileCard.portrait #mLogoPreview{
+  right:8%;
+  top:27%;
+
+  width:30%;
+}
+
+#mobileCard.portrait #mQrPreview{
+  right:8%;
+  bottom:7%;
+
+  width:33%;
+}
+
+/* MOBILE NAV */
+
+.mobile-nav{
+  display:none;
+}
+
+.mobile-next{
+  width:100%;
+
+  margin-top:18px;
+
+  padding:15px;
+
+  border:0;
+  border-radius:10px;
+
+  background:var(--green);
+  color:white;
+
+  font-weight:900;
+}
+
+.mobile-back{
+  width:100%;
+
+  margin-top:9px;
+
+  padding:13px;
+
+  border:1px solid var(--border);
+  border-radius:10px;
+
+  background:white;
+  color:var(--dark);
+
+  font-weight:800;
+}
+
+/* MOBILE PREVIEW HEADER */
+
+.mobile-preview-title{
+  margin-bottom:14px;
+
+  text-align:center;
+}
+
+.mobile-preview-title h2{
+  margin:0 0 5px;
+}
+
+.mobile-preview-title p{
+  margin:0;
+
+  color:var(--muted);
+
+  font-size:13px;
+}
+
+/* MOBILE SUMMARY */
+
+.mobile-summary-card{
+  padding:18px;
+
+  background:var(--light);
+
+  border-radius:12px;
+}
+
+.mobile-price{
+  margin-top:10px;
+
+  color:var(--green);
+
+  font-size:44px;
+  font-weight:900;
+}
+
+/* FOOTER */
+
+footer{
+  padding:24px;
+
+  background:var(--dark);
+  color:#dfeadc;
+
+  text-align:center;
+
+  font-size:13px;
+}
+
+/* TABLET */
+
+@media(max-width:1150px) and (min-width:761px){
+
+  .desktop-app{
     grid-template-columns:320px 1fr;
   }
 
-  #proPanel{
-    grid-column:1/-1;
+  #professionalPanel{
+    grid-column:1 / -1;
   }
 
-  body.pro #proPanel{
+  body.professional #professionalPanel{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:20px;
   }
 }
 
+/* MOBILE */
+
 @media(max-width:760px){
 
+  body{
+    padding-bottom:76px;
+  }
+
   header{
-    min-height:70px;
-    padding:8px 14px;
+    min-height:68px;
+
+    padding:7px 14px;
   }
 
   .brand img{
     width:180px;
+    max-width:60vw;
+  }
+
+  .home-link{
+    font-size:13px;
   }
 
   .intro{
-    padding-top:28px;
+    padding:26px 14px 12px;
   }
 
-  .mode{
-    grid-template-columns:1fr;
+  .intro h1{
+    font-size:32px;
+  }
+
+  .intro p{
+    font-size:14px;
+  }
+
+  .mode-wrap{
     padding:0 14px;
+    margin-bottom:15px;
   }
 
-  .app{
-    display:block;
-    padding:0 14px 50px;
-  }
-
-  .app > *{
-    margin-bottom:16px;
-  }
-
-  body.pro #proPanel{
-    display:block;
-  }
-
-  .scene{
-    min-height:390px;
-    padding:15px 0;
-    overflow:auto;
-  }
-
-  #card{
-    transform:scale(.72);
-    transform-origin:center;
-  }
-
-  #card.portrait{
-    transform:scale(.66);
-  }
-
-  .order{
+  .mode-grid{
     grid-template-columns:1fr;
   }
 
-  .buy{
-    width:100%;
+  .mode-btn{
+    padding:13px;
+  }
+
+  .desktop-app{
+    display:none;
+  }
+
+  .mobile-app{
+    display:block;
+  }
+
+  .mobile-nav{
+    position:fixed;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    z-index:2000;
+
+    height:76px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    background:white;
+
+    border-top:1px solid var(--border);
+
+    box-shadow:
+      0 -8px 25px rgba(30,65,35,.10);
+  }
+
+  .mobile-nav button{
+    border:0;
+
+    background:white;
+    color:#778274;
+
+    font-size:10px;
+    font-weight:800;
+  }
+
+  .mobile-nav button span{
+    display:block;
+
+    margin-bottom:3px;
+
+    font-size:21px;
+  }
+
+  .mobile-nav button.active{
+    color:var(--green);
+    background:#f1f6ee;
+  }
+
+  footer{
+    display:none;
   }
 }
+
 </style>
 </head>
 
 <body class="simple">
 
+
+<!-- HEADER -->
+
 <header>
 
   <div class="brand">
-    <img src="woodcard-logo.png" alt="WoodCard">
+    <img
+      src="woodcard-logo.png"
+      alt="WoodCard"
+    >
   </div>
 
-  <a href="index.html">
+  <a
+    href="index.html"
+    class="home-link"
+  >
     ← Home
   </a>
 
 </header>
 
 
+<!-- INTRO -->
+
 <section class="intro">
 
+  <div class="eco-label">
+    🌿 Ontwerp op echt hout
+  </div>
+
   <h1>
-    Ontwerp je houten visitekaartje
+    Jouw houten visitekaartje
   </h1>
 
   <p>
-    Vul je gegevens in of plaats alles zelf in professionele modus.
+    Ontwerp eenvoudig of neem zelf volledige controle.
   </p>
 
 </section>
 
 
-<section class="mode">
+<!-- MODUS -->
 
-  <button
-    id="simpleButton"
-    class="active"
-    type="button"
-  >
-    <strong>✎ Eenvoudig ontwerpen</strong>
-    <span>
-      Automatische nette plaatsing.
-    </span>
-  </button>
+<section class="mode-wrap">
 
-  <button
-    id="proButton"
-    type="button"
-  >
-    <strong>☷ Professioneel ontwerpen</strong>
-    <span>
-      Sleep, positioneer en pas ieder element aan.
-    </span>
-  </button>
+  <div class="mode-grid">
+
+    <button
+      id="simpleMode"
+      class="mode-btn active"
+      type="button"
+    >
+
+      <strong>
+        ✎ Eenvoudig
+      </strong>
+
+      <span>
+        Snel invullen, automatisch netjes geplaatst.
+      </span>
+
+    </button>
+
+
+    <button
+      id="professionalMode"
+      class="mode-btn"
+      type="button"
+    >
+
+      <strong>
+        ☷ Professioneel
+      </strong>
+
+      <span>
+        Sleep, positioneer en wijzig formaten.
+      </span>
+
+    </button>
+
+  </div>
 
 </section>
 
 
-<main class="app">
+<!-- ==============================
+     DESKTOP
+     ============================== -->
+
+<main class="desktop-app">
 
 
 <!-- LINKS -->
 
 <aside class="panel">
 
-  <h2>Jouw gegevens</h2>
-
-  <label>Naam</label>
-  <input id="nameInput" value="Jan Peeters">
-
-  <label>Bedrijf / functie</label>
-  <input id="companyInput" value="JP Houtwerken">
-
-  <label>Telefoon</label>
-  <input id="phoneInput" value="0470 12 34 56">
-
-  <label>E-mail</label>
-  <input id="emailInput" value="jan@jphout.be">
-
-  <label>Website</label>
-  <input id="websiteInput" value="www.jphout.be">
+<h2>
+  Jouw gegevens
+</h2>
 
 
-  <h3 class="section-title">
-    Lettertype
-  </h3>
+<label>
+  Naam
+</label>
 
-  <select id="fontSelect">
-
-    <option value="Arial, sans-serif">
-      Arial
-    </option>
-
-    <option value="Verdana, sans-serif">
-      Verdana
-    </option>
-
-    <option value="Trebuchet MS, sans-serif">
-      Trebuchet
-    </option>
-
-    <option value="Georgia, serif">
-      Georgia
-    </option>
-
-    <option value="Times New Roman, serif">
-      Times New Roman
-    </option>
-
-    <option value="Courier New, monospace">
-      Courier
-    </option>
-
-  </select>
+<input
+  id="nameInput"
+  value="Jan Peeters"
+>
 
 
-  <h3 class="section-title">
-    QR-code
-  </h3>
+<label>
+  Bedrijf / functie
+</label>
 
-  <label>QR-functie</label>
-
-  <select id="qrType">
-
-    <option value="contact">
-      Contact opslaan
-    </option>
-
-    <option value="website">
-      Website openen
-    </option>
-
-    <option value="email">
-      E-mail sturen
-    </option>
-
-    <option value="phone">
-      Telefoon bellen
-    </option>
-
-    <option value="whatsapp">
-      WhatsApp openen
-    </option>
-
-    <option value="none">
-      Geen QR-code
-    </option>
-
-  </select>
+<input
+  id="companyInput"
+  value="JP Houtwerken"
+>
 
 
-  <label>QR-grootte</label>
+<label>
+  Telefoon
+</label>
 
-  <div class="stepper">
-
-    <button id="qrMinus" type="button">
-      −
-    </button>
-
-    <span id="qrSize">
-      120
-    </span>
-
-    <button id="qrPlus" type="button">
-      +
-    </button>
-
-  </div>
-
-  <div class="help">
-    Voor lasergravure is een grotere QR-code veiliger.
-  </div>
+<input
+  id="phoneInput"
+  value="0470 12 34 56"
+>
 
 
-  <h3 class="section-title">
-    Logo
-  </h3>
+<label>
+  E-mail
+</label>
 
-  <input
-    id="logoInput"
-    type="file"
-    accept="image/*"
+<input
+  id="emailInput"
+  value="jan@jphout.be"
+>
+
+
+<label>
+  Website
+</label>
+
+<input
+  id="websiteInput"
+  value="www.jphout.be"
+>
+
+
+<h3 class="section-title">
+  Lettertype
+</h3>
+
+<select id="fontSelect">
+
+  <option value="Arial, sans-serif">
+    Arial
+  </option>
+
+  <option value="Verdana, sans-serif">
+    Verdana
+  </option>
+
+  <option value="Trebuchet MS, sans-serif">
+    Trebuchet
+  </option>
+
+  <option value="Georgia, serif">
+    Georgia
+  </option>
+
+  <option value="Times New Roman, serif">
+    Times New Roman
+  </option>
+
+  <option value="Courier New, monospace">
+    Courier
+  </option>
+
+</select>
+
+
+<h3 class="section-title">
+  QR-code
+</h3>
+
+<label>
+  Functie
+</label>
+
+<select id="qrType">
+
+  <option value="contact">
+    Contact opslaan
+  </option>
+
+  <option value="website">
+    Website openen
+  </option>
+
+  <option value="email">
+    E-mail sturen
+  </option>
+
+  <option value="phone">
+    Telefoon bellen
+  </option>
+
+  <option value="whatsapp">
+    WhatsApp openen
+  </option>
+
+  <option value="none">
+    Geen QR-code
+  </option>
+
+</select>
+
+
+<label>
+  QR-grootte
+</label>
+
+<div class="stepper">
+
+  <button
+    id="qrMinus"
+    type="button"
   >
+    −
+  </button>
 
-  <label>Logo-grootte</label>
+  <span id="qrSizeLabel">
+    120
+  </span>
 
-  <div class="stepper">
+  <button
+    id="qrPlus"
+    type="button"
+  >
+    +
+  </button>
 
-    <button id="logoMinus" type="button">
-      −
-    </button>
-
-    <span id="logoSize">
-      95
-    </span>
-
-    <button id="logoPlus" type="button">
-      +
-    </button>
-
-  </div>
+</div>
 
 
-  <h3 class="section-title">
-    Kaartje
-  </h3>
+<h3 class="section-title">
+  Logo
+</h3>
 
-  <label>Houtsoort</label>
-
-  <select id="woodSelect">
-
-    <option
-      value="#d9ae72"
-      data-name="Esdoorn"
-    >
-      Esdoorn
-    </option>
-
-    <option
-      value="#956347"
-      data-name="Walnoot"
-    >
-      Walnoot
-    </option>
-
-    <option
-      value="#c79a5b"
-      data-name="Bamboe"
-    >
-      Bamboe
-    </option>
-
-  </select>
+<input
+  id="logoInput"
+  type="file"
+  accept="image/*"
+>
 
 
-  <label>Oriëntatie</label>
+<label>
+  Logo-grootte
+</label>
 
-  <select id="orientationSelect">
+<div class="stepper">
 
-    <option value="landscape">
-      Liggend 85 × 55 mm
-    </option>
+  <button
+    id="logoMinus"
+    type="button"
+  >
+    −
+  </button>
 
-    <option value="portrait">
-      Staand 55 × 85 mm
-    </option>
+  <span id="logoSizeLabel">
+    95
+  </span>
 
-  </select>
+  <button
+    id="logoPlus"
+    type="button"
+  >
+    +
+  </button>
+
+</div>
 
 
-  <label>Aantal</label>
+<h3 class="section-title">
+  Kaartje
+</h3>
 
-  <select id="amountSelect">
+<label>
+  Hout
+</label>
 
-    <option value="25">
-      25
-    </option>
+<select id="woodSelect">
 
-    <option value="50">
-      50
-    </option>
+  <option
+    value="#d9ae72"
+    data-name="Esdoorn"
+  >
+    Esdoorn
+  </option>
 
-    <option value="100" selected>
-      100
-    </option>
+  <option
+    value="#956347"
+    data-name="Walnoot"
+  >
+    Walnoot
+  </option>
 
-    <option value="250">
-      250
-    </option>
+  <option
+    value="#c79a5b"
+    data-name="Bamboe"
+  >
+    Bamboe
+  </option>
 
-  </select>
+</select>
+
+
+<label>
+  Oriëntatie
+</label>
+
+<select id="orientationSelect">
+
+  <option value="landscape">
+    Liggend 85 × 55 mm
+  </option>
+
+  <option value="portrait">
+    Staand 55 × 85 mm
+  </option>
+
+</select>
+
+
+<label>
+  Aantal
+</label>
+
+<select id="amountSelect">
+
+  <option value="25">
+    25
+  </option>
+
+  <option value="50">
+    50
+  </option>
+
+  <option
+    value="100"
+    selected
+  >
+    100
+  </option>
+
+  <option value="250">
+    250
+  </option>
+
+</select>
 
 </aside>
-
 
 
 <!-- MIDDEN -->
 
 <section class="panel">
 
-  <div class="preview-head">
+<div class="preview-head">
 
-    <h2>
-      Live voorbeeld
-    </h2>
+  <h2>
+    Live voorbeeld
+  </h2>
 
-    <button
-      id="resetButton"
-      class="small-btn"
-      type="button"
-    >
-      ↻ Posities herstellen
-    </button>
+  <button
+    id="resetPositions"
+    class="small-btn"
+    type="button"
+  >
+    ↻ Reset
+  </button>
 
-  </div>
-
-
-  <div class="scene">
-
-    <div id="card">
-
-      <div
-        id="nameElement"
-        class="element"
-        data-type="name"
-      >
-        Jan Peeters
-      </div>
+</div>
 
 
-      <div
-        id="companyElement"
-        class="element"
-        data-type="company"
-      >
-        JP Houtwerken
-      </div>
+<div class="scene">
 
+<div id="desktopCard">
 
-      <div
-        id="contactElement"
-        class="element"
-        data-type="contact"
-      >
-
-        <div id="phonePreview">
-          0470 12 34 56
-        </div>
-
-        <div id="emailPreview">
-          jan@jphout.be
-        </div>
-
-        <div id="websitePreview">
-          www.jphout.be
-        </div>
-
-      </div>
-
-
-      <img
-        id="logoElement"
-        class="element"
-        data-type="logo"
-        draggable="false"
-        alt="Logo"
-      >
-
-
-      <div
-        id="qrElement"
-        class="element"
-        data-type="qr"
-      >
-
-        <img
-          id="qrImage"
-          draggable="false"
-          alt="QR-code"
-        >
-
-      </div>
-
-    </div>
-
+  <div
+    id="desktopName"
+    class="element"
+    data-type="name"
+  >
+    Jan Peeters
   </div>
 
 
   <div
-    id="modeInfo"
-    class="preview-note"
+    id="desktopCompany"
+    class="element"
+    data-type="company"
   >
-    Eenvoudige modus: alles wordt automatisch geplaatst.
+    JP Houtwerken
   </div>
 
 
-  <div class="order">
+  <div
+    id="desktopContact"
+    class="element"
+    data-type="contact"
+  >
 
-    <div>
+    <div id="desktopPhone">
+      0470 12 34 56
+    </div>
 
-      <strong>Jouw keuze</strong>
+    <div id="desktopEmail">
+      jan@jphout.be
+    </div>
 
-      <div class="summary">
+    <div id="desktopWebsite">
+      www.jphout.be
+    </div>
 
-        <span id="summaryWood">
-          Esdoorn
-        </span>
+  </div>
 
-        •
 
-        <span id="summaryOrientation">
-          Liggend
-        </span>
+  <img
+    id="desktopLogo"
+    class="element"
+    data-type="logo"
+    draggable="false"
+    alt="Logo"
+  >
 
-        •
 
-        <span id="summaryAmount">
-          100 kaartjes
-        </span>
+  <div
+    id="desktopQr"
+    class="element"
+    data-type="qr"
+  >
 
-      </div>
+    <img
+      id="desktopQrImage"
+      draggable="false"
+      alt="QR-code"
+    >
 
-      <div
-        id="price"
-        class="price"
-      >
-        €59
-      </div>
+  </div>
+
+</div>
+
+</div>
+
+
+<div class="order-box">
+
+  <div>
+
+    <strong>
+      Jouw keuze
+    </strong>
+
+    <div class="summary">
+
+      <span id="summaryWood">
+        Esdoorn
+      </span>
+
+      •
+
+      <span id="summaryOrientation">
+        Liggend
+      </span>
+
+      •
+
+      <span id="summaryAmount">
+        100 kaartjes
+      </span>
 
     </div>
 
-    <button
-      class="buy"
-      type="button"
+    <div
+      id="desktopPrice"
+      class="price"
     >
-      Bestellen →
-    </button>
+      €59
+    </div>
 
   </div>
+
+  <button
+    class="buy"
+    type="button"
+  >
+    Bestellen →
+  </button>
+
+</div>
 
 </section>
 
 
+<!-- RECHTS -->
 
-<!-- RECHTS PROFESSIONEEL -->
+<aside id="professionalPanel">
 
-<aside id="proPanel">
+<section class="panel">
 
-  <section class="panel">
-
-    <h2>
-      Element aanpassen
-    </h2>
-
-    <div
-      id="selectedTitle"
-      class="selected-title"
-    >
-      Naam
-    </div>
+<h2>
+  Element aanpassen
+</h2>
 
 
-    <label>
-      Grootte
-    </label>
-
-    <div class="stepper">
-
-      <button
-        id="selectedMinus"
-        type="button"
-      >
-        −
-      </button>
-
-      <span id="selectedSize">
-        34
-      </span>
-
-      <button
-        id="selectedPlus"
-        type="button"
-      >
-        +
-      </button>
-
-    </div>
+<div
+  id="selectedTitle"
+  class="selected-title"
+>
+  Naam
+</div>
 
 
-    <label>
-      Tekststijl
-    </label>
+<label>
+  Grootte
+</label>
 
-    <div class="style-buttons">
+<div class="stepper">
 
-      <button
-        id="boldButton"
-        type="button"
-      >
-        Vet
-      </button>
+  <button
+    id="selectedMinus"
+    type="button"
+  >
+    −
+  </button>
 
-      <button
-        id="italicButton"
-        type="button"
-      >
-        Cursief
-      </button>
+  <span id="selectedSize">
+    34
+  </span>
 
-    </div>
+  <button
+    id="selectedPlus"
+    type="button"
+  >
+    +
+  </button>
 
-
-    <!-- HORIZONTALE POSITIE -->
-
-    <h3 class="section-title">
-      Horizontale positie
-    </h3>
-
-    <div class="control-buttons">
-
-      <button
-        data-horizontal="left"
-        type="button"
-      >
-        ← Links
-      </button>
-
-      <button
-        data-horizontal="center"
-        type="button"
-      >
-        ↔ Midden
-      </button>
-
-      <button
-        data-horizontal="right"
-        type="button"
-      >
-        Rechts →
-      </button>
-
-    </div>
+</div>
 
 
-    <!-- VERTICALE POSITIE -->
+<h3 class="section-title">
+  Horizontale positie
+</h3>
 
-    <h3 class="section-title">
-      Verticale positie
-    </h3>
+<div class="position-grid">
 
-    <div class="control-buttons">
+  <button
+    data-horizontal="left"
+    type="button"
+  >
+    ← Links
+  </button>
 
-      <button
-        data-vertical="top"
-        type="button"
-      >
-        ↑ Boven
-      </button>
+  <button
+    data-horizontal="center"
+    type="button"
+  >
+    Midden
+  </button>
 
-      <button
-        data-vertical="center"
-        type="button"
-      >
-        ↕ Midden
-      </button>
+  <button
+    data-horizontal="right"
+    type="button"
+  >
+    Rechts →
+  </button>
 
-      <button
-        data-vertical="bottom"
-        type="button"
-      >
-        ↓ Onder
-      </button>
-
-    </div>
-
-    <div class="help">
-      Selecteer eerst Naam, Bedrijf, Contact, Logo of QR-code.
-      Daarna kun je het element exact links, midden, rechts,
-      boven of onder plaatsen.
-    </div>
+</div>
 
 
-    <h3 class="section-title">
-      Element selecteren
-    </h3>
+<h3 class="section-title">
+  Verticale positie
+</h3>
 
-    <div class="element-list">
+<div class="position-grid">
 
-      <button
-        data-select="name"
-        type="button"
-      >
-        Naam
-      </button>
+  <button
+    data-vertical="top"
+    type="button"
+  >
+    ↑ Boven
+  </button>
 
-      <button
-        data-select="company"
-        type="button"
-      >
-        Bedrijf
-      </button>
+  <button
+    data-vertical="center"
+    type="button"
+  >
+    Midden
+  </button>
 
-      <button
-        data-select="contact"
-        type="button"
-      >
-        Contactgegevens
-      </button>
+  <button
+    data-vertical="bottom"
+    type="button"
+  >
+    ↓ Onder
+  </button>
 
-      <button
-        data-select="logo"
-        type="button"
-      >
-        Logo
-      </button>
-
-      <button
-        data-select="qr"
-        type="button"
-      >
-        QR-code
-      </button>
-
-    </div>
-
-  </section>
+</div>
 
 
-  <section class="panel">
+<h3 class="section-title">
+  Element selecteren
+</h3>
 
-    <h2>
-      Opslaan & productie
-    </h2>
+<div class="element-list">
 
-    <div class="save-actions">
+  <button
+    data-select="name"
+    type="button"
+  >
+    Naam
+  </button>
 
-      <button
-        id="saveButton"
-        class="save"
-        type="button"
-      >
-        💾 Ontwerp opslaan
-      </button>
+  <button
+    data-select="company"
+    type="button"
+  >
+    Bedrijf
+  </button>
 
-      <button
-        id="exportButton"
-        class="export"
-        type="button"
-      >
-        ⇧ Exporteren als SVG
-      </button>
+  <button
+    data-select="contact"
+    type="button"
+  >
+    Contactgegevens
+  </button>
 
-    </div>
+  <button
+    data-select="logo"
+    type="button"
+  >
+    Logo
+  </button>
 
-    <div class="help">
-      De SVG-export is voorlopig een prototype.
-      Later kunnen we hiervan een echte laserproductie-export maken.
-    </div>
+  <button
+    data-select="qr"
+    type="button"
+  >
+    QR-code
+  </button>
 
-  </section>
+</div>
+
+</section>
 
 </aside>
 
 </main>
 
 
+<!-- ==============================
+     MOBILE
+     ============================== -->
+
+<section class="mobile-app">
+
+<div class="mobile-content">
+
+
+<!-- MOBILE STEP 1 -->
+
+<section
+  class="mobile-step active"
+  data-step="1"
+>
+
+<div class="panel mobile-panel">
+
+<h2>
+  1. Jouw gegevens
+</h2>
+
+
+<label>
+  Naam
+</label>
+
+<input
+  id="mName"
+  value="Jan Peeters"
+>
+
+
+<label>
+  Bedrijf / functie
+</label>
+
+<input
+  id="mCompany"
+  value="JP Houtwerken"
+>
+
+
+<label>
+  Telefoon
+</label>
+
+<input
+  id="mPhone"
+  value="0470 12 34 56"
+>
+
+
+<label>
+  E-mail
+</label>
+
+<input
+  id="mEmail"
+  value="jan@jphout.be"
+>
+
+
+<label>
+  Website
+</label>
+
+<input
+  id="mWebsite"
+  value="www.jphout.be"
+>
+
+
+<button
+  class="mobile-next"
+  data-go="2"
+>
+  Bekijk je kaartje →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- MOBILE STEP 2 -->
+
+<section
+  class="mobile-step"
+  data-step="2"
+>
+
+<div class="panel mobile-panel">
+
+
+<div class="mobile-preview-title">
+
+<h2>
+  2. Jouw ontwerp
+</h2>
+
+<p>
+  Zo ziet je visitekaartje eruit.
+</p>
+
+</div>
+
+
+<div class="mobile-card-area">
+
+<div id="mobileCard">
+
+
+  <div
+    id="mNamePreview"
+    class="mobile-card-element"
+  >
+    Jan Peeters
+  </div>
+
+
+  <div
+    id="mCompanyPreview"
+    class="mobile-card-element"
+  >
+    JP Houtwerken
+  </div>
+
+
+  <div
+    id="mContactPreview"
+    class="mobile-card-element"
+  >
+
+    <div id="mPhonePreview">
+      0470 12 34 56
+    </div>
+
+    <div id="mEmailPreview">
+      jan@jphout.be
+    </div>
+
+    <div id="mWebsitePreview">
+      www.jphout.be
+    </div>
+
+  </div>
+
+
+  <img
+    id="mLogoPreview"
+    class="mobile-card-element"
+    draggable="false"
+    alt="Logo"
+  >
+
+
+  <div
+    id="mQrPreview"
+    class="mobile-card-element"
+  >
+
+    <img
+      id="mQrImage"
+      draggable="false"
+      alt="QR-code"
+    >
+
+  </div>
+
+
+</div>
+
+</div>
+
+
+<div class="help">
+  Het kaartje houdt op mobiel altijd de echte verhouding van
+  85 × 55 mm. Daardoor ziet het ontwerp veel realistischer uit.
+</div>
+
+
+<button
+  class="mobile-next"
+  data-go="3"
+>
+  Instellingen →
+</button>
+
+
+<button
+  class="mobile-back"
+  data-go="1"
+>
+  ← Gegevens aanpassen
+</button>
+
+</div>
+
+</section>
+
+
+<!-- MOBILE STEP 3 -->
+
+<section
+  class="mobile-step"
+  data-step="3"
+>
+
+<div class="panel mobile-panel">
+
+<h2>
+  3. Instellingen
+</h2>
+
+
+<label>
+  Lettertype
+</label>
+
+<select id="mFont">
+
+  <option value="Arial, sans-serif">
+    Arial
+  </option>
+
+  <option value="Verdana, sans-serif">
+    Verdana
+  </option>
+
+  <option value="Georgia, serif">
+    Georgia
+  </option>
+
+  <option value="Courier New, monospace">
+    Courier
+  </option>
+
+</select>
+
+
+<h3 class="section-title">
+  QR-code
+</h3>
+
+<label>
+  Wat moet de QR-code doen?
+</label>
+
+<select id="mQrType">
+
+  <option value="contact">
+    Contact opslaan
+  </option>
+
+  <option value="website">
+    Website openen
+  </option>
+
+  <option value="email">
+    E-mail sturen
+  </option>
+
+  <option value="phone">
+    Bellen
+  </option>
+
+  <option value="whatsapp">
+    WhatsApp
+  </option>
+
+  <option value="none">
+    Geen QR-code
+  </option>
+
+</select>
+
+
+<h3 class="section-title">
+  Logo
+</h3>
+
+<input
+  id="mLogo"
+  type="file"
+  accept="image/*"
+>
+
+
+<h3 class="section-title">
+  Hout
+</h3>
+
+<select id="mWood">
+
+  <option
+    value="#d9ae72"
+    data-name="Esdoorn"
+  >
+    Esdoorn
+  </option>
+
+  <option
+    value="#956347"
+    data-name="Walnoot"
+  >
+    Walnoot
+  </option>
+
+  <option
+    value="#c79a5b"
+    data-name="Bamboe"
+  >
+    Bamboe
+  </option>
+
+</select>
+
+
+<label>
+  Oriëntatie
+</label>
+
+<select id="mOrientation">
+
+  <option value="landscape">
+    Liggend 85 × 55 mm
+  </option>
+
+  <option value="portrait">
+    Staand 55 × 85 mm
+  </option>
+
+</select>
+
+
+<button
+  class="mobile-next"
+  data-go="4"
+>
+  Naar bestellen →
+</button>
+
+
+<button
+  class="mobile-back"
+  data-go="2"
+>
+  ← Bekijk ontwerp
+</button>
+
+</div>
+
+</section>
+
+
+<!-- MOBILE STEP 4 -->
+
+<section
+  class="mobile-step"
+  data-step="4"
+>
+
+<div class="panel mobile-panel">
+
+<h2>
+  4. Bestellen
+</h2>
+
+
+<label>
+  Aantal kaartjes
+</label>
+
+<select id="mAmount">
+
+  <option value="25">
+    25 kaartjes
+  </option>
+
+  <option value="50">
+    50 kaartjes
+  </option>
+
+  <option
+    value="100"
+    selected
+  >
+    100 kaartjes
+  </option>
+
+  <option value="250">
+    250 kaartjes
+  </option>
+
+</select>
+
+
+<div
+  class="mobile-summary-card"
+  style="margin-top:20px;"
+>
+
+<div>
+  Hout:
+  <strong id="mSummaryWood">
+    Esdoorn
+  </strong>
+</div>
+
+<div>
+  Oriëntatie:
+  <strong id="mSummaryOrientation">
+    Liggend
+  </strong>
+</div>
+
+<div>
+  Aantal:
+  <strong id="mSummaryAmount">
+    100 kaartjes
+  </strong>
+</div>
+
+
+<div
+  id="mPrice"
+  class="mobile-price"
+>
+  €59
+</div>
+
+</div>
+
+
+<button
+  class="mobile-next"
+  type="button"
+>
+  Bestellen →
+</button>
+
+
+<button
+  class="mobile-back"
+  data-go="3"
+>
+  ← Instellingen aanpassen
+</button>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- MOBILE BOTTOM NAV -->
+
+<nav class="mobile-nav">
+
+<button
+  class="active"
+  data-mobile-step="1"
+>
+  <span>✎</span>
+  Gegevens
+</button>
+
+<button
+  data-mobile-step="2"
+>
+  <span>▣</span>
+  Ontwerp
+</button>
+
+<button
+  data-mobile-step="3"
+>
+  <span>⚙</span>
+  Instellingen
+</button>
+
+<button
+  data-mobile-step="4"
+>
+  <span>✓</span>
+  Bestellen
+</button>
+
+</nav>
+
+</section>
+
+
+<footer>
+  🌿 WOODCARD • Natuurlijk in contact
+</footer>
+
+
 <script>
 
-/* =========================
-   BASIS
-   ========================= */
+/* =====================================
+   HELPERS
+   ===================================== */
 
-const body =
-  document.body;
+function priceFor(amount){
 
-const card =
-  document.getElementById("card");
+  if(amount === 25) return 29;
+  if(amount === 50) return 39;
+  if(amount === 100) return 59;
 
-const nameInput =
-  document.getElementById("nameInput");
-
-const companyInput =
-  document.getElementById("companyInput");
-
-const phoneInput =
-  document.getElementById("phoneInput");
-
-const emailInput =
-  document.getElementById("emailInput");
-
-const websiteInput =
-  document.getElementById("websiteInput");
-
-const fontSelect =
-  document.getElementById("fontSelect");
-
-const qrType =
-  document.getElementById("qrType");
-
-const woodSelect =
-  document.getElementById("woodSelect");
-
-const orientationSelect =
-  document.getElementById("orientationSelect");
-
-const amountSelect =
-  document.getElementById("amountSelect");
-
-const logoInput =
-  document.getElementById("logoInput");
-
-
-const nameElement =
-  document.getElementById("nameElement");
-
-const companyElement =
-  document.getElementById("companyElement");
-
-const contactElement =
-  document.getElementById("contactElement");
-
-const logoElement =
-  document.getElementById("logoElement");
-
-const qrElement =
-  document.getElementById("qrElement");
-
-const qrImage =
-  document.getElementById("qrImage");
-
-
-const allElements = [
-  nameElement,
-  companyElement,
-  contactElement,
-  logoElement,
-  qrElement
-];
-
-
-let proMode = false;
-let selectedElement = nameElement;
-
-let qrSize = 120;
-let logoSize = 95;
-
-
-/* =========================
-   MODUS
-   ========================= */
-
-const simpleButton =
-  document.getElementById("simpleButton");
-
-const proButton =
-  document.getElementById("proButton");
-
-
-simpleButton.onclick =
-  () => setMode(false);
-
-proButton.onclick =
-  () => setMode(true);
-
-
-function setMode(pro){
-
-  proMode = pro;
-
-  body.classList.toggle(
-    "pro",
-    pro
-  );
-
-  body.classList.toggle(
-    "simple",
-    !pro
-  );
-
-  simpleButton.classList.toggle(
-    "active",
-    !pro
-  );
-
-  proButton.classList.toggle(
-    "active",
-    pro
-  );
-
-  document.getElementById(
-    "modeInfo"
-  ).textContent =
-    pro
-    ? "Professionele modus: selecteer of versleep een element."
-    : "Eenvoudige modus: alles wordt automatisch geplaatst.";
-
-  if(!pro){
-    resetPositions();
-  }
+  return 109;
 }
 
 
-/* =========================
-   LIVE TEKST
-   ========================= */
-
-function updateCard(){
-
-  nameElement.textContent =
-    nameInput.value;
-
-  companyElement.textContent =
-    companyInput.value;
-
-  document.getElementById(
-    "phonePreview"
-  ).textContent =
-    phoneInput.value;
-
-  document.getElementById(
-    "emailPreview"
-  ).textContent =
-    emailInput.value;
-
-  document.getElementById(
-    "websitePreview"
-  ).textContent =
-    websiteInput.value;
-
-
-  [
-    nameElement,
-    companyElement,
-    contactElement
-  ].forEach(
-    element => {
-      element.style.fontFamily =
-        fontSelect.value;
-    }
-  );
-
-
-  card.style.backgroundColor =
-    woodSelect.value;
-
-
-  document.getElementById(
-    "summaryWood"
-  ).textContent =
-    woodSelect.options[
-      woodSelect.selectedIndex
-    ].dataset.name;
-
-
-  updateQR();
-}
-
-
-[
-  nameInput,
-  companyInput,
-  phoneInput,
-  emailInput,
-  websiteInput
-].forEach(
-  input => {
-    input.addEventListener(
-      "input",
-      updateCard
-    );
-  }
-);
-
-
-fontSelect.onchange =
-  updateCard;
-
-woodSelect.onchange =
-  updateCard;
-
-
-/* =========================
-   QR
-   ========================= */
-
-function createQrData(){
-
-  const type =
-    qrType.value;
-
+function qrData(
+  type,
+  name,
+  company,
+  phone,
+  email,
+  website
+){
 
   if(type === "contact"){
 
     return `BEGIN:VCARD
 VERSION:3.0
-FN:${nameInput.value}
-ORG:${companyInput.value}
-TEL:${phoneInput.value}
-EMAIL:${emailInput.value}
-URL:${websiteInput.value}
+FN:${name}
+ORG:${company}
+TEL:${phone}
+EMAIL:${email}
+URL:${website}
 END:VCARD`;
 
   }
@@ -1433,7 +2189,7 @@ END:VCARD`;
   if(type === "website"){
 
     let url =
-      websiteInput.value.trim();
+      website.trim();
 
     if(
       url &&
@@ -1451,31 +2207,31 @@ END:VCARD`;
   if(type === "email"){
 
     return "mailto:" +
-      emailInput.value.trim();
-
+      email.trim();
   }
 
 
   if(type === "phone"){
 
     return "tel:" +
-      phoneInput.value.replace(
+      phone.replace(
         /\s+/g,
         ""
       );
-
   }
 
 
   if(type === "whatsapp"){
 
     let number =
-      phoneInput.value.replace(
+      phone.replace(
         /\D/g,
         ""
       );
 
-    if(number.startsWith("0")){
+    if(
+      number.startsWith("0")
+    ){
       number =
         "32" +
         number.substring(1);
@@ -1490,10 +2246,258 @@ END:VCARD`;
 }
 
 
-function updateQR(){
+/* =====================================
+   MODE
+   ===================================== */
+
+let professionalMode =
+  false;
+
+
+const simpleMode =
+  document.getElementById(
+    "simpleMode"
+  );
+
+const professionalButton =
+  document.getElementById(
+    "professionalMode"
+  );
+
+
+simpleMode.onclick =
+  () => setMode(false);
+
+
+professionalButton.onclick =
+  () => setMode(true);
+
+
+function setMode(pro){
+
+  professionalMode =
+    pro;
+
+  document.body.classList.toggle(
+    "professional",
+    pro
+  );
+
+
+  simpleMode.classList.toggle(
+    "active",
+    !pro
+  );
+
+
+  professionalButton.classList.toggle(
+    "active",
+    pro
+  );
+
+
+  if(!pro){
+    resetDesktopPositions();
+  }
+}
+
+
+/* =====================================
+   DESKTOP
+   ===================================== */
+
+const desktopCard =
+  document.getElementById(
+    "desktopCard"
+  );
+
+
+const nameInput =
+  document.getElementById(
+    "nameInput"
+  );
+
+const companyInput =
+  document.getElementById(
+    "companyInput"
+  );
+
+const phoneInput =
+  document.getElementById(
+    "phoneInput"
+  );
+
+const emailInput =
+  document.getElementById(
+    "emailInput"
+  );
+
+const websiteInput =
+  document.getElementById(
+    "websiteInput"
+  );
+
+const fontSelect =
+  document.getElementById(
+    "fontSelect"
+  );
+
+const qrType =
+  document.getElementById(
+    "qrType"
+  );
+
+const woodSelect =
+  document.getElementById(
+    "woodSelect"
+  );
+
+const orientationSelect =
+  document.getElementById(
+    "orientationSelect"
+  );
+
+const amountSelect =
+  document.getElementById(
+    "amountSelect"
+  );
+
+const logoInput =
+  document.getElementById(
+    "logoInput"
+  );
+
+
+const desktopName =
+  document.getElementById(
+    "desktopName"
+  );
+
+const desktopCompany =
+  document.getElementById(
+    "desktopCompany"
+  );
+
+const desktopContact =
+  document.getElementById(
+    "desktopContact"
+  );
+
+const desktopLogo =
+  document.getElementById(
+    "desktopLogo"
+  );
+
+const desktopQr =
+  document.getElementById(
+    "desktopQr"
+  );
+
+const desktopQrImage =
+  document.getElementById(
+    "desktopQrImage"
+  );
+
+
+function updateDesktop(){
+
+  desktopName.textContent =
+    nameInput.value;
+
+  desktopCompany.textContent =
+    companyInput.value;
+
+
+  document.getElementById(
+    "desktopPhone"
+  ).textContent =
+    phoneInput.value;
+
+
+  document.getElementById(
+    "desktopEmail"
+  ).textContent =
+    emailInput.value;
+
+
+  document.getElementById(
+    "desktopWebsite"
+  ).textContent =
+    websiteInput.value;
+
+
+  [
+    desktopName,
+    desktopCompany,
+    desktopContact
+  ].forEach(
+    element => {
+
+      element.style.fontFamily =
+        fontSelect.value;
+
+    }
+  );
+
+
+  desktopCard.style.backgroundColor =
+    woodSelect.value;
+
+
+  document.getElementById(
+    "summaryWood"
+  ).textContent =
+    woodSelect.options[
+      woodSelect.selectedIndex
+    ].dataset.name;
+
+
+  updateDesktopQR();
+}
+
+
+[
+  nameInput,
+  companyInput,
+  phoneInput,
+  emailInput,
+  websiteInput
+].forEach(
+  input => {
+
+    input.addEventListener(
+      "input",
+      updateDesktop
+    );
+
+  }
+);
+
+
+fontSelect.onchange =
+  updateDesktop;
+
+
+woodSelect.onchange =
+  updateDesktop;
+
+
+/* DESKTOP QR */
+
+let desktopQrSize = 120;
+
+
+function updateDesktopQR(){
 
   const data =
-    createQrData();
+    qrData(
+      qrType.value,
+      nameInput.value,
+      companyInput.value,
+      phoneInput.value,
+      emailInput.value,
+      websiteInput.value
+    );
 
 
   if(
@@ -1501,82 +2505,94 @@ function updateQR(){
     !data
   ){
 
-    qrElement.style.display =
+    desktopQr.style.display =
       "none";
 
     return;
   }
 
 
-  qrElement.style.display =
+  desktopQr.style.display =
     "block";
 
 
-  const background =
+  const bg =
     woodSelect.value.replace(
       "#",
       ""
     );
 
 
-  qrImage.src =
+  desktopQrImage.src =
     "https://api.qrserver.com/v1/create-qr-code/" +
     "?size=350x350" +
     "&margin=0" +
     "&color=352318" +
     "&bgcolor=" +
-    background +
+    bg +
     "&data=" +
     encodeURIComponent(data);
+
 }
 
 
 qrType.onchange =
-  updateQR;
+  updateDesktopQR;
 
 
-/* QR SIZE */
+/* DESKTOP QR SIZE */
 
 document.getElementById(
   "qrMinus"
 ).onclick =
-  () => changeQR(-5);
+  () => {
+
+    desktopQrSize =
+      Math.max(
+        95,
+        desktopQrSize - 5
+      );
+
+    setDesktopQrSize();
+  };
+
 
 document.getElementById(
   "qrPlus"
 ).onclick =
-  () => changeQR(5);
+  () => {
 
-
-function changeQR(amount){
-
-  qrSize =
-    Math.max(
-      95,
+    desktopQrSize =
       Math.min(
         170,
-        qrSize + amount
-      )
-    );
+        desktopQrSize + 5
+      );
 
-  qrElement.style.width =
-    qrSize + "px";
+    setDesktopQrSize();
+  };
 
-  qrElement.style.height =
-    qrSize + "px";
+
+function setDesktopQrSize(){
+
+  desktopQr.style.width =
+    desktopQrSize + "px";
+
+  desktopQr.style.height =
+    desktopQrSize + "px";
+
 
   document.getElementById(
-    "qrSize"
+    "qrSizeLabel"
   ).textContent =
-    qrSize;
-
-  updateSelectedInfo();
+    desktopQrSize;
 }
 
 
-/* =========================
-   LOGO
-   ========================= */
+/* DESKTOP LOGO */
+
+let desktopLogoSize =
+  95;
+
 
 logoInput.onchange =
   event => {
@@ -1584,23 +2600,24 @@ logoInput.onchange =
     const file =
       event.target.files[0];
 
-    if(!file){
-      return;
-    }
+    if(!file) return;
+
 
     const reader =
       new FileReader();
 
+
     reader.onload =
       e => {
 
-        logoElement.src =
+        desktopLogo.src =
           e.target.result;
 
-        logoElement.style.display =
+        desktopLogo.style.display =
           "block";
 
       };
+
 
     reader.readAsDataURL(file);
   };
@@ -1609,40 +2626,47 @@ logoInput.onchange =
 document.getElementById(
   "logoMinus"
 ).onclick =
-  () => changeLogo(-5);
+  () => {
+
+    desktopLogoSize =
+      Math.max(
+        40,
+        desktopLogoSize - 5
+      );
+
+    setDesktopLogoSize();
+  };
+
 
 document.getElementById(
   "logoPlus"
 ).onclick =
-  () => changeLogo(5);
+  () => {
 
-
-function changeLogo(amount){
-
-  logoSize =
-    Math.max(
-      40,
+    desktopLogoSize =
       Math.min(
         200,
-        logoSize + amount
-      )
-    );
+        desktopLogoSize + 5
+      );
 
-  logoElement.style.width =
-    logoSize + "px";
+    setDesktopLogoSize();
+  };
+
+
+function setDesktopLogoSize(){
+
+  desktopLogo.style.width =
+    desktopLogoSize + "px";
+
 
   document.getElementById(
-    "logoSize"
+    "logoSizeLabel"
   ).textContent =
-    logoSize;
-
-  updateSelectedInfo();
+    desktopLogoSize;
 }
 
 
-/* =========================
-   ORIENTATION
-   ========================= */
+/* DESKTOP ORIENTATION */
 
 orientationSelect.onchange =
   () => {
@@ -1651,10 +2675,12 @@ orientationSelect.onchange =
       orientationSelect.value ===
       "portrait";
 
-    card.classList.toggle(
+
+    desktopCard.classList.toggle(
       "portrait",
       portrait
     );
+
 
     document.getElementById(
       "summaryOrientation"
@@ -1663,44 +2689,30 @@ orientationSelect.onchange =
       ? "Staand"
       : "Liggend";
 
-    resetPositions();
+
+    resetDesktopPositions();
   };
 
 
-/* =========================
-   PRICE
-   ========================= */
+/* DESKTOP PRICE */
 
 amountSelect.onchange =
-  updatePrice;
+  updateDesktopPrice;
 
 
-function updatePrice(){
+function updateDesktopPrice(){
 
   const amount =
     Number(
       amountSelect.value
     );
 
-  let price = 29;
-
-  if(amount === 50){
-    price = 39;
-  }
-
-  if(amount === 100){
-    price = 59;
-  }
-
-  if(amount === 250){
-    price = 109;
-  }
-
 
   document.getElementById(
-    "price"
+    "desktopPrice"
   ).textContent =
-    "€" + price;
+    "€" +
+    priceFor(amount);
 
 
   document.getElementById(
@@ -1711,46 +2723,68 @@ function updatePrice(){
 }
 
 
-/* =========================
-   SELECTIE
-   ========================= */
+/* =====================================
+   DESKTOP PROFESSIONAL
+   ===================================== */
 
-function selectElement(element){
+const desktopElements = [
+  desktopName,
+  desktopCompany,
+  desktopContact,
+  desktopLogo,
+  desktopQr
+];
 
-  allElements.forEach(
+
+let selectedElement =
+  desktopName;
+
+
+function selectDesktopElement(
+  element
+){
+
+  desktopElements.forEach(
     item => {
+
       item.classList.remove(
         "selected"
       );
+
     }
   );
 
+
   selectedElement =
     element;
+
 
   element.classList.add(
     "selected"
   );
 
+
   updateSelectedInfo();
 }
 
 
-function elementLabel(element){
+function elementName(
+  element
+){
 
-  if(element === nameElement){
+  if(element === desktopName){
     return "Naam";
   }
 
-  if(element === companyElement){
+  if(element === desktopCompany){
     return "Bedrijf";
   }
 
-  if(element === contactElement){
+  if(element === desktopContact){
     return "Contactgegevens";
   }
 
-  if(element === logoElement){
+  if(element === desktopLogo){
     return "Logo";
   }
 
@@ -1763,7 +2797,7 @@ function updateSelectedInfo(){
   document.getElementById(
     "selectedTitle"
   ).textContent =
-    elementLabel(
+    elementName(
       selectedElement
     );
 
@@ -1771,17 +2805,23 @@ function updateSelectedInfo(){
   let size;
 
 
-  if(selectedElement === qrElement){
+  if(
+    selectedElement ===
+    desktopQr
+  ){
 
     size =
-      qrSize;
+      desktopQrSize;
 
   }
 
-  else if(selectedElement === logoElement){
+  else if(
+    selectedElement ===
+    desktopLogo
+  ){
 
     size =
-      logoSize;
+      desktopLogoSize;
 
   }
 
@@ -1804,28 +2844,7 @@ function updateSelectedInfo(){
 }
 
 
-allElements.forEach(
-  element => {
-
-    element.addEventListener(
-      "click",
-      event => {
-
-        if(!proMode){
-          return;
-        }
-
-        event.stopPropagation();
-
-        selectElement(
-          element
-        );
-      }
-    );
-
-  }
-);
-
+/* SELECT BUTTONS */
 
 document.querySelectorAll(
   "[data-select]"
@@ -1838,15 +2857,19 @@ document.querySelectorAll(
         const type =
           button.dataset.select;
 
+
         const element =
-          allElements.find(
+          desktopElements.find(
             item =>
               item.dataset.type ===
               type
           );
 
+
         if(element){
-          selectElement(element);
+          selectDesktopElement(
+            element
+          );
         }
       };
 
@@ -1854,34 +2877,67 @@ document.querySelectorAll(
 );
 
 
-/* =========================
-   GROOTTE GESELECTEERD
-   ========================= */
+/* SELECT SIZE */
 
 document.getElementById(
   "selectedMinus"
 ).onclick =
-  () => changeSelectedSize(-2);
+  () =>
+    changeSelectedSize(-2);
+
 
 document.getElementById(
   "selectedPlus"
 ).onclick =
-  () => changeSelectedSize(2);
+  () =>
+    changeSelectedSize(2);
 
 
-function changeSelectedSize(amount){
+function changeSelectedSize(
+  amount
+){
 
-  if(selectedElement === qrElement){
+  if(
+    selectedElement ===
+    desktopQr
+  ){
 
-    changeQR(amount);
+    desktopQrSize =
+      Math.max(
+        95,
+        Math.min(
+          170,
+          desktopQrSize +
+          amount
+        )
+      );
+
+    setDesktopQrSize();
+
+    updateSelectedInfo();
 
     return;
   }
 
 
-  if(selectedElement === logoElement){
+  if(
+    selectedElement ===
+    desktopLogo
+  ){
 
-    changeLogo(amount);
+    desktopLogoSize =
+      Math.max(
+        40,
+        Math.min(
+          200,
+          desktopLogoSize +
+          amount
+        )
+      );
+
+    setDesktopLogoSize();
+
+    updateSelectedInfo();
 
     return;
   }
@@ -1909,83 +2965,11 @@ function changeSelectedSize(amount){
     size + "px";
 
 
-  keepInsideCard(
-    selectedElement
-  );
-
-
   updateSelectedInfo();
 }
 
 
-/* =========================
-   VET / CURSIEF
-   ========================= */
-
-document.getElementById(
-  "boldButton"
-).onclick =
-  () => {
-
-    if(
-      selectedElement ===
-      logoElement ||
-      selectedElement ===
-      qrElement
-    ){
-      return;
-    }
-
-
-    const bold =
-      Number(
-        getComputedStyle(
-          selectedElement
-        ).fontWeight
-      ) >= 600;
-
-
-    selectedElement.style.fontWeight =
-      bold
-      ? "400"
-      : "700";
-
-  };
-
-
-document.getElementById(
-  "italicButton"
-).onclick =
-  () => {
-
-    if(
-      selectedElement ===
-      logoElement ||
-      selectedElement ===
-      qrElement
-    ){
-      return;
-    }
-
-
-    const italic =
-      getComputedStyle(
-        selectedElement
-      ).fontStyle ===
-      "italic";
-
-
-    selectedElement.style.fontStyle =
-      italic
-      ? "normal"
-      : "italic";
-
-  };
-
-
-/* =========================
-   HORIZONTALE POSITIE
-   ========================= */
+/* HORIZONTAL POSITION */
 
 document.querySelectorAll(
   "[data-horizontal]"
@@ -1995,21 +2979,20 @@ document.querySelectorAll(
     button.onclick =
       () => {
 
-        if(!selectedElement){
-          return;
-        }
+        const padding =
+          20;
 
-
-        const padding = 20;
 
         const cardWidth =
-          card.clientWidth;
+          desktopCard.clientWidth;
+
 
         const elementWidth =
           selectedElement.offsetWidth;
 
 
-        let left = padding;
+        let left =
+          padding;
 
 
         if(
@@ -2039,33 +3022,15 @@ document.querySelectorAll(
         }
 
 
-        left =
+        selectedElement.style.left =
           Math.max(
             0,
             left
-          );
+          ) + "px";
 
-
-        selectedElement.style.left =
-          left + "px";
 
         selectedElement.style.right =
           "auto";
-
-
-        document.querySelectorAll(
-          "[data-horizontal]"
-        ).forEach(
-          item =>
-            item.classList.remove(
-              "active"
-            )
-        );
-
-
-        button.classList.add(
-          "active"
-        );
 
       };
 
@@ -2073,9 +3038,7 @@ document.querySelectorAll(
 );
 
 
-/* =========================
-   VERTICALE POSITIE
-   ========================= */
+/* VERTICAL POSITION */
 
 document.querySelectorAll(
   "[data-vertical]"
@@ -2085,21 +3048,20 @@ document.querySelectorAll(
     button.onclick =
       () => {
 
-        if(!selectedElement){
-          return;
-        }
+        const padding =
+          20;
 
-
-        const padding = 20;
 
         const cardHeight =
-          card.clientHeight;
+          desktopCard.clientHeight;
+
 
         const elementHeight =
           selectedElement.offsetHeight;
 
 
-        let top = padding;
+        let top =
+          padding;
 
 
         if(
@@ -2129,33 +3091,15 @@ document.querySelectorAll(
         }
 
 
-        top =
+        selectedElement.style.top =
           Math.max(
             0,
             top
-          );
+          ) + "px";
 
-
-        selectedElement.style.top =
-          top + "px";
 
         selectedElement.style.bottom =
           "auto";
-
-
-        document.querySelectorAll(
-          "[data-vertical]"
-        ).forEach(
-          item =>
-            item.classList.remove(
-              "active"
-            )
-        );
-
-
-        button.classList.add(
-          "active"
-        );
 
       };
 
@@ -2163,42 +3107,54 @@ document.querySelectorAll(
 );
 
 
-/* =========================
-   VERSLEPEN
-   ========================= */
+/* DRAG */
 
-function makeDraggable(element){
+function makeDraggable(
+  element
+){
 
-  let dragging = false;
+  let dragging =
+    false;
 
-  let startX = 0;
-  let startY = 0;
+  let startX =
+    0;
 
-  let startLeft = 0;
-  let startTop = 0;
+  let startY =
+    0;
+
+  let startLeft =
+    0;
+
+  let startTop =
+    0;
 
 
   element.addEventListener(
     "pointerdown",
     event => {
 
-      if(!proMode){
+      if(
+        !professionalMode
+      ){
         return;
       }
 
 
       event.preventDefault();
 
-      selectElement(
+
+      selectDesktopElement(
         element
       );
 
 
-      dragging = true;
+      dragging =
+        true;
 
 
       const cardRect =
-        card.getBoundingClientRect();
+        desktopCard.getBoundingClientRect();
+
 
       const elementRect =
         element.getBoundingClientRect();
@@ -2215,6 +3171,7 @@ function makeDraggable(element){
         elementRect.left -
         cardRect.left;
 
+
       startTop =
         elementRect.top -
         cardRect.top;
@@ -2223,11 +3180,14 @@ function makeDraggable(element){
       element.style.left =
         startLeft + "px";
 
+
       element.style.top =
         startTop + "px";
 
+
       element.style.right =
         "auto";
+
 
       element.style.bottom =
         "auto";
@@ -2247,7 +3207,7 @@ function makeDraggable(element){
 
       if(
         !dragging ||
-        !proMode
+        !professionalMode
       ){
         return;
       }
@@ -2258,6 +3218,7 @@ function makeDraggable(element){
         event.clientX -
         startX;
 
+
       let top =
         startTop +
         event.clientY -
@@ -2265,11 +3226,12 @@ function makeDraggable(element){
 
 
       const maxLeft =
-        card.clientWidth -
+        desktopCard.clientWidth -
         element.offsetWidth;
 
+
       const maxTop =
-        card.clientHeight -
+        desktopCard.clientHeight -
         element.offsetHeight;
 
 
@@ -2277,8 +3239,8 @@ function makeDraggable(element){
         Math.max(
           0,
           Math.min(
-            left,
-            maxLeft
+            maxLeft,
+            left
           )
         );
 
@@ -2287,14 +3249,15 @@ function makeDraggable(element){
         Math.max(
           0,
           Math.min(
-            top,
-            maxTop
+            maxTop,
+            top
           )
         );
 
 
       element.style.left =
         left + "px";
+
 
       element.style.top =
         top + "px";
@@ -2306,7 +3269,10 @@ function makeDraggable(element){
   element.addEventListener(
     "pointerup",
     () => {
-      dragging = false;
+
+      dragging =
+        false;
+
     }
   );
 
@@ -2314,89 +3280,30 @@ function makeDraggable(element){
   element.addEventListener(
     "pointercancel",
     () => {
-      dragging = false;
+
+      dragging =
+        false;
+
     }
   );
 
 }
 
 
-allElements.forEach(
+desktopElements.forEach(
   makeDraggable
 );
 
 
-/* =========================
-   BINNEN KAART HOUDEN
-   ========================= */
-
-function keepInsideCard(element){
-
-  let left =
-    parseFloat(
-      element.style.left
-    ) || 0;
-
-  let top =
-    parseFloat(
-      element.style.top
-    ) || 0;
-
-
-  const maxLeft =
-    Math.max(
-      0,
-      card.clientWidth -
-      element.offsetWidth
-    );
-
-  const maxTop =
-    Math.max(
-      0,
-      card.clientHeight -
-      element.offsetHeight
-    );
-
-
-  left =
-    Math.max(
-      0,
-      Math.min(
-        left,
-        maxLeft
-      )
-    );
-
-
-  top =
-    Math.max(
-      0,
-      Math.min(
-        top,
-        maxTop
-      )
-    );
-
-
-  element.style.left =
-    left + "px";
-
-  element.style.top =
-    top + "px";
-}
-
-
-/* =========================
-   RESET
-   ========================= */
+/* RESET */
 
 document.getElementById(
-  "resetButton"
+  "resetPositions"
 ).onclick =
-  resetPositions;
+  resetDesktopPositions;
 
 
-function position(
+function setPosition(
   element,
   left,
   top
@@ -2416,76 +3323,76 @@ function position(
 }
 
 
-function resetPositions(){
+function resetDesktopPositions(){
 
   const portrait =
-    card.classList.contains(
+    desktopCard.classList.contains(
       "portrait"
     );
 
 
   if(portrait){
 
-    position(
-      nameElement,
+    setPosition(
+      desktopName,
       30,
       40
     );
 
-    position(
-      companyElement,
+    setPosition(
+      desktopCompany,
       30,
       90
     );
 
-    position(
-      contactElement,
+    setPosition(
+      desktopContact,
       30,
       250
     );
 
-    position(
-      logoElement,
+    setPosition(
+      desktopLogo,
       195,
       135
     );
 
-    position(
-      qrElement,
+    setPosition(
+      desktopQr,
       180,
-      355
+      350
     );
 
   }
 
   else{
 
-    position(
-      nameElement,
+    setPosition(
+      desktopName,
       40,
       42
     );
 
-    position(
-      companyElement,
+    setPosition(
+      desktopCompany,
       40,
-      90
+      91
     );
 
-    position(
-      contactElement,
+    setPosition(
+      desktopContact,
       40,
       195
     );
 
-    position(
-      logoElement,
+    setPosition(
+      desktopLogo,
       375,
       30
     );
 
-    position(
-      qrElement,
+    setPosition(
+      desktopQr,
       365,
       185
     );
@@ -2495,183 +3402,429 @@ function resetPositions(){
 }
 
 
-/* =========================
-   SAVE
-   ========================= */
+/* =====================================
+   MOBILE NAVIGATION
+   ===================================== */
 
-document.getElementById(
-  "saveButton"
-).onclick =
-  () => {
-
-    const design = {
-
-      name:
-        nameInput.value,
-
-      company:
-        companyInput.value,
-
-      phone:
-        phoneInput.value,
-
-      email:
-        emailInput.value,
-
-      website:
-        websiteInput.value,
-
-      wood:
-        woodSelect.value,
-
-      orientation:
-        orientationSelect.value,
-
-      qr:
-        qrType.value,
-
-      positions:{}
-
-    };
+const mobileSteps =
+  document.querySelectorAll(
+    ".mobile-step"
+  );
 
 
-    allElements.forEach(
-      element => {
-
-        design.positions[
-          element.dataset.type
-        ] = {
-
-          left:
-            element.style.left,
-
-          top:
-            element.style.top
-
-        };
-
-      }
-    );
+const mobileNavButtons =
+  document.querySelectorAll(
+    "[data-mobile-step]"
+  );
 
 
-    localStorage.setItem(
-      "woodcard-design",
-      JSON.stringify(
-        design
-      )
-    );
+function showMobileStep(
+  step
+){
 
+  mobileSteps.forEach(
+    section => {
 
-    alert(
-      "Ontwerp opgeslagen op deze computer."
-    );
-
-  };
-
-
-/* =========================
-   SVG PROTOTYPE
-   ========================= */
-
-document.getElementById(
-  "exportButton"
-).onclick =
-  () => {
-
-    const width =
-      card.clientWidth;
-
-    const height =
-      card.clientHeight;
-
-
-    const x =
-      parseFloat(
-        nameElement.style.left
-      ) || 0;
-
-    const y =
-      parseFloat(
-        nameElement.style.top
-      ) || 0;
-
-
-    const svg =
-`<svg xmlns="http://www.w3.org/2000/svg"
-width="${width}"
-height="${height}"
-viewBox="0 0 ${width} ${height}">
-
-<rect
-width="${width}"
-height="${height}"
-rx="14"
-fill="${woodSelect.value}"
-/>
-
-<text
-x="${x}"
-y="${y + 34}"
-font-size="${parseInt(getComputedStyle(nameElement).fontSize)}"
-font-family="Arial"
-fill="#352318">
-${nameInput.value}
-</text>
-
-</svg>`;
-
-
-    const blob =
-      new Blob(
-        [svg],
-        {
-          type:"image/svg+xml"
-        }
+      section.classList.toggle(
+        "active",
+        section.dataset.step ===
+        String(step)
       );
 
+    }
+  );
 
-    const url =
-      URL.createObjectURL(
-        blob
+
+  mobileNavButtons.forEach(
+    button => {
+
+      button.classList.toggle(
+        "active",
+        button.dataset.mobileStep ===
+        String(step)
       );
 
-
-    const link =
-      document.createElement(
-        "a"
-      );
+    }
+  );
 
 
-    link.href =
-      url;
-
-    link.download =
-      "woodcard-ontwerp.svg";
-
-
-    link.click();
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
 
 
-    URL.revokeObjectURL(
-      url
-    );
+mobileNavButtons.forEach(
+  button => {
 
-  };
+    button.onclick =
+      () => {
 
+        showMobileStep(
+          Number(
+            button.dataset.mobileStep
+          )
+        );
 
-/* =========================
-   START
-   ========================= */
+      };
 
-resetPositions();
-
-updateCard();
-
-updatePrice();
-
-selectElement(
-  nameElement
+  }
 );
+
+
+document.querySelectorAll(
+  "[data-go]"
+).forEach(
+  button => {
+
+    button.onclick =
+      () => {
+
+        showMobileStep(
+          Number(
+            button.dataset.go
+          )
+        );
+
+      };
+
+  }
+);
+
+
+/* =====================================
+   MOBILE DATA
+   ===================================== */
+
+const mName =
+  document.getElementById(
+    "mName"
+  );
+
+const mCompany =
+  document.getElementById(
+    "mCompany"
+  );
+
+const mPhone =
+  document.getElementById(
+    "mPhone"
+  );
+
+const mEmail =
+  document.getElementById(
+    "mEmail"
+  );
+
+const mWebsite =
+  document.getElementById(
+    "mWebsite"
+  );
+
+const mFont =
+  document.getElementById(
+    "mFont"
+  );
+
+const mQrType =
+  document.getElementById(
+    "mQrType"
+  );
+
+const mWood =
+  document.getElementById(
+    "mWood"
+  );
+
+const mOrientation =
+  document.getElementById(
+    "mOrientation"
+  );
+
+const mAmount =
+  document.getElementById(
+    "mAmount"
+  );
+
+const mobileCard =
+  document.getElementById(
+    "mobileCard"
+  );
+
+
+function updateMobile(){
+
+  document.getElementById(
+    "mNamePreview"
+  ).textContent =
+    mName.value;
+
+
+  document.getElementById(
+    "mCompanyPreview"
+  ).textContent =
+    mCompany.value;
+
+
+  document.getElementById(
+    "mPhonePreview"
+  ).textContent =
+    mPhone.value;
+
+
+  document.getElementById(
+    "mEmailPreview"
+  ).textContent =
+    mEmail.value;
+
+
+  document.getElementById(
+    "mWebsitePreview"
+  ).textContent =
+    mWebsite.value;
+
+
+  [
+    "mNamePreview",
+    "mCompanyPreview",
+    "mContactPreview"
+  ].forEach(
+    id => {
+
+      document.getElementById(
+        id
+      ).style.fontFamily =
+        mFont.value;
+
+    }
+  );
+
+
+  mobileCard.style.backgroundColor =
+    mWood.value;
+
+
+  mobileCard.classList.toggle(
+    "portrait",
+    mOrientation.value ===
+    "portrait"
+  );
+
+
+  document.getElementById(
+    "mSummaryWood"
+  ).textContent =
+    mWood.options[
+      mWood.selectedIndex
+    ].dataset.name;
+
+
+  document.getElementById(
+    "mSummaryOrientation"
+  ).textContent =
+    mOrientation.value ===
+    "portrait"
+    ? "Staand"
+    : "Liggend";
+
+
+  updateMobileQR();
+}
+
+
+[
+  mName,
+  mCompany,
+  mPhone,
+  mEmail,
+  mWebsite
+].forEach(
+  field => {
+
+    field.addEventListener(
+      "input",
+      updateMobile
+    );
+
+  }
+);
+
+
+[
+  mFont,
+  mQrType,
+  mWood,
+  mOrientation
+].forEach(
+  field => {
+
+    field.addEventListener(
+      "change",
+      updateMobile
+    );
+
+  }
+);
+
+
+/* MOBILE QR */
+
+function updateMobileQR(){
+
+  const element =
+    document.getElementById(
+      "mQrPreview"
+    );
+
+
+  const image =
+    document.getElementById(
+      "mQrImage"
+    );
+
+
+  const data =
+    qrData(
+      mQrType.value,
+      mName.value,
+      mCompany.value,
+      mPhone.value,
+      mEmail.value,
+      mWebsite.value
+    );
+
+
+  if(
+    mQrType.value ===
+    "none" ||
+    !data
+  ){
+
+    element.style.display =
+      "none";
+
+    return;
+  }
+
+
+  element.style.display =
+    "block";
+
+
+  const bg =
+    mWood.value.replace(
+      "#",
+      ""
+    );
+
+
+  image.src =
+    "https://api.qrserver.com/v1/create-qr-code/" +
+    "?size=350x350" +
+    "&margin=0" +
+    "&color=352318" +
+    "&bgcolor=" +
+    bg +
+    "&data=" +
+    encodeURIComponent(data);
+
+}
+
+
+/* MOBILE LOGO */
+
+document.getElementById(
+  "mLogo"
+).onchange =
+  event => {
+
+    const file =
+      event.target.files[0];
+
+
+    if(!file){
+      return;
+    }
+
+
+    const reader =
+      new FileReader();
+
+
+    reader.onload =
+      e => {
+
+        const logo =
+          document.getElementById(
+            "mLogoPreview"
+          );
+
+
+        logo.src =
+          e.target.result;
+
+
+        logo.style.display =
+          "block";
+
+      };
+
+
+    reader.readAsDataURL(
+      file
+    );
+
+  };
+
+
+/* MOBILE PRICE */
+
+mAmount.onchange =
+  updateMobilePrice;
+
+
+function updateMobilePrice(){
+
+  const amount =
+    Number(
+      mAmount.value
+    );
+
+
+  document.getElementById(
+    "mPrice"
+  ).textContent =
+    "€" +
+    priceFor(amount);
+
+
+  document.getElementById(
+    "mSummaryAmount"
+  ).textContent =
+    amount +
+    " kaartjes";
+
+}
+
+
+/* =====================================
+   START
+   ===================================== */
+
+resetDesktopPositions();
+
+updateDesktop();
+
+updateDesktopPrice();
+
+selectDesktopElement(
+  desktopName
+);
+
+updateMobile();
+
+updateMobilePrice();
 
 </script>
 
