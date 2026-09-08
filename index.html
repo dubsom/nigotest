@@ -1,1 +1,286 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>WoodCard | Houten visitekaartjes</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f0e8;
+      color: #2d241d;
+    }
+
+    /* MENU */
+    header {
+      background: #ffffff;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: #2d241d;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: bold;
+    }
+
+    /* BOVENSTE GEDEELTE */
+    .hero {
+      min-height: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .small-title {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: 58px;
+      line-height: 1.05;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.6;
+      max-width: 650px;
+      margin: 0 auto 35px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #3d2a1e;
+      color: white;
+      padding: 17px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #624530;
+    }
+
+    /* HOE WERKT HET */
+    .how {
+      background: white;
+      padding: 90px 8%;
+      text-align: center;
+    }
+
+    .how h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .intro {
+      color: #6d625a;
+      margin-bottom: 55px;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .step {
+      background: #f5f0e8;
+      padding: 35px;
+      border-radius: 12px;
+      width: 280px;
+    }
+
+    .number {
+      font-size: 42px;
+      font-weight: bold;
+      color: #9a7658;
+      margin-bottom: 15px;
+    }
+
+    .step h3 {
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .step p {
+      line-height: 1.6;
+      color: #655b53;
+    }
+
+    /* CTA */
+    .design {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .design h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .design p {
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    footer {
+      background: #241b15;
+      color: white;
+      text-align: center;
+      padding: 35px;
+    }
+
+    /* MOBIEL */
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 40px;
+      }
+
+      .hero {
+        min-height: 500px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .logo {
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">WOODCARD</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#werking">Hoe werkt het?</a>
+      <a href="#ontwerpen">Ontwerpen</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+
+  <section class="hero">
+    <div class="hero-content">
+
+      <div class="small-title">
+        Natuurlijk • Persoonlijk • Uniek
+      </div>
+
+      <h1>
+        Een visitekaartje<br>
+        dat je bijblijft.
+      </h1>
+
+      <p>
+        Ontwerp jouw eigen houten visitekaartje.
+        Jij maakt het ontwerp online en wij graveren
+        het met precisie in echt hout.
+      </p>
+
+      <a href="#ontwerpen" class="button">
+        Ontwerp je kaartje →
+      </a>
+
+    </div>
+  </section>
+
+
+  <section class="how" id="werking">
+
+    <h2>Van ontwerp naar hout</h2>
+
+    <p class="intro">
+      In drie eenvoudige stappen naar jouw persoonlijke visitekaartje.
+    </p>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="number">01</div>
+        <h3>Ontwerp</h3>
+        <p>
+          Voeg je naam, logo, contactgegevens
+          en QR-code toe.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="number">02</div>
+        <h3>Bestel</h3>
+        <p>
+          Kies jouw houtsoort en het aantal
+          visitekaartjes.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="number">03</div>
+        <h3>Wij graveren</h3>
+        <p>
+          Jouw ontwerp wordt nauwkeurig
+          met een laser in het hout gegraveerd.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="design" id="ontwerpen">
+
+    <h2>Maak iets dat opvalt.</h2>
+
+    <p>
+      Binnenkort kun je hier zelf jouw houten
+      visitekaartje ontwerpen.
+    </p>
+
+    <a href="#" class="button">
+      Start met ontwerpen
+    </a>
+
+  </section>
+
+
+  <footer id="contact">
+    © 2026 WoodCard — Houten visitekaartjes
+  </footer>
+
+</body>
+</html>
