@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>WoodCard | Houten visitekaartjes</title>
+  <title>TreeTap | Houten smart visitekaartjes</title>
 
   <meta
     name="description"
-    content="Ontwerp unieke houten visitekaartjes online. Kies je hout, maak je ontwerp en laat het met precisie lasergraveren."
+    content="Ontwerp unieke houten smart visitekaartjes met QR en NFC. Natuurlijk materiaal, lasergravure en digitale connectiviteit."
   >
 
   <style>
@@ -46,24 +46,12 @@
 
     body {
       margin: 0;
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
 
       background:
-        radial-gradient(
-          circle at 8% 8%,
-          rgba(90, 140, 80, .10),
-          transparent 25%
-        ),
-        radial-gradient(
-          circle at 92% 20%,
-          rgba(90, 140, 80, .09),
-          transparent 22%
-        ),
+        radial-gradient(circle at 8% 8%, rgba(90, 140, 80, .10), transparent 25%),
+        radial-gradient(circle at 92% 20%, rgba(90, 140, 80, .09), transparent 22%),
         var(--green-50);
 
       line-height: 1.6;
@@ -82,23 +70,17 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-
-    /* =========================
-       HEADER
-       ========================= */
+    /* HEADER */
 
     .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
 
-      background: rgba(255, 255, 255, .94);
+      background: rgba(255, 255, 255, .95);
+      backdrop-filter: blur(12px);
 
-      backdrop-filter:
-        blur(12px);
-
-      border-bottom:
-        1px solid rgba(35, 75, 40, .10);
+      border-bottom: 1px solid rgba(35, 75, 40, .10);
     }
 
     .nav-wrap {
@@ -118,13 +100,12 @@
     .brand {
       display: flex;
       align-items: center;
-
       text-decoration: none;
     }
 
     .brand img {
       display: block;
-      width: 270px;
+      width: 250px;
       max-height: 68px;
       object-fit: contain;
     }
@@ -151,7 +132,6 @@
       color: white !important;
 
       padding: 12px 18px;
-
       border-radius: 10px;
     }
 
@@ -177,10 +157,7 @@
 
     .mobile-nav {
       display: none;
-
-      padding:
-        0 20px 20px;
-
+      padding: 0 20px 20px;
       background: white;
     }
 
@@ -191,9 +168,7 @@
 
     .mobile-nav a {
       display: block;
-
       padding: 14px;
-
       border-radius: 10px;
 
       text-decoration: none;
@@ -208,10 +183,7 @@
       text-align: center;
     }
 
-
-    /* =========================
-       HERO
-       ========================= */
+    /* HERO */
 
     .hero {
       min-height: 660px;
@@ -219,9 +191,7 @@
       display: grid;
       place-items: center;
 
-      padding:
-        70px 24px 90px;
-
+      padding: 70px 24px 90px;
       overflow: hidden;
     }
 
@@ -230,12 +200,9 @@
       max-width: 1240px;
 
       display: grid;
-
-      grid-template-columns:
-        1.02fr .98fr;
+      grid-template-columns: 1.02fr .98fr;
 
       gap: 70px;
-
       align-items: center;
     }
 
@@ -244,9 +211,7 @@
       align-items: center;
       gap: 9px;
 
-      padding:
-        8px 12px;
-
+      padding: 8px 12px;
       border-radius: 999px;
 
       background: var(--green-100);
@@ -256,22 +221,16 @@
       font-weight: 800;
 
       text-transform: uppercase;
-
       letter-spacing: 1.5px;
     }
 
     .hero h1 {
-      margin:
-        22px 0 20px;
+      margin: 22px 0 20px;
 
-      font-size:
-        clamp(46px, 6vw, 76px);
-
+      font-size: clamp(46px, 6vw, 76px);
       line-height: .98;
 
-      letter-spacing:
-        -2.4px;
-
+      letter-spacing: -2.4px;
       color: var(--green-950);
     }
 
@@ -281,11 +240,9 @@
 
     .hero-copy {
       max-width: 640px;
-
       margin-bottom: 28px;
 
       color: var(--muted);
-
       font-size: 20px;
     }
 
@@ -301,12 +258,9 @@
       justify-content: center;
 
       min-height: 52px;
-
-      padding:
-        14px 22px;
+      padding: 14px 22px;
 
       border-radius: 11px;
-
       text-decoration: none;
 
       font-weight: 800;
@@ -326,10 +280,7 @@
 
     .btn-secondary {
       background: white;
-
-      border:
-        1px solid var(--green-200);
-
+      border: 1px solid var(--green-200);
       color: var(--green-900);
     }
 
@@ -341,21 +292,18 @@
       gap: 18px;
 
       color: #667161;
-
       font-size: 14px;
     }
 
     .hero-points span::before {
       content: "✓";
-
       margin-right: 7px;
 
       color: var(--green-600);
       font-weight: 900;
     }
 
-
-    /* HERO CARD MOCKUP */
+    /* HERO VISUAL */
 
     .hero-visual {
       position: relative;
@@ -372,15 +320,10 @@
       width: 160px;
       height: 80px;
 
-      border-radius:
-        100% 0 100% 0;
+      border-radius: 100% 0 100% 0;
 
       background:
-        linear-gradient(
-          135deg,
-          #5d9857,
-          #2f6336
-        );
+        linear-gradient(135deg, #5d9857, #2f6336);
 
       opacity: .18;
     }
@@ -389,16 +332,14 @@
       top: 40px;
       right: 10px;
 
-      transform:
-        rotate(26deg);
+      transform: rotate(26deg);
     }
 
     .leaf-two {
       bottom: 35px;
       left: 10px;
 
-      transform:
-        rotate(-25deg);
+      transform: rotate(-25deg);
     }
 
     .wood-card {
@@ -409,14 +350,13 @@
 
       aspect-ratio: 85 / 55;
 
-      padding: 42px;
+      padding: 38px;
 
       border-radius: 18px;
 
       color: #3b281a;
 
-      background-color:
-        var(--wood-light);
+      background-color: var(--wood-light);
 
       background-image:
         repeating-linear-gradient(
@@ -430,27 +370,24 @@
       box-shadow:
         0 30px 60px rgba(55, 37, 20, .24);
 
-      transform:
-        rotate(-3deg);
+      transform: rotate(-3deg);
     }
 
     .wood-card::after {
       content: "";
 
       position: absolute;
-
       inset: 8px;
 
       border-radius: 13px;
 
-      border:
-        1px solid rgba(80, 50, 25, .08);
+      border: 1px solid rgba(80, 50, 25, .08);
 
       pointer-events: none;
     }
 
     .mock-brand {
-      font-size: 31px;
+      font-size: 30px;
       font-weight: 900;
       letter-spacing: 1px;
     }
@@ -465,29 +402,48 @@
     .mock-contact {
       position: absolute;
 
-      left: 42px;
-      bottom: 38px;
+      left: 38px;
+      bottom: 36px;
 
       font-size: 15px;
       line-height: 1.7;
     }
 
+    .mock-logo {
+      position: absolute;
+
+      right: 34px;
+      top: 34px;
+
+      width: 125px;
+      height: 125px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mock-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
     .mock-qr {
       position: absolute;
 
-      right: 40px;
-      bottom: 38px;
+      right: 44px;
+      bottom: 34px;
 
-      width: 95px;
-      height: 95px;
+      width: 84px;
+      height: 84px;
 
       display: grid;
       place-items: center;
 
-      border:
-        7px solid #3b281a;
+      border: 6px solid #3b281a;
 
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 900;
     }
 
@@ -497,8 +453,7 @@
       bottom: 12px;
       right: 5px;
 
-      padding:
-        12px 16px;
+      padding: 12px 16px;
 
       border-radius: 11px;
 
@@ -512,10 +467,7 @@
       color: var(--green-800);
     }
 
-
-    /* =========================
-       ECO STRIP
-       ========================= */
+    /* ECO STRIP */
 
     .eco-strip {
       background: var(--green-950);
@@ -529,9 +481,7 @@
       padding: 24px;
 
       display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
+      grid-template-columns: repeat(4, 1fr);
 
       gap: 12px;
     }
@@ -540,26 +490,19 @@
       text-align: center;
 
       padding: 10px;
-
       font-size: 14px;
     }
 
     .eco-item strong {
       display: block;
-
       margin-bottom: 3px;
-
       font-size: 16px;
     }
 
-
-    /* =========================
-       SECTIONS
-       ========================= */
+    /* SECTIONS */
 
     .section {
-      padding:
-        95px 24px;
+      padding: 95px 24px;
     }
 
     .section-inner {
@@ -569,10 +512,7 @@
 
     .section-heading {
       max-width: 720px;
-
-      margin:
-        0 auto 50px;
-
+      margin: 0 auto 50px;
       text-align: center;
     }
 
@@ -580,7 +520,6 @@
       color: var(--green-600);
 
       text-transform: uppercase;
-
       letter-spacing: 1.8px;
 
       font-size: 13px;
@@ -588,12 +527,9 @@
     }
 
     .section-heading h2 {
-      margin:
-        10px 0 12px;
+      margin: 10px 0 12px;
 
-      font-size:
-        clamp(34px, 4vw, 50px);
-
+      font-size: clamp(34px, 4vw, 50px);
       line-height: 1.05;
 
       color: var(--green-950);
@@ -606,15 +542,9 @@
       font-size: 18px;
     }
 
-
-    /* WHY WOOD */
-
     .benefit-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
+      grid-template-columns: repeat(4, 1fr);
       gap: 18px;
     }
 
@@ -623,13 +553,10 @@
 
       padding: 28px;
 
-      border:
-        1px solid var(--green-200);
-
+      border: 1px solid var(--green-200);
       border-radius: 16px;
 
-      background:
-        rgba(255, 255, 255, .94);
+      background: rgba(255, 255, 255, .94);
 
       box-shadow:
         0 12px 35px rgba(35, 65, 35, .05);
@@ -653,7 +580,6 @@
 
     .benefit h3 {
       margin: 0 0 9px;
-
       color: var(--green-900);
     }
 
@@ -664,39 +590,25 @@
       font-size: 15px;
     }
 
-
-    /* HOW */
-
     .how-section {
       background:
-        linear-gradient(
-          180deg,
-          #ffffff,
-          #f7f8f3
-        );
+        linear-gradient(180deg, #ffffff, #f7f8f3);
     }
 
     .steps {
       display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
+      grid-template-columns: repeat(4, 1fr);
       gap: 18px;
     }
 
     .step {
-      position: relative;
-
-      padding:
-        30px 24px;
+      padding: 30px 24px;
 
       border-radius: 16px;
 
       background: white;
 
-      border:
-        1px solid #e2e8de;
+      border: 1px solid #e2e8de;
 
       box-shadow:
         0 10px 30px rgba(35, 65, 35, .05);
@@ -720,8 +632,7 @@
     }
 
     .step h3 {
-      margin:
-        0 0 8px;
+      margin: 0 0 8px;
     }
 
     .step p {
@@ -731,15 +642,9 @@
       font-size: 15px;
     }
 
-
-    /* WOOD TYPES */
-
     .wood-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
+      grid-template-columns: repeat(3, 1fr);
       gap: 22px;
     }
 
@@ -750,11 +655,9 @@
 
       background: white;
 
-      border:
-        1px solid #e2e7df;
+      border: 1px solid #e2e7df;
 
-      box-shadow:
-        var(--shadow);
+      box-shadow: var(--shadow);
     }
 
     .wood-swatch {
@@ -816,36 +719,25 @@
       font-size: 15px;
     }
 
-
     /* CTA */
 
     .cta-section {
-      padding:
-        90px 24px 110px;
+      padding: 90px 24px 110px;
     }
 
     .cta-box {
       max-width: 1120px;
       margin: auto;
 
-      padding:
-        60px;
+      padding: 60px;
 
       border-radius: 24px;
 
       color: white;
 
       background:
-        radial-gradient(
-          circle at 10% 10%,
-          rgba(255, 255, 255, .12),
-          transparent 30%
-        ),
-        linear-gradient(
-          135deg,
-          var(--green-900),
-          var(--green-700)
-        );
+        radial-gradient(circle at 10% 10%, rgba(255, 255, 255, .12), transparent 30%),
+        linear-gradient(135deg, var(--green-900), var(--green-700));
 
       box-shadow:
         0 25px 60px rgba(35, 75, 40, .20);
@@ -854,23 +746,18 @@
     }
 
     .cta-box h2 {
-      margin:
-        0 0 14px;
+      margin: 0 0 14px;
 
-      font-size:
-        clamp(34px, 4vw, 52px);
-
+      font-size: clamp(34px, 4vw, 52px);
       line-height: 1.05;
     }
 
     .cta-box p {
       max-width: 660px;
 
-      margin:
-        0 auto 28px;
+      margin: 0 auto 28px;
 
       color: #e6f1e1;
-
       font-size: 18px;
     }
 
@@ -878,7 +765,6 @@
       background: white;
       color: var(--green-900);
     }
-
 
     /* FOOTER */
 
@@ -891,11 +777,9 @@
       max-width: 1180px;
       margin: auto;
 
-      padding:
-        45px 24px;
+      padding: 45px 24px;
 
       display: flex;
-
       justify-content: space-between;
       align-items: center;
 
@@ -912,10 +796,7 @@
       font-size: 13px;
     }
 
-
-    /* =========================
-       MOBILE
-       ========================= */
+    /* MOBILE */
 
     @media (max-width: 950px) {
 
@@ -929,7 +810,7 @@
       }
 
       .brand img {
-        width: 220px;
+        width: 215px;
       }
 
       .hero {
@@ -950,42 +831,34 @@
       }
 
       .eco-inner {
-        grid-template-columns:
-          repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .benefit-grid {
-        grid-template-columns:
-          repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .steps {
-        grid-template-columns:
-          repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
 
     }
-
 
     @media (max-width: 650px) {
 
       .nav-wrap {
         min-height: 74px;
-
-        padding:
-          8px 16px;
+        padding: 8px 16px;
       }
 
       .brand img {
-        width: 185px;
+        width: 175px;
         max-width: 64vw;
       }
 
       .hero {
         min-height: auto;
-
-        padding:
-          45px 18px 65px;
+        padding: 45px 18px 65px;
       }
 
       .hero-grid {
@@ -993,11 +866,8 @@
       }
 
       .hero h1 {
-        font-size:
-          clamp(43px, 13vw, 61px);
-
-        letter-spacing:
-          -1.8px;
+        font-size: clamp(43px, 13vw, 61px);
+        letter-spacing: -1.8px;
       }
 
       .hero-copy {
@@ -1019,18 +889,16 @@
       }
 
       .hero-visual {
-        min-height: 310px;
+        min-height: 320px;
       }
 
       .wood-card {
-        padding: 26px;
-
-        transform:
-          rotate(-2deg);
+        padding: 24px;
+        transform: rotate(-2deg);
       }
 
       .mock-brand {
-        font-size: 22px;
+        font-size: 21px;
       }
 
       .mock-tagline,
@@ -1039,20 +907,28 @@
       }
 
       .mock-contact {
-        left: 26px;
-        bottom: 25px;
+        left: 24px;
+        bottom: 24px;
+      }
+
+      .mock-logo {
+        right: 22px;
+        top: 22px;
+
+        width: 78px;
+        height: 78px;
       }
 
       .mock-qr {
-        width: 65px;
-        height: 65px;
+        width: 60px;
+        height: 60px;
 
-        right: 26px;
-        bottom: 25px;
+        right: 22px;
+        bottom: 22px;
 
-        border-width: 5px;
+        border-width: 4px;
 
-        font-size: 12px;
+        font-size: 11px;
       }
 
       .visual-badge {
@@ -1062,13 +938,11 @@
 
       .eco-inner {
         grid-template-columns: 1fr;
-        padding:
-          20px;
+        padding: 20px;
       }
 
       .section {
-        padding:
-          70px 18px;
+        padding: 70px 18px;
       }
 
       .section-heading {
@@ -1086,14 +960,11 @@
       }
 
       .cta-section {
-        padding:
-          60px 18px 80px;
+        padding: 60px 18px 80px;
       }
 
       .cta-box {
-        padding:
-          40px 22px;
-
+        padding: 40px 22px;
         border-radius: 18px;
       }
 
@@ -1108,64 +979,18 @@
 
 <body>
 
-  <!-- HEADER -->
+<header class="site-header">
 
-  <header class="site-header">
+  <div class="nav-wrap">
 
-    <div class="nav-wrap">
-
-      <a href="index.html" class="brand">
-        <img
-          src="woodcard-logo.png"
-          alt="WoodCard - houten visitekaartjes"
-        >
-      </a>
-
-
-      <nav class="desktop-nav">
-
-        <a href="index.html">
-          Home
-        </a>
-
-        <a href="#waarom">
-          Waarom hout?
-        </a>
-
-        <a href="#werking">
-          Hoe werkt het?
-        </a>
-
-        <a href="#hout">
-          Houtsoorten
-        </a>
-
-        <a
-          href="ontwerpen.html"
-          class="nav-cta"
-        >
-          Ontwerp je kaartje
-        </a>
-
-      </nav>
-
-
-      <button
-        class="menu-button"
-        id="menuButton"
-        aria-label="Menu openen"
-        aria-expanded="false"
+    <a href="index.html" class="brand">
+      <img
+        src="treetap-logo-horizontal.png"
+        alt="TreeTap - Wooden Smart Cards"
       >
-        ☰
-      </button>
+    </a>
 
-    </div>
-
-
-    <nav
-      class="mobile-nav"
-      id="mobileNav"
-    >
+    <nav class="desktop-nav">
 
       <a href="index.html">
         Home
@@ -1185,592 +1010,599 @@
 
       <a
         href="ontwerpen.html"
-        class="mobile-cta"
+        class="nav-cta"
       >
-        Ontwerp je kaartje →
+        Ontwerp je kaartje
       </a>
 
     </nav>
 
-  </header>
+    <button
+      class="menu-button"
+      id="menuButton"
+      aria-label="Menu openen"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+  </div>
+
+  <nav
+    class="mobile-nav"
+    id="mobileNav"
+  >
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <a href="#waarom">
+      Waarom hout?
+    </a>
+
+    <a href="#werking">
+      Hoe werkt het?
+    </a>
+
+    <a href="#hout">
+      Houtsoorten
+    </a>
+
+    <a
+      href="ontwerpen.html"
+      class="mobile-cta"
+    >
+      Ontwerp je kaartje →
+    </a>
+
+  </nav>
+
+</header>
 
 
+<section class="hero">
 
-  <!-- HERO -->
+  <div class="hero-grid">
 
-  <section class="hero">
+    <div>
 
-    <div class="hero-grid">
+      <div class="eyebrow">
+        🌿 Echt hout • Smart card • Lasergravure
+      </div>
 
-      <div>
+      <h1>
+        Kleine kaart.<br>
+        <span>Grote indruk.</span>
+      </h1>
 
-        <div class="eyebrow">
-          🌿 Echt hout • Lasergravure
+      <p class="hero-copy">
+        Ontwerp online jouw eigen houten smart visitekaartje.
+        Natuurlijk materiaal, unieke houtnerf en digitale connectiviteit
+        via QR en later ook NFC.
+      </p>
+
+      <div class="hero-actions">
+
+        <a
+          href="ontwerpen.html"
+          class="btn btn-primary"
+        >
+          Ontwerp je kaartje →
+        </a>
+
+        <a
+          href="#werking"
+          class="btn btn-secondary"
+        >
+          Bekijk hoe het werkt
+        </a>
+
+      </div>
+
+      <div class="hero-points">
+
+        <span>
+          Zelf online ontwerpen
+        </span>
+
+        <span>
+          Unieke houtlook
+        </span>
+
+        <span>
+          QR & NFC mogelijk
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+      <div class="leaf leaf-one"></div>
+      <div class="leaf leaf-two"></div>
+
+      <div class="wood-card">
+
+        <div class="mock-brand">
+          TreeTap
         </div>
 
-        <h1>
-          Kleine kaart.<br>
-          <span>Grote indruk.</span>
-        </h1>
+        <div class="mock-tagline">
+          Nature connects
+        </div>
 
-        <p class="hero-copy">
-          Ontwerp online jouw eigen houten visitekaartje.
-          Natuurlijk materiaal, een unieke houtnerf en een
-          ontwerp dat met precisie in het hout wordt gegraveerd.
-        </p>
+        <div class="mock-contact">
+          Jan Peeters<br>
+          0470 12 34 56<br>
+          jan@bedrijf.be
+        </div>
 
-        <div class="hero-actions">
-
-          <a
-            href="ontwerpen.html"
-            class="btn btn-primary"
+        <div class="mock-logo">
+          <img
+            src="treetap-logo-round.png"
+            alt="TreeTap TT-logo"
           >
-            Ontwerp je kaartje →
-          </a>
-
-          <a
-            href="#werking"
-            class="btn btn-secondary"
-          >
-            Bekijk hoe het werkt
-          </a>
-
         </div>
 
-        <div class="hero-points">
-
-          <span>
-            Zelf online ontwerpen
-          </span>
-
-          <span>
-            Unieke houtlook
-          </span>
-
-          <span>
-            QR-code mogelijk
-          </span>
-
+        <div class="mock-qr">
+          QR
         </div>
 
       </div>
 
-
-      <div class="hero-visual">
-
-        <div class="leaf leaf-one"></div>
-        <div class="leaf leaf-two"></div>
-
-        <div class="wood-card">
-
-          <div class="mock-brand">
-            WOODCARD
-          </div>
-
-          <div class="mock-tagline">
-            Natuurlijk in contact
-          </div>
-
-          <div class="mock-contact">
-            Jan Peeters<br>
-            0470 12 34 56<br>
-            jan@bedrijf.be
-          </div>
-
-          <div class="mock-qr">
-            QR
-          </div>
-
-        </div>
-
-        <div class="visual-badge">
-          🌱 Elk kaartje heeft zijn eigen nerf
-        </div>
-
+      <div class="visual-badge">
+        🌱 Elk kaartje heeft zijn eigen nerf
       </div>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
+<section class="eco-strip">
 
-  <!-- ECO STRIP -->
+  <div class="eco-inner">
 
-  <section class="eco-strip">
-
-    <div class="eco-inner">
-
-      <div class="eco-item">
-        <strong>🌿 Natuurlijk</strong>
-        Echt hout als basis
-      </div>
-
-      <div class="eco-item">
-        <strong>♻ Bewust</strong>
-        Een alternatief voor standaard papier
-      </div>
-
-      <div class="eco-item">
-        <strong>✦ Uniek</strong>
-        Geen twee houtnerven zijn hetzelfde
-      </div>
-
-      <div class="eco-item">
-        <strong>⌁ Precies</strong>
-        Lasergravure met detail
-      </div>
-
+    <div class="eco-item">
+      <strong>🌿 Natuurlijk</strong>
+      Echt hout als basis
     </div>
 
-  </section>
-
-
-
-  <!-- WAAROM -->
-
-  <section
-    class="section"
-    id="waarom"
-  >
-
-    <div class="section-inner">
-
-      <div class="section-heading">
-
-        <div class="small">
-          Waarom hout?
-        </div>
-
-        <h2>
-          Een visitekaartje dat niet voelt als wegwerp.
-        </h2>
-
-        <p>
-          Hout geeft een warme, natuurlijke uitstraling
-          en maakt van een eenvoudig contactmoment iets
-          dat mensen onthouden.
-        </p>
-
-      </div>
-
-
-      <div class="benefit-grid">
-
-        <article class="benefit">
-
-          <div class="benefit-icon">
-            🌱
-          </div>
-
-          <h3>
-            Natuurlijk karakter
-          </h3>
-
-          <p>
-            De zichtbare houtnerf zorgt ervoor dat ieder
-            kaartje net iets anders oogt.
-          </p>
-
-        </article>
-
-
-        <article class="benefit">
-
-          <div class="benefit-icon">
-            ✨
-          </div>
-
-          <h3>
-            Premium uitstraling
-          </h3>
-
-          <p>
-            Hout voelt opvallend en stevig aan en geeft
-            je merk meteen meer karakter.
-          </p>
-
-        </article>
-
-
-        <article class="benefit">
-
-          <div class="benefit-icon">
-            🔥
-          </div>
-
-          <h3>
-            Laser gegraveerd
-          </h3>
-
-          <p>
-            Tekst, logo en QR-code worden rechtstreeks
-            in het materiaal aangebracht.
-          </p>
-
-        </article>
-
-
-        <article class="benefit">
-
-          <div class="benefit-icon">
-            🎨
-          </div>
-
-          <h3>
-            Zelf ontwerpen
-          </h3>
-
-          <p>
-            Gebruik onze online editor en bekijk jouw
-            ontwerp direct op een houten kaartje.
-          </p>
-
-        </article>
-
-      </div>
-
+    <div class="eco-item">
+      <strong>♻ Bewust</strong>
+      Een alternatief voor standaard papier
     </div>
 
-  </section>
-
-
-
-  <!-- WERKING -->
-
-  <section
-    class="section how-section"
-    id="werking"
-  >
-
-    <div class="section-inner">
-
-      <div class="section-heading">
-
-        <div class="small">
-          Simpel proces
-        </div>
-
-        <h2>
-          Van idee naar hout.
-        </h2>
-
-        <p>
-          Geen ingewikkeld bestelproces. Je maakt je
-          ontwerp online en wij bereiden het voor op productie.
-        </p>
-
-      </div>
-
-
-      <div class="steps">
-
-        <article class="step">
-
-          <div class="step-number">
-            1
-          </div>
-
-          <h3>
-            Kies je hout
-          </h3>
-
-          <p>
-            Kies de houtsoort en het gewenste aantal
-            visitekaartjes.
-          </p>
-
-        </article>
-
-
-        <article class="step">
-
-          <div class="step-number">
-            2
-          </div>
-
-          <h3>
-            Maak je ontwerp
-          </h3>
-
-          <p>
-            Voeg naam, contactgegevens, logo en QR-code toe.
-          </p>
-
-        </article>
-
-
-        <article class="step">
-
-          <div class="step-number">
-            3
-          </div>
-
-          <h3>
-            Controleer live
-          </h3>
-
-          <p>
-            Bekijk onmiddellijk hoe jouw kaartje er
-            ongeveer uit komt te zien.
-          </p>
-
-        </article>
-
-
-        <article class="step">
-
-          <div class="step-number">
-            4
-          </div>
-
-          <h3>
-            Wij graveren
-          </h3>
-
-          <p>
-            Het uiteindelijke ontwerp wordt voorbereid
-            en met de laser in het hout gegraveerd.
-          </p>
-
-        </article>
-
-      </div>
-
+    <div class="eco-item">
+      <strong>✦ Uniek</strong>
+      Geen twee houtnerven zijn hetzelfde
     </div>
 
-  </section>
-
-
-
-  <!-- HOUTSOORTEN -->
-
-  <section
-    class="section"
-    id="hout"
-  >
-
-    <div class="section-inner">
-
-      <div class="section-heading">
-
-        <div class="small">
-          Kies je uitstraling
-        </div>
-
-        <h2>
-          Drie houtlooks om mee te starten.
-        </h2>
-
-        <p>
-          Voor dit prototype kun je al verschillende
-          houtstijlen vergelijken in de ontwerper.
-        </p>
-
-      </div>
-
-
-      <div class="wood-grid">
-
-        <article class="wood-type">
-
-          <div class="wood-swatch wood-maple">
-            Esdoorn
-          </div>
-
-          <div class="wood-copy">
-
-            <h3>
-              Esdoorn
-            </h3>
-
-            <p>
-              Licht en rustig. Een mooie basis voor
-              donkere lasergravure.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <article class="wood-type">
-
-          <div class="wood-swatch wood-walnut">
-            Walnoot
-          </div>
-
-          <div class="wood-copy">
-
-            <h3>
-              Walnoot
-            </h3>
-
-            <p>
-              Donkerder en luxueus, met een uitgesproken
-              natuurlijke uitstraling.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <article class="wood-type">
-
-          <div class="wood-swatch wood-bamboo">
-            Bamboe
-          </div>
-
-          <div class="wood-copy">
-
-            <h3>
-              Bamboe
-            </h3>
-
-            <p>
-              Warm, helder en strak. Past goed bij een
-              moderne eco-uitstraling.
-            </p>
-
-          </div>
-
-        </article>
-
-      </div>
-
+    <div class="eco-item">
+      <strong>⌁ Smart</strong>
+      QR en NFC voor directe connectie
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
+<section
+  class="section"
+  id="waarom"
+>
 
-  <!-- CTA -->
+  <div class="section-inner">
 
-  <section class="cta-section">
+    <div class="section-heading">
 
-    <div class="cta-box">
+      <div class="small">
+        Waarom hout?
+      </div>
 
       <h2>
-        Klaar om je eerste kaartje te maken?
+        Een visitekaartje dat niet voelt als wegwerp.
       </h2>
 
       <p>
-        Kies tussen de eenvoudige editor of de professionele
-        editor en experimenteer met tekst, QR-code, logo,
-        houtsoort en plaatsing.
+        Hout geeft een warme, natuurlijke uitstraling
+        en maakt van een eenvoudig contactmoment iets
+        dat mensen onthouden.
       </p>
-
-      <a
-        href="ontwerpen.html"
-        class="btn"
-      >
-        Start met ontwerpen →
-      </a>
 
     </div>
 
-  </section>
+    <div class="benefit-grid">
 
+      <article class="benefit">
 
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="footer-inner">
-
-      <div>
-
-        <div class="footer-brand">
-          WOODCARD
+        <div class="benefit-icon">
+          🌱
         </div>
 
-        <div class="footer-copy">
-          Natuurlijk in contact.
+        <h3>
+          Natuurlijk karakter
+        </h3>
+
+        <p>
+          De zichtbare houtnerf zorgt ervoor dat ieder
+          kaartje net iets anders oogt.
+        </p>
+
+      </article>
+
+      <article class="benefit">
+
+        <div class="benefit-icon">
+          ✨
         </div>
 
+        <h3>
+          Premium uitstraling
+        </h3>
+
+        <p>
+          Hout voelt opvallend en stevig aan en geeft
+          je merk meteen meer karakter.
+        </p>
+
+      </article>
+
+      <article class="benefit">
+
+        <div class="benefit-icon">
+          🔥
+        </div>
+
+        <h3>
+          Laser gegraveerd
+        </h3>
+
+        <p>
+          Tekst, logo en QR-code worden rechtstreeks
+          in het materiaal aangebracht.
+        </p>
+
+      </article>
+
+      <article class="benefit">
+
+        <div class="benefit-icon">
+          📲
+        </div>
+
+        <h3>
+          Smart connect
+        </h3>
+
+        <p>
+          Combineer hout met QR en later NFC voor
+          directe digitale contactinformatie.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section
+  class="section how-section"
+  id="werking"
+>
+
+  <div class="section-inner">
+
+    <div class="section-heading">
+
+      <div class="small">
+        Simpel proces
+      </div>
+
+      <h2>
+        Van idee naar hout.
+      </h2>
+
+      <p>
+        Geen ingewikkeld bestelproces. Je maakt je
+        ontwerp online en wij bereiden het voor op productie.
+      </p>
+
+    </div>
+
+    <div class="steps">
+
+      <article class="step">
+
+        <div class="step-number">
+          1
+        </div>
+
+        <h3>
+          Kies je hout
+        </h3>
+
+        <p>
+          Kies de houtsoort en het gewenste aantal
+          visitekaartjes.
+        </p>
+
+      </article>
+
+      <article class="step">
+
+        <div class="step-number">
+          2
+        </div>
+
+        <h3>
+          Maak je ontwerp
+        </h3>
+
+        <p>
+          Voeg naam, contactgegevens, logo en QR-code toe.
+        </p>
+
+      </article>
+
+      <article class="step">
+
+        <div class="step-number">
+          3
+        </div>
+
+        <h3>
+          Maak het smart
+        </h3>
+
+        <p>
+          Voeg QR toe en later ook NFC voor directe digitale connectie.
+        </p>
+
+      </article>
+
+      <article class="step">
+
+        <div class="step-number">
+          4
+        </div>
+
+        <h3>
+          Wij graveren
+        </h3>
+
+        <p>
+          Het uiteindelijke ontwerp wordt voorbereid
+          en met de laser in het hout gegraveerd.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section
+  class="section"
+  id="hout"
+>
+
+  <div class="section-inner">
+
+    <div class="section-heading">
+
+      <div class="small">
+        Kies je uitstraling
+      </div>
+
+      <h2>
+        Drie houtlooks om mee te starten.
+      </h2>
+
+      <p>
+        Vergelijk verschillende houtstijlen
+        in de TreeTap-ontwerper.
+      </p>
+
+    </div>
+
+    <div class="wood-grid">
+
+      <article class="wood-type">
+
+        <div class="wood-swatch wood-maple">
+          Esdoorn
+        </div>
+
+        <div class="wood-copy">
+
+          <h3>
+            Esdoorn
+          </h3>
+
+          <p>
+            Licht en rustig. Een mooie basis voor
+            donkere lasergravure.
+          </p>
+
+        </div>
+
+      </article>
+
+      <article class="wood-type">
+
+        <div class="wood-swatch wood-walnut">
+          Walnoot
+        </div>
+
+        <div class="wood-copy">
+
+          <h3>
+            Walnoot
+          </h3>
+
+          <p>
+            Donkerder en luxueus, met een uitgesproken
+            natuurlijke uitstraling.
+          </p>
+
+        </div>
+
+      </article>
+
+      <article class="wood-type">
+
+        <div class="wood-swatch wood-bamboo">
+          Bamboe
+        </div>
+
+        <div class="wood-copy">
+
+          <h3>
+            Bamboe
+          </h3>
+
+          <p>
+            Warm, helder en strak. Past goed bij een
+            moderne eco-uitstraling.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="cta-section">
+
+  <div class="cta-box">
+
+    <h2>
+      Klaar om je eerste TreeTap te maken?
+    </h2>
+
+    <p>
+      Kies tussen de eenvoudige editor of de professionele
+      editor en experimenteer met tekst, QR, logo,
+      houtsoort en plaatsing.
+    </p>
+
+    <a
+      href="ontwerpen.html"
+      class="btn"
+    >
+      Start met ontwerpen →
+    </a>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div>
+
+      <div class="footer-brand">
+        TREETAP
       </div>
 
       <div class="footer-copy">
-        Prototype • 2026
+        Nature connects.
       </div>
 
     </div>
 
-  </footer>
+    <div class="footer-copy">
+      Wooden Smart Cards • 2026
+    </div>
+
+  </div>
+
+</footer>
 
 
+<script>
 
-  <script>
+const menuButton =
+  document.getElementById(
+    "menuButton"
+  );
 
-    const menuButton =
-      document.getElementById(
-        "menuButton"
+const mobileNav =
+  document.getElementById(
+    "mobileNav"
+  );
+
+menuButton.addEventListener(
+  "click",
+  function() {
+
+    const open =
+      mobileNav.classList.toggle(
+        "open"
       );
 
-    const mobileNav =
-      document.getElementById(
-        "mobileNav"
-      );
+    menuButton.setAttribute(
+      "aria-expanded",
+      open
+    );
 
+    menuButton.textContent =
+      open
+      ? "✕"
+      : "☰";
 
-    menuButton.addEventListener(
+  }
+);
+
+mobileNav.querySelectorAll(
+  "a"
+).forEach(
+  link => {
+
+    link.addEventListener(
       "click",
       function() {
 
-        const open =
-          mobileNav.classList.toggle(
-            "open"
-          );
-
-        menuButton.setAttribute(
-          "aria-expanded",
-          open
+        mobileNav.classList.remove(
+          "open"
         );
 
         menuButton.textContent =
-          open
-            ? "✕"
-            : "☰";
+          "☰";
 
-      }
-    );
-
-
-    /*
-      Sluit mobiel menu zodra iemand
-      op een link klikt.
-    */
-
-    mobileNav.querySelectorAll(
-      "a"
-    ).forEach(
-      link => {
-
-        link.addEventListener(
-          "click",
-          function() {
-
-            mobileNav.classList.remove(
-              "open"
-            );
-
-            menuButton.textContent =
-              "☰";
-
-            menuButton.setAttribute(
-              "aria-expanded",
-              "false"
-            );
-
-          }
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
         );
 
       }
     );
 
-  </script>
+  }
+);
+
+</script>
 
 </body>
 </html>
