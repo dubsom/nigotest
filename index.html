@@ -1210,6 +1210,22 @@ footer{
     text-align:center;
   }
 }
+
+/* TreeTap logo shapes: circular seal and gently tilted bank card. */
+.card-logo{width:19%}
+.footer-logo{border-radius:10px;transform:rotate(-4deg);filter:none}
+.brand img{
+  width:150px;height:auto;max-height:none;max-width:45vw;
+  aspect-ratio:85 / 55;object-fit:cover;object-position:center;
+  border-radius:11px;transform:rotate(-4deg);
+  box-shadow:0 5px 12px rgba(25,48,30,.16);
+}
+img[src="treetap-logo-round.png"]{
+  aspect-ratio:1;object-fit:cover;border-radius:50%;
+  clip-path:circle(50% at 50% 50%);
+}
+@media(max-width:600px){.brand img{width:112px;border-radius:8px}}
+
 </style>
 </head>
 

@@ -14,6 +14,19 @@
 @media(min-width:900px){.app{grid-template-columns:300px minmax(0,1fr)}.preview-panel{grid-column:2;grid-row:1}.scene{padding:40px 24px;min-height:410px}.data-panel{grid-column:1;grid-row:1 / span 2}#professionalPanel{grid-column:2}.mode-grid{max-width:780px}.intro{padding-top:30px}}
 @media(max-width:540px){.nav{min-height:74px;padding:8px 16px}.brand img{width:215px;max-height:58px}.home-link{font-size:14px}.intro{padding:20px 16px 12px}.intro p{font-size:14px}.mode-wrap{padding:0 16px;margin-bottom:16px}.mode-btn{padding:10px}.mode-btn strong{font-size:14px}.mode-btn span{font-size:13px}.app{padding:0 12px 30px;gap:16px}.panel{padding:14px;border-radius:14px}.scene{padding:22px 8px}.dimension{font-size:12px}.order-box{align-items:start}.price{font-size:28px}.trust{gap:12px}}
 
+/* TreeTap logo shapes: circular seal and gently tilted bank card. */
+.brand img{
+  width:150px;height:auto;max-height:none;max-width:45vw;
+  aspect-ratio:85 / 55;object-fit:cover;object-position:center;
+  border-radius:11px;transform:rotate(-4deg);
+  box-shadow:0 5px 12px rgba(25,48,30,.16);
+}
+img[src="treetap-logo-round.png"]{
+  aspect-ratio:1;object-fit:cover;border-radius:50%;
+  clip-path:circle(50% at 50% 50%);
+}
+@media(max-width:600px){.brand img{width:112px;border-radius:8px}}
+
 </style>
 </head>
 
@@ -2832,7 +2845,11 @@ function visible(key){return key==='logo'?!!state.logo:key==='qr'?state.nfc!=='n
 function render(){const [w,h]=dims(),items=layout();card.setAttribute('viewBox',`0 0 ${w} ${h}`);card.classList.toggle('portrait',state.orientation==='portrait');card.style.aspectRatio=w+'/'+h;
 let content=`<defs><linearGradient id="woodShade"><stop stop-color="#fff" stop-opacity=".12"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient><pattern id="grain" width="170" height="16" patternUnits="userSpaceOnUse"><path d="M0 3H170 M0 15H170" stroke="#684320" stroke-width=".6" opacity=".14"/></pattern></defs><rect width="${w}" height="${h}" rx="22" fill="${state.wood}"/><rect width="${w}" height="${h}" rx="22" fill="url(#woodShade)"/><rect width="${w}" height="${h}" rx="22" fill="url(#grain)"/>`;
 for(const key of Object.keys(names)){if(!visible(key))continue;const p=items[key];let inner='';
-if(key==='logo')inner=`<image href="${esc(state.logo)}" width="${p.size}" height="${p.size}" preserveAspectRatio="xMidYMid meet"/>`;
+if(key==='logo'){
+const round=state.logo==='treetap-logo-round.png';
+inner=(round?'<defs><clipPath id="treetapRoundClip" clipPathUnits="objectBoundingBox"><circle cx=".5" cy=".5" r=".5"/></clipPath></defs>':'')+
+`<image href="${esc(state.logo)}" width="${p.size}" height="${p.size}" preserveAspectRatio="${round?'xMidYMid slice':'xMidYMid meet'}" ${round?'clip-path="url(#treetapRoundClip)"':''}/>`;
+}
 else if(key==='qr'){try{inner=`<svg width="${p.size}" height="${p.size}">${qrMarkup()}</svg>`;}catch(error){tell('De QR-code is te groot. Verkort je gegevens voor een scanbare code.');}}
 else if(key==='nfc')inner=`<svg width="${p.size}" height="${p.size}" viewBox="0 0 60 60"><g fill="none" stroke="#402615" stroke-width="3.6" stroke-linecap="round"><path d="M15 16Q29 28 15 40M25 10Q46 28 25 46M36 4Q62 28 36 52"/></g><text x="26" y="60" text-anchor="middle" font-family="Arial" font-size="10" fill="#402615">NFC</text></svg>`;
 else{const lines=key==='contact'?[state.phone,state.email,state.website].filter(Boolean):[state[key]];inner=`<text font-family="${esc(state.font)}" font-size="${p.size}" font-weight="${key==='name'?700:400}" fill="#402615">${lines.map((line,i)=>`<tspan x="0" y="${p.size*(.85+i*1.5)}">${esc(line)}</tspan>`).join('')}</text>`;}
