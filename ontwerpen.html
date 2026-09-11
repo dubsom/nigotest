@@ -237,7 +237,7 @@ img[src="treetap-logo-round.png"]{
     accept="image/png,image/jpeg,image/webp"
   ><div class="logo-actions"><button type="button" id="brandLogo" class="small-btn">TreeTap-logo</button><button type="button" id="removeLogo" class="small-btn">Logo weglaten</button></div>
 
-  <label>Logo-grootte</label>
+  <label for="logoThreshold">Logo vrijmaken · <output id="thresholdValue">115</output></label><input id="logoThreshold" type="range" min="1" max="254" value="115"><label for="logoPolarity">Welke delen graveren?</label><select id="logoPolarity"><option value="dark">Donkere delen — lichte achtergrond verwijderen</option><option value="light">Lichte delen — donkere achtergrond verwijderen</option></select><p class="help">Schuif tot alleen het logo zichtbaar is. Donkere of lichte achtergrondvlekken kunnen blijven bij foto's. Een effen logo met transparante achtergrond geeft het beste resultaat.</p><label>Logo-grootte</label>
 
   <div class="stepper">
 
@@ -318,7 +318,7 @@ img[src="treetap-logo-round.png"]{
   </div>
 
 
-  <div class="scene"><svg id="card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 550" role="img" aria-label="Live voorbeeld van jouw TreeTap-kaartje"></svg></div><div class="dimension"><span id="dimensions">85 × 55 mm</span><span>Voorbeeld lasergravure</span></div>
+  <label for="previewMode">Weergave</label><select id="previewMode"><option value="engraved">Gravurevoorbeeld op hout</option><option value="flat">Vlak ontwerp</option></select><p class="help">Indicatie van lasergravure. De echte kleur en diepte hangen af van hout, laser en instellingen. Een proefgravure blijft nodig voor een exacte beoordeling.</p><div class="scene"><svg id="card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 550" role="img" aria-label="Live voorbeeld van jouw TreeTap-kaartje"></svg></div><div class="dimension"><span id="dimensions">85 × 55 mm</span><span>Voorbeeld lasergravure</span></div>
 <div class="order-box">
 
     <div>
@@ -373,7 +373,7 @@ img[src="treetap-logo-round.png"]{
         ⇧ Exporteren als SVG
       </button>
 
-    </div><p id="status" role="status" aria-live="polite"></p></section>
+    </div><button id="exportEngraving" type="button" class="small-btn">Gravurebestand zonder hout (SVG)</button><p id="status" role="status" aria-live="polite"></p></section>
 <!-- PROFESSIONEEL -->
 
 <aside id="professionalPanel">
@@ -2802,10 +2802,10 @@ var qrcode = function() {
 </script><script>
 'use strict';
 const $=id=>document.getElementById(id), NS='http://www.w3.org/2000/svg';
-const fields={name:'nameInput',company:'companyInput',phone:'phoneInput',email:'emailInput',website:'websiteInput',font:'fontSelect',qrType:'qrType',nfc:'nfcSelect',wood:'woodSelect',orientation:'orientationSelect',amount:'amountSelect'};
+const fields={name:'nameInput',company:'companyInput',phone:'phoneInput',email:'emailInput',website:'websiteInput',font:'fontSelect',qrType:'qrType',nfc:'nfcSelect',wood:'woodSelect',orientation:'orientationSelect',amount:'amountSelect',threshold:'logoThreshold',polarity:'logoPolarity',preview:'previewMode'};
 const names={name:'Naam',company:'Bedrijf / functie',contact:'Contactgegevens',logo:'Logo',qr:'QR-code',nfc:'NFC-symbool'};
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
-const defaults=()=>({name:'Jan Peeters',company:'JP Houtwerken',phone:'0470 12 34 56',email:'jan@jphout.be',website:'www.jphout.be',font:'Arial, sans-serif',qrType:'contact',nfc:'none',wood:'#efd9ae',orientation:'landscape',amount:'100',logo:'treetap-logo-round.png',mode:false,layouts:{}});
+const defaults=()=>({name:'Jan Peeters',company:'JP Houtwerken',phone:'0470 12 34 56',email:'jan@jphout.be',website:'www.jphout.be',font:'Arial, sans-serif',qrType:'contact',nfc:'none',wood:'#efd9ae',orientation:'landscape',amount:'100',logo:'treetap-logo-round.png',threshold:'115',polarity:'dark',preview:'engraved',mode:false,layouts:{}});
 let state=defaults(),selected='name',qrCache={data:null,markup:''},drag=null,brandData=null;
 const card=$('card');
 function tell(message){$('status').textContent=message;}
@@ -2820,24 +2820,27 @@ function qrMarkup(){const data=qrData();if(qrCache.data===data)return qrCache.ma
 qrCache={data,markup:`<svg width="100%" height="100%" viewBox="0 0 ${n+8} ${n+8}"><rect width="${n+8}" height="${n+8}" fill="${state.wood}"/><path fill="#21160e" shape-rendering="crispEdges" d="${path}"/></svg>`};return qrCache.markup;}
 function visible(key){return key==='logo'?!!state.logo:key==='qr'?state.nfc!=='nfc'&&state.qrType!=='none'&&!!qrData():key==='nfc'?state.nfc!=='none':true;}
 function render(){document.querySelectorAll('input[name="wood"]').forEach(input=>{input.checked=input.value===state.wood;});const [w,h]=dims(),items=layout();card.setAttribute('viewBox',`0 0 ${w} ${h}`);card.classList.toggle('portrait',state.orientation==='portrait');card.style.aspectRatio=w+'/'+h;
-let content=`<defs><linearGradient id="woodShade"><stop stop-color="#fff" stop-opacity=".12"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient><pattern id="grain" width="170" height="16" patternUnits="userSpaceOnUse"><path d="M0 3H170 M0 15H170" stroke="#684320" stroke-width=".6" opacity=".14"/></pattern></defs><rect width="${w}" height="${h}" rx="22" fill="${state.wood}"/><rect width="${w}" height="${h}" rx="22" fill="url(#woodShade)"/><rect width="${w}" height="${h}" rx="22" fill="url(#grain)"/>`;
+const threshold=Math.max(0,Math.min(255,Number(state.threshold)||115))/255;
+const sign=state.polarity==='light'?1:-1;
+const intercept=state.polarity==='light'?.5-threshold:.5+threshold;
+let content=`<defs><filter id="logoInk" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB"><feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ${sign*.2126} ${sign*.7152} ${sign*.0722} 0 ${intercept}"/><feComponentTransfer><feFuncA type="discrete" tableValues="0 1"/></feComponentTransfer><feComposite in2="SourceAlpha" operator="in" result="ink"/><feFlood flood-color="#000"/><feComposite in2="ink" operator="in"/></filter><filter id="engravedInk" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB"><feFlood flood-color="#342013"/><feComposite in2="SourceAlpha" operator="in" result="burn"/><feOffset in="SourceAlpha" dx=".65" dy=".8" result="edge"/><feFlood flood-color="#fff0cd" flood-opacity=".28"/><feComposite in2="edge" operator="in" result="lightEdge"/><feMerge><feMergeNode in="lightEdge"/><feMergeNode in="burn"/></feMerge></filter><linearGradient id="woodShade"><stop stop-color="#fff" stop-opacity=".12"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient><pattern id="grain" width="170" height="16" patternUnits="userSpaceOnUse"><path d="M0 3H170 M0 15H170" stroke="#684320" stroke-width=".6" opacity=".14"/></pattern></defs><rect width="${w}" height="${h}" rx="22" fill="${state.wood}"/><rect width="${w}" height="${h}" rx="22" fill="url(#woodShade)"/><rect width="${w}" height="${h}" rx="22" fill="url(#grain)"/>`;
 for(const key of Object.keys(names)){if(!visible(key))continue;const p=items[key];let inner='';
 if(key==='logo'){
 const round=state.logo==='treetap-logo-round.png';
 inner=(round?'<defs><clipPath id="treetapRoundClip" clipPathUnits="objectBoundingBox"><circle cx=".5" cy=".5" r=".5"/></clipPath></defs>':'')+
-`<image href="${esc(state.logo)}" width="${p.size}" height="${p.size}" preserveAspectRatio="${round?'xMidYMid slice':'xMidYMid meet'}" ${round?'clip-path="url(#treetapRoundClip)"':''}/>`;
+`<image filter="url(#logoInk)" href="${esc(state.logo)}" width="${p.size}" height="${p.size}" preserveAspectRatio="${round?'xMidYMid slice':'xMidYMid meet'}" ${round?'clip-path="url(#treetapRoundClip)"':''}/>`;
 }
 else if(key==='qr'){try{inner=`<svg width="${p.size}" height="${p.size}">${qrMarkup()}</svg>`;}catch(error){tell('De QR-code is te groot. Verkort je gegevens voor een scanbare code.');}}
 else if(key==='nfc')inner=`<svg width="${p.size}" height="${p.size}" viewBox="0 0 60 60"><g fill="none" stroke="#402615" stroke-width="3.6" stroke-linecap="round"><path d="M15 16Q29 28 15 40M25 10Q46 28 25 46M36 4Q62 28 36 52"/></g><text x="26" y="60" text-anchor="middle" font-family="Arial" font-size="10" fill="#402615">NFC</text></svg>`;
 else{const lines=key==='contact'?[state.phone,state.email,state.website].filter(Boolean):[state[key]];inner=`<text font-family="${esc(state.font)}" font-size="${p.size}" font-weight="${key==='name'?700:400}" fill="#402615">${lines.map((line,i)=>`<tspan x="0" y="${p.size*(.85+i*1.5)}">${esc(line)}</tspan>`).join('')}</text>`;}
-content+=`<g class="element" data-key="${key}" transform="translate(${p.x} ${p.y})" tabindex="${state.mode?0:-1}" role="button" aria-label="${names[key]}">${inner}</g>`;}
+content+=`<g ${state.preview==='engraved'&&key!=='qr'?'filter="url(#engravedInk)"':''} class="element" data-key="${key}" transform="translate(${p.x} ${p.y})" tabindex="${state.mode?0:-1}" role="button" aria-label="${names[key]}">${inner}</g>`;}
 card.innerHTML=content;
 for(const el of card.querySelectorAll('.element')){const key=el.dataset.key,p=items[key];let box=el.getBBox();if(box.width>w-40||box.height>h-40){const factor=Math.min((w-40)/Math.max(1,box.width),(h-40)/Math.max(1,box.height));el.firstElementChild.setAttribute('transform',`scale(${factor})`);box=el.getBBox();}p.x=Math.max(10,Math.min(w-box.width-10,p.x));p.y=Math.max(10,Math.min(h-box.height-10,p.y));el.setAttribute('transform',`translate(${p.x} ${p.y})`);}
 document.body.classList.toggle('professional',state.mode);$('simpleMode').classList.toggle('active',!state.mode);$('professionalMode').classList.toggle('active',state.mode);$('simpleMode').setAttribute('aria-pressed',!state.mode);$('professionalMode').setAttribute('aria-pressed',state.mode);
 $('dimensions').textContent=`${w/10} × ${h/10} mm`;$('summaryWood').textContent=$('woodSelect').selectedOptions[0].textContent.trim();$('summaryOrientation').textContent=state.orientation==='portrait'?'Staand':'Liggend';$('summaryAmount').textContent=state.amount+' kaartjes';$('price').textContent=new Intl.NumberFormat('nl-BE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format({25:29,50:39,100:59,250:109}[state.amount]);$('qrSizeLabel').textContent=(items.qr.size/10).toFixed(1)+' mm';$('logoSizeLabel').textContent=(items.logo.size/10).toFixed(1)+' mm';selection();}
 function selection(){card.querySelector('.selection-frame')?.remove();$('selectedTitle').textContent=names[selected];$('selectedSize').textContent=(layout()[selected].size/10).toFixed(1)+' mm';document.querySelectorAll('[data-select]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.select===selected));const el=card.querySelector(`[data-key="${selected}"]`);if(state.mode&&el){const box=el.getBBox(),p=layout()[selected],frame=document.createElementNS(NS,'rect');for(const [k,v]of Object.entries({x:p.x+box.x-5,y:p.y+box.y-5,width:box.width+10,height:box.height+10,class:'selection-frame'}))frame.setAttribute(k,v);card.append(frame);}}
 function size(key,delta){const item=layout()[key];const image=['logo','qr'].includes(key);item.size=Math.max(key==='qr'?150:image?40:16,Math.min(image?350:90,item.size+delta));render();}
-for(const [key,id]of Object.entries(fields)){const el=$(id);el.value=state[key];if(el.tagName==='INPUT')el.maxLength=180;el.addEventListener(el.tagName==='INPUT'?'input':'change',()=>{state[key]=el.value;if(key==='wood')qrCache.data=null;render();});}
+for(const [key,id]of Object.entries(fields)){const el=$(id);el.value=state[key];if(el.tagName==='INPUT'&&el.type!=='range')el.maxLength=180;el.addEventListener(el.tagName==='INPUT'?'input':'change',()=>{state[key]=el.value;if(key==='wood')qrCache.data=null;if(key==='threshold')$('thresholdValue').textContent=state.threshold;render();});}
 $('simpleMode').onclick=()=>{state.mode=false;render();};$('professionalMode').onclick=()=>{state.mode=true;render();};$('resetPositions').onclick=()=>{resetLayout();render();tell('De standaardposities zijn hersteld.');};
 for(const [id,key,delta]of [['qrMinus','qr',-10],['qrPlus','qr',10],['logoMinus','logo',-10],['logoPlus','logo',10]])$(id).onclick=()=>size(key,delta);
 $('selectedMinus').onclick=()=>size(selected,-2);$('selectedPlus').onclick=()=>size(selected,2);
@@ -2852,12 +2855,30 @@ card.addEventListener('keydown',e=>{const el=e.target.closest('.element');if(!st
 $('brandLogo').onclick=()=>{state.logo='treetap-logo-round.png';render();};$('removeLogo').onclick=()=>{state.logo='';render();};
 $('logoInput').onchange=async e=>{const file=e.target.files[0];if(!file)return;if(!['image/png','image/jpeg','image/webp'].includes(file.type)||file.size>10*1024*1024){tell('Kies een PNG, JPG of WebP tot 10 MB.');return;}try{const bitmap=await createImageBitmap(file);const scale=Math.min(1,1000/Math.max(bitmap.width,bitmap.height)),canvas=document.createElement('canvas');canvas.width=Math.round(bitmap.width*scale);canvas.height=Math.round(bitmap.height*scale);canvas.getContext('2d').drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close();state.logo=canvas.toDataURL('image/png');render();tell('Je logo is toegevoegd.');}catch{tell('Deze afbeelding kan niet worden geopend. Probeer een ander bestand.');}};
 $('saveDesign').onclick=()=>{try{localStorage.setItem('treetap-design',JSON.stringify({version:2,...state}));tell('Je TreeTap-ontwerp is opgeslagen in deze browser.');}catch{tell('Opslaan is niet gelukt. Maak je logo kleiner of exporteer je ontwerp.');}};
-function load(){try{const data=JSON.parse(localStorage.getItem('treetap-design')||'null');if(!data)return;if(data.wood==='#dcae70')data.wood='#c79a5b';const clean=defaults();for(const [key,id]of Object.entries(fields)){if(typeof data[key]!=='string')continue;const el=$(id);if(el.tagName==='SELECT'&&![...el.options].some(o=>o.value===data[key]))continue;clean[key]=data[key].slice(0,180);}if(typeof data.logo==='string'&&(data.logo===''||data.logo==='treetap-logo-round.png'||/^data:image\/(png|jpeg|webp);base64,[a-z0-9+/=]+$/i.test(data.logo)))clean.logo=data.logo;clean.mode=data.mode===true;for(const orientation of ['landscape','portrait']){const l=data.layouts?.[orientation];if(l&&Object.keys(names).every(k=>l[k]&&['x','y','size'].every(n=>Number.isFinite(l[k][n]))&&l[k].size>0&&l[k].size<=350))clean.layouts[orientation]=l;}state=clean;for(const [k,id]of Object.entries(fields))$(id).value=state[k];tell('Je opgeslagen TreeTap-ontwerp is teruggeladen.');}catch{tell('Het opgeslagen ontwerp kan niet worden gelezen. Je kunt een nieuw ontwerp maken.');}}
+function load(){try{const data=JSON.parse(localStorage.getItem('treetap-design')||'null');if(!data)return;if(data.wood==='#dcae70')data.wood='#c79a5b';const clean=defaults();for(const [key,id]of Object.entries(fields)){if(typeof data[key]!=='string')continue;const el=$(id);if(el.tagName==='SELECT'&&![...el.options].some(o=>o.value===data[key]))continue;clean[key]=data[key].slice(0,180);}if(typeof data.logo==='string'&&(data.logo===''||data.logo==='treetap-logo-round.png'||/^data:image\/(png|jpeg|webp);base64,[a-z0-9+/=]+$/i.test(data.logo)))clean.logo=data.logo;clean.threshold=String(Math.max(1,Math.min(254,Number(clean.threshold)||115)));clean.mode=data.mode===true;for(const orientation of ['landscape','portrait']){const l=data.layouts?.[orientation];if(l&&Object.keys(names).every(k=>l[k]&&['x','y','size'].every(n=>Number.isFinite(l[k][n]))&&l[k].size>0&&l[k].size<=350))clean.layouts[orientation]=l;}state=clean;for(const [k,id]of Object.entries(fields))$(id).value=state[k];tell('Je opgeslagen TreeTap-ontwerp is teruggeladen.');}catch{tell('Het opgeslagen ontwerp kan niet worden gelezen. Je kunt een nieuw ontwerp maken.');}}
 async function embedBrand(){if(brandData)return brandData;const response=await fetch('treetap-logo-round.png');if(!response.ok)throw Error('Logo ontbreekt');const blob=await response.blob();brandData=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(blob);});return brandData;}
-async function exportDesign(){if(visible('qr'))qrMarkup();const clone=card.cloneNode(true),[w,h]=dims();clone.querySelector('.selection-frame')?.remove();clone.removeAttribute('id');clone.removeAttribute('class');clone.removeAttribute('style');clone.setAttribute('width',w/10+'mm');clone.setAttribute('height',h/10+'mm');clone.querySelectorAll('.element').forEach(el=>{el.removeAttribute('tabindex');el.removeAttribute('role');el.removeAttribute('class');});const logo=clone.querySelector('image');if(logo&&state.logo==='treetap-logo-round.png')logo.setAttribute('href',await embedBrand());return '<?xml version="1.0" encoding="UTF-8"?>\n'+new XMLSerializer().serializeToString(clone);}
+async function exportDesign(){if(visible('qr'))qrMarkup();const clone=card.cloneNode(true),[w,h]=dims();clone.querySelector('.selection-frame')?.remove();clone.removeAttribute('id');clone.removeAttribute('class');clone.removeAttribute('style');clone.setAttribute('width',w/10+'mm');clone.setAttribute('height',h/10+'mm');clone.querySelectorAll('.element').forEach(el=>{el.removeAttribute('tabindex');el.removeAttribute('role');el.removeAttribute('class');});const logo=clone.querySelector('image');if(logo){logo.setAttribute('href',await processedLogoData());logo.removeAttribute('filter');}return '<?xml version="1.0" encoding="UTF-8"?>\n'+new XMLSerializer().serializeToString(clone);}
 $('exportSvg').onclick=async()=>{try{const svg=await exportDesign(),link=document.createElement('a'),objectUrl=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'}));link.href=objectUrl;link.download='treetap-ontwerp.svg';link.click();setTimeout(()=>URL.revokeObjectURL(objectUrl),1000);tell('Je complete TreeTap-ontwerp is geëxporteerd als SVG.');}catch{tell('Exporteren is niet gelukt. Controleer of het logo en de QR-code beschikbaar zijn.');}};
 document.querySelectorAll('input[name="wood"]').forEach(input=>input.addEventListener('change',()=>{if(!input.checked)return;$('woodSelect').value=input.value;$('woodSelect').dispatchEvent(new Event('change'));}));
-load();render();embedBrand().catch(()=>{});
+load();$('thresholdValue').textContent=state.threshold;render();embedBrand().catch(()=>{});
+
+// A production mask is separate from the visual wood mockup.
+$('exportEngraving').onclick=async()=>{try{const xml=await exportDesign(),doc=new DOMParser().parseFromString(xml,'image/svg+xml'),svg=doc.documentElement;
+for(const el of [...svg.children])if(el.tagName==='rect')el.remove();
+svg.querySelectorAll('[data-key]').forEach(el=>el.removeAttribute('filter'));
+svg.querySelectorAll('[data-key="qr"] rect').forEach(el=>el.remove());
+svg.querySelectorAll('[data-key] [fill],[data-key] [stroke]').forEach(el=>{if(el.hasAttribute('fill')&&el.getAttribute('fill')!=='none')el.setAttribute('fill','#000');if(el.hasAttribute('stroke')&&el.getAttribute('stroke')!=='none')el.setAttribute('stroke','#000');});
+const a=document.createElement('a'),u=URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(svg)],{type:'image/svg+xml'}));a.href=u;a.download='treetap-gravure.svg';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);tell('Gravurebestand geëxporteerd: zwart ontwerp, zonder houtachtergrond.');}catch{tell('Exporteren is niet gelukt. Controleer je logo.');}};
+
+async function processedLogoData(){
+const source=state.logo==='treetap-logo-round.png'?await embedBrand():state.logo;
+if(!source)throw Error('Geen logo');
+const img=new Image();await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=source;});
+const canvas=document.createElement('canvas'),scale=Math.min(1,1200/Math.max(img.naturalWidth,img.naturalHeight));canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));
+const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,canvas.width,canvas.height);const pixels=ctx.getImageData(0,0,canvas.width,canvas.height),cut=Math.max(1,Math.min(254,Number(state.threshold)||115));
+for(let i=0;i<pixels.data.length;i+=4){const p=pixels.data,light=.2126*p[i]+.7152*p[i+1]+.0722*p[i+2],keep=state.polarity==='light'?light>=cut:light<=cut;p[i]=p[i+1]=p[i+2]=0;if(!keep)p[i+3]=0;}
+ctx.putImageData(pixels,0,0);return canvas.toDataURL('image/png');
+}
 
 </script>
 
