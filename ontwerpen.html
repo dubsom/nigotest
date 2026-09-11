@@ -26,6 +26,8 @@ img[src="treetap-logo-round.png"]{
   clip-path:circle(50% at 50% 50%);
 }
 @media(max-width:600px){.brand img{width:112px;border-radius:8px}}
+.wood-step{max-width:1280px;margin:8px auto 24px;padding:0 24px}.wood-step fieldset{min-width:0;border:1px solid var(--border);border-radius:16px;background:white;padding:16px 20px 20px}.wood-step legend{font-size:22px;font-weight:800;color:var(--dark);padding:0 8px}.wood-step .help{margin:0 0 16px}.wood-options{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.wood-choice{position:relative;margin:0;cursor:pointer}.wood-choice input{position:absolute;opacity:0;width:1px;height:1px;min-height:0;padding:0}.wood-tile{display:block;padding:8px;border:2px solid var(--border);border-radius:12px;background:white}.wood-swatch{display:block;aspect-ratio:85/55;border-radius:8px;background:repeating-linear-gradient(2deg,transparent 0 7px,#58341915 8px,transparent 9px 14px),linear-gradient(105deg,#ffffff28,transparent 60%),var(--swatch)}.wood-label{display:flex;justify-content:space-between;gap:5px;align-items:center;padding:10px 2px 2px;font-size:14px;line-height:1.4}.wood-check{visibility:hidden;color:var(--green);font-weight:900}.wood-choice input:checked+.wood-tile{border-color:var(--green);background:var(--light)}.wood-choice input:checked+.wood-tile .wood-check{visibility:visible}.wood-choice input:focus-visible+.wood-tile{outline:3px solid var(--green);outline-offset:3px}.wood-choice:hover .wood-tile{border-color:var(--green)}
+@media(max-width:650px){.wood-step{padding:0 12px}.wood-step fieldset{padding:12px}.wood-step legend{font-size:20px}.wood-options{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.wood-tile{padding:5px}.wood-label{font-size:13px}.wood-step .help{font-size:13px}}
 
 </style>
 </head>
@@ -65,7 +67,7 @@ img[src="treetap-logo-round.png"]{
 </section>
 
 
-<section class="mode-wrap">
+<section class="wood-step" aria-labelledby="woodHeading"><fieldset><legend id="woodHeading">1. Kies jouw houtkleur</legend><p class="help">Kies de uitstraling van je kaartje. Houtnerf en kleur kunnen per kaartje verschillen.</p><div class="wood-options"><label class="wood-choice"><input type="radio" name="wood" value="#efd9ae"><span class="wood-tile"><span class="wood-swatch" style="--swatch:#efd9ae" aria-hidden="true"></span><span class="wood-label">Licht naturel<span class="wood-check" aria-hidden="true">✓</span></span></span></label><label class="wood-choice"><input type="radio" name="wood" value="#e3b25a"><span class="wood-tile"><span class="wood-swatch" style="--swatch:#e3b25a" aria-hidden="true"></span><span class="wood-label">Goudgeel<span class="wood-check" aria-hidden="true">✓</span></span></span></label><label class="wood-choice"><input type="radio" name="wood" value="#c79a5b"><span class="wood-tile"><span class="wood-swatch" style="--swatch:#c79a5b" aria-hidden="true"></span><span class="wood-label">Honingbruin<span class="wood-check" aria-hidden="true">✓</span></span></span></label><label class="wood-choice"><input type="radio" name="wood" value="#b56d43"><span class="wood-tile"><span class="wood-swatch" style="--swatch:#b56d43" aria-hidden="true"></span><span class="wood-label">Roodbruin<span class="wood-check" aria-hidden="true">✓</span></span></span></label><label class="wood-choice"><input type="radio" name="wood" value="#956347"><span class="wood-tile"><span class="wood-swatch" style="--swatch:#956347" aria-hidden="true"></span><span class="wood-label">Donkerbruin<span class="wood-check" aria-hidden="true">✓</span></span></span></label></div><select id="woodSelect" hidden aria-label="Houtkleur"><option value="#efd9ae">Licht naturel</option><option value="#e3b25a">Goudgeel</option><option value="#c79a5b">Honingbruin</option><option value="#b56d43">Roodbruin</option><option value="#956347">Donkerbruin</option></select></fieldset></section><section class="mode-wrap">
 
   <div class="mode-grid">
 
@@ -102,7 +104,7 @@ img[src="treetap-logo-round.png"]{
 
 <aside class="panel data-panel">
 
-  <h2>Jouw gegevens</h2>
+  <h2>2. Jouw gegevens</h2>
 
   <label for="nameInput">Naam</label>
   <input id="nameInput" value="Jan Peeters">
@@ -254,32 +256,7 @@ img[src="treetap-logo-round.png"]{
     Kaartje
   </h3>
 
-  <label for="woodSelect">Houtsoort</label>
-
-  <select id="woodSelect">
-
-    <option
-      value="#dcae70"
-      data-name="Esdoorn"
-    >
-      Esdoorn
-    </option>
-
-    <option
-      value="#956347"
-      data-name="Walnoot"
-    >
-      Walnoot
-    </option>
-
-    <option
-      value="#c79a5b"
-      data-name="Bamboe"
-    >
-      Bamboe
-    </option>
-
-  </select>
+  
 
   <label for="orientationSelect">Oriëntatie</label>
 
@@ -2828,7 +2805,7 @@ const $=id=>document.getElementById(id), NS='http://www.w3.org/2000/svg';
 const fields={name:'nameInput',company:'companyInput',phone:'phoneInput',email:'emailInput',website:'websiteInput',font:'fontSelect',qrType:'qrType',nfc:'nfcSelect',wood:'woodSelect',orientation:'orientationSelect',amount:'amountSelect'};
 const names={name:'Naam',company:'Bedrijf / functie',contact:'Contactgegevens',logo:'Logo',qr:'QR-code',nfc:'NFC-symbool'};
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
-const defaults=()=>({name:'Jan Peeters',company:'JP Houtwerken',phone:'0470 12 34 56',email:'jan@jphout.be',website:'www.jphout.be',font:'Arial, sans-serif',qrType:'contact',nfc:'none',wood:'#dcae70',orientation:'landscape',amount:'100',logo:'treetap-logo-round.png',mode:false,layouts:{}});
+const defaults=()=>({name:'Jan Peeters',company:'JP Houtwerken',phone:'0470 12 34 56',email:'jan@jphout.be',website:'www.jphout.be',font:'Arial, sans-serif',qrType:'contact',nfc:'none',wood:'#efd9ae',orientation:'landscape',amount:'100',logo:'treetap-logo-round.png',mode:false,layouts:{}});
 let state=defaults(),selected='name',qrCache={data:null,markup:''},drag=null,brandData=null;
 const card=$('card');
 function tell(message){$('status').textContent=message;}
@@ -2842,7 +2819,7 @@ qrcode.stringToBytes=s=>Array.from(new TextEncoder().encode(s));
 function qrMarkup(){const data=qrData();if(qrCache.data===data)return qrCache.markup;if(!data)return '';const qr=qrcode(0,'M');qr.addData(data,'Byte');qr.make();const n=qr.getModuleCount();let path='';for(let y=0;y<n;y++)for(let x=0;x<n;x++)if(qr.isDark(y,x))path+=`M${x+4},${y+4}h1v1h-1z`;
 qrCache={data,markup:`<svg width="100%" height="100%" viewBox="0 0 ${n+8} ${n+8}"><rect width="${n+8}" height="${n+8}" fill="${state.wood}"/><path fill="#21160e" shape-rendering="crispEdges" d="${path}"/></svg>`};return qrCache.markup;}
 function visible(key){return key==='logo'?!!state.logo:key==='qr'?state.nfc!=='nfc'&&state.qrType!=='none'&&!!qrData():key==='nfc'?state.nfc!=='none':true;}
-function render(){const [w,h]=dims(),items=layout();card.setAttribute('viewBox',`0 0 ${w} ${h}`);card.classList.toggle('portrait',state.orientation==='portrait');card.style.aspectRatio=w+'/'+h;
+function render(){document.querySelectorAll('input[name="wood"]').forEach(input=>{input.checked=input.value===state.wood;});const [w,h]=dims(),items=layout();card.setAttribute('viewBox',`0 0 ${w} ${h}`);card.classList.toggle('portrait',state.orientation==='portrait');card.style.aspectRatio=w+'/'+h;
 let content=`<defs><linearGradient id="woodShade"><stop stop-color="#fff" stop-opacity=".12"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient><pattern id="grain" width="170" height="16" patternUnits="userSpaceOnUse"><path d="M0 3H170 M0 15H170" stroke="#684320" stroke-width=".6" opacity=".14"/></pattern></defs><rect width="${w}" height="${h}" rx="22" fill="${state.wood}"/><rect width="${w}" height="${h}" rx="22" fill="url(#woodShade)"/><rect width="${w}" height="${h}" rx="22" fill="url(#grain)"/>`;
 for(const key of Object.keys(names)){if(!visible(key))continue;const p=items[key];let inner='';
 if(key==='logo'){
@@ -2875,10 +2852,11 @@ card.addEventListener('keydown',e=>{const el=e.target.closest('.element');if(!st
 $('brandLogo').onclick=()=>{state.logo='treetap-logo-round.png';render();};$('removeLogo').onclick=()=>{state.logo='';render();};
 $('logoInput').onchange=async e=>{const file=e.target.files[0];if(!file)return;if(!['image/png','image/jpeg','image/webp'].includes(file.type)||file.size>10*1024*1024){tell('Kies een PNG, JPG of WebP tot 10 MB.');return;}try{const bitmap=await createImageBitmap(file);const scale=Math.min(1,1000/Math.max(bitmap.width,bitmap.height)),canvas=document.createElement('canvas');canvas.width=Math.round(bitmap.width*scale);canvas.height=Math.round(bitmap.height*scale);canvas.getContext('2d').drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close();state.logo=canvas.toDataURL('image/png');render();tell('Je logo is toegevoegd.');}catch{tell('Deze afbeelding kan niet worden geopend. Probeer een ander bestand.');}};
 $('saveDesign').onclick=()=>{try{localStorage.setItem('treetap-design',JSON.stringify({version:2,...state}));tell('Je TreeTap-ontwerp is opgeslagen in deze browser.');}catch{tell('Opslaan is niet gelukt. Maak je logo kleiner of exporteer je ontwerp.');}};
-function load(){try{const data=JSON.parse(localStorage.getItem('treetap-design')||'null');if(!data)return;const clean=defaults();for(const [key,id]of Object.entries(fields)){if(typeof data[key]!=='string')continue;const el=$(id);if(el.tagName==='SELECT'&&![...el.options].some(o=>o.value===data[key]))continue;clean[key]=data[key].slice(0,180);}if(typeof data.logo==='string'&&(data.logo===''||data.logo==='treetap-logo-round.png'||/^data:image\/(png|jpeg|webp);base64,[a-z0-9+/=]+$/i.test(data.logo)))clean.logo=data.logo;clean.mode=data.mode===true;for(const orientation of ['landscape','portrait']){const l=data.layouts?.[orientation];if(l&&Object.keys(names).every(k=>l[k]&&['x','y','size'].every(n=>Number.isFinite(l[k][n]))&&l[k].size>0&&l[k].size<=350))clean.layouts[orientation]=l;}state=clean;for(const [k,id]of Object.entries(fields))$(id).value=state[k];tell('Je opgeslagen TreeTap-ontwerp is teruggeladen.');}catch{tell('Het opgeslagen ontwerp kan niet worden gelezen. Je kunt een nieuw ontwerp maken.');}}
+function load(){try{const data=JSON.parse(localStorage.getItem('treetap-design')||'null');if(!data)return;if(data.wood==='#dcae70')data.wood='#c79a5b';const clean=defaults();for(const [key,id]of Object.entries(fields)){if(typeof data[key]!=='string')continue;const el=$(id);if(el.tagName==='SELECT'&&![...el.options].some(o=>o.value===data[key]))continue;clean[key]=data[key].slice(0,180);}if(typeof data.logo==='string'&&(data.logo===''||data.logo==='treetap-logo-round.png'||/^data:image\/(png|jpeg|webp);base64,[a-z0-9+/=]+$/i.test(data.logo)))clean.logo=data.logo;clean.mode=data.mode===true;for(const orientation of ['landscape','portrait']){const l=data.layouts?.[orientation];if(l&&Object.keys(names).every(k=>l[k]&&['x','y','size'].every(n=>Number.isFinite(l[k][n]))&&l[k].size>0&&l[k].size<=350))clean.layouts[orientation]=l;}state=clean;for(const [k,id]of Object.entries(fields))$(id).value=state[k];tell('Je opgeslagen TreeTap-ontwerp is teruggeladen.');}catch{tell('Het opgeslagen ontwerp kan niet worden gelezen. Je kunt een nieuw ontwerp maken.');}}
 async function embedBrand(){if(brandData)return brandData;const response=await fetch('treetap-logo-round.png');if(!response.ok)throw Error('Logo ontbreekt');const blob=await response.blob();brandData=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(blob);});return brandData;}
 async function exportDesign(){if(visible('qr'))qrMarkup();const clone=card.cloneNode(true),[w,h]=dims();clone.querySelector('.selection-frame')?.remove();clone.removeAttribute('id');clone.removeAttribute('class');clone.removeAttribute('style');clone.setAttribute('width',w/10+'mm');clone.setAttribute('height',h/10+'mm');clone.querySelectorAll('.element').forEach(el=>{el.removeAttribute('tabindex');el.removeAttribute('role');el.removeAttribute('class');});const logo=clone.querySelector('image');if(logo&&state.logo==='treetap-logo-round.png')logo.setAttribute('href',await embedBrand());return '<?xml version="1.0" encoding="UTF-8"?>\n'+new XMLSerializer().serializeToString(clone);}
 $('exportSvg').onclick=async()=>{try{const svg=await exportDesign(),link=document.createElement('a'),objectUrl=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'}));link.href=objectUrl;link.download='treetap-ontwerp.svg';link.click();setTimeout(()=>URL.revokeObjectURL(objectUrl),1000);tell('Je complete TreeTap-ontwerp is geëxporteerd als SVG.');}catch{tell('Exporteren is niet gelukt. Controleer of het logo en de QR-code beschikbaar zijn.');}};
+document.querySelectorAll('input[name="wood"]').forEach(input=>input.addEventListener('change',()=>{if(!input.checked)return;$('woodSelect').value=input.value;$('woodSelect').dispatchEvent(new Event('change'));}));
 load();render();embedBrand().catch(()=>{});
 
 </script>
