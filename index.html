@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TreeTap | Wooden Smart Cards</title>
+<title>TimberTik | Wooden Smart Cards</title>
 
 <meta
   name="description"
-  content="TreeTap houten visitekaartjes met lasergravure, QR-code en NFC."
+  content="TimberTik houten visitekaartjes met lasergravure, QR-code en NFC."
 >
 
 <style>
@@ -1211,20 +1211,15 @@ footer{
   }
 }
 
-/* TreeTap logo shapes: circular seal and gently tilted bank card. */
+/* Hetzelfde transparante TT-teken op de site en op het kaartje. */
+.brand{gap:12px;min-width:0}
+.brand img{width:64px;height:64px;max-width:none;max-height:none;object-fit:contain;flex:none}
+.brand-name{font-family:Georgia,serif;font-size:34px;font-weight:700;letter-spacing:-1.4px;color:var(--green-dark);white-space:nowrap}
 .card-logo{width:19%}
-.footer-logo{border-radius:10px;transform:rotate(-4deg);filter:none}
-.brand img{
-  width:150px;height:auto;max-height:none;max-width:45vw;
-  aspect-ratio:85 / 55;object-fit:cover;object-position:center;
-  border-radius:11px;transform:rotate(-4deg);
-  box-shadow:0 5px 12px rgba(25,48,30,.16);
-}
-img[src="treetap-logo-round.png"]{
-  aspect-ratio:1;object-fit:cover;border-radius:50%;
-  clip-path:circle(50% at 50% 50%);
-}
-@media(max-width:600px){.brand img{width:112px;border-radius:8px}}
+.card-logo img{mix-blend-mode:multiply}
+.footer-logo{display:flex;align-items:center;gap:11px;color:white;font-family:Georgia,serif;font-size:28px;font-weight:700}
+.footer-logo img{width:50px;height:50px;object-fit:contain;filter:brightness(0) invert(1)}
+@media(max-width:600px){.brand{gap:8px}.brand img{width:45px;height:45px}.brand-name{font-size:25px}.footer-logo img{width:42px;height:42px}}
 
 </style>
 </head>
@@ -1240,9 +1235,10 @@ img[src="treetap-logo-round.png"]{
     class="brand"
   >
     <img
-      src="treetap-logo-horizontal.png"
-      alt="TreeTap Wooden Smart Cards"
+      src="TimberTik-TT-rond.png"
+      alt=""
     >
+    <span class="brand-name">TimberTik</span>
   </a>
 
 
@@ -1385,8 +1381,8 @@ img[src="treetap-logo-round.png"]{
     <div class="card-logo">
 
       <img
-        src="treetap-logo-round.png"
-        alt="TreeTap TT"
+        src="TimberTik-TT-rond.png"
+        alt="TimberTik TT"
       >
 
     </div>
@@ -1599,7 +1595,7 @@ img[src="treetap-logo-round.png"]{
 
   <p>
 
-    Iedere TreeTap heeft zijn eigen
+    Iedere TimberTik heeft zijn eigen
     houtstructuur en uitstraling.
 
   </p>
@@ -1691,7 +1687,7 @@ img[src="treetap-logo-round.png"]{
   </div>
 
   <h2>
-    Van ontwerp naar TreeTap.
+    Van ontwerp naar TimberTik.
   </h2>
 
 </div>
@@ -1792,7 +1788,7 @@ img[src="treetap-logo-round.png"]{
   href="ontwerpen.html"
   class="button button-primary"
 >
-  Ontwerp je TreeTap →
+  Ontwerp je TimberTik →
 </a>
 
 </section>
@@ -1804,15 +1800,11 @@ img[src="treetap-logo-round.png"]{
 
 <div class="footer-inner">
 
-  <img
-    src="treetap-logo-horizontal.png"
-    class="footer-logo"
-    alt="TreeTap"
-  >
+  <div class="footer-logo"><img src="TimberTik-TT-rond.png" alt=""><span>TimberTik</span></div>
 
   <div class="footer-copy">
 
-    TreeTap • Nature Connects<br>
+    TimberTik • Nature Connects<br>
     Wooden Smart Cards
 
   </div>
