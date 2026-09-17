@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Stel je vraag over TimberTik houten visitekaartjes, ontwerpen, QR-code, NFC of een bestelling.">
+  <title>Hulp | TimberTik</title>
+  <style>
+    :root{--dark:#063f2c;--green:#168146;--leaf:#53a45d;--cream:#fbfaf3;--text:#143628;--muted:#60736b;--border:#dbe7d9}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    .site-header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #edf0eb}
+    .nav{max-width:1280px;min-height:94px;margin:auto;padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font:700 35px Georgia,serif;color:var(--dark);white-space:nowrap}
+    .brand img{width:62px;height:62px;object-fit:contain}
+    .nav-links{display:flex;align-items:center;gap:24px;font-size:16px;font-weight:800}
+    .nav-links a:hover,.nav-links [aria-current="page"]{color:var(--green)}
+    .nav-cta{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 27px;border-radius:13px;background:#0d7749;color:#fff!important;box-shadow:0 10px 24px rgba(6,63,44,.12)}
+    .nav-cta:hover{background:var(--dark)}
+    .menu-button{display:none;border:0;background:none;color:var(--dark);font-size:30px;cursor:pointer}
+    main{max-width:1160px;margin:auto;padding:70px 24px 90px}
+    .intro{text-align:center;max-width:720px;margin:0 auto 42px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:999px;background:#fff;padding:9px 18px;color:var(--dark);font-size:13px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:22px 0 14px;font-size:clamp(42px,6vw,66px);line-height:1.04;letter-spacing:-.045em;color:var(--dark)}
+    .intro p{font-size:19px;line-height:1.7;color:var(--muted);margin:0}
+    .layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(270px,.75fr);gap:28px;align-items:start}
+    .panel{background:#fff;border:1px solid var(--border);border-radius:24px;box-shadow:0 20px 48px rgba(15,54,32,.06);padding:clamp(24px,4vw,42px)}
+    .panel h2{font-size:29px;line-height:1.2;color:var(--dark);margin:0 0 8px}
+    .panel>p{color:var(--muted);line-height:1.6;margin:0 0 25px}
+    .field{margin:0 0 20px}
+    label{display:block;font-weight:700;color:var(--dark);margin:0 0 8px}
+    input,select,textarea{display:block;width:100%;border:1px solid #bdd3c0;border-radius:10px;background:#fff;color:var(--text);padding:13px 15px;outline:none}
+    textarea{min-height:170px;resize:vertical;line-height:1.55}
+    input:focus,select:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(22,129,70,.14)}
+    .submit{display:inline-flex;justify-content:center;align-items:center;min-height:52px;padding:0 27px;border:0;border-radius:11px;background:#0d7749;color:#fff;font-weight:800;cursor:pointer}
+    .submit:hover{background:var(--dark)}
+    .note{margin:18px 0 0!important;font-size:13px;color:var(--muted);line-height:1.55}
+    .quick-links{display:grid;gap:12px;margin-top:23px}
+    .quick-links a{border:1px solid var(--border);border-radius:12px;padding:15px 17px;font-weight:700;background:#f7faf4}
+    .quick-links a:hover{border-color:var(--green);color:var(--green)}
+    .side-note{margin-top:26px!important}
+    .side-note a{color:var(--green);text-decoration:underline;text-underline-offset:3px}
+    .honeypot{position:absolute;left:-9999px;opacity:0}
+    footer{background:var(--dark);color:#fff;text-align:center;padding:27px 18px;font-weight:700}
+    @media(max-width:1100px){.nav-links{gap:15px;font-size:14px}.brand{font-size:29px}.brand img{width:52px;height:52px}.nav-cta{padding:0 16px}}
+    @media(max-width:900px){.nav{min-height:76px}.menu-button{display:block}.nav-links{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;padding:18px 24px 24px;border-bottom:1px solid var(--border);flex-direction:column;align-items:stretch;gap:3px;font-size:16px}.nav-links.open{display:flex}.nav-links a{padding:12px}.layout{grid-template-columns:1fr}}
+    @media(max-width:600px){.nav{padding:8px 17px}.brand{font-size:26px}.brand img{width:44px;height:44px}main{padding:46px 17px 68px}.intro{margin-bottom:30px}.intro p{font-size:16px}.panel{border-radius:18px}.submit{width:100%}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a class="brand" href="index.html" aria-label="TimberTik homepage"><img src="TimberTik-TT-rond.png" alt=""><span>TimberTik</span></a>
+      <button id="menuButton" class="menu-button" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="navLinks">☰</button>
+      <div id="navLinks" class="nav-links">
+        <a href="index.html#waarom">Waarom hout?</a>
+        <a href="index.html#hoe">Hoe werkt het?</a>
+        <a href="index.html#smart">QR &amp; NFC</a>
+        <a href="hulp.html" aria-current="page">Hulp</a>
+        <a class="nav-cta" href="ontwerpen.html">Ontwerp je kaartje</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="intro"><span class="eyebrow">☘ Hulp &amp; contact</span><h1>We helpen je graag.</h1><p>Een vraag over je ontwerp, een bestelling, QR-code of NFC? Stuur ons een bericht en we antwoorden per e-mail.</p></div>
+    <div class="layout">
+      <section class="panel" aria-labelledby="formTitle">
+        <h2 id="formTitle">Stel je vraag</h2>
+        <p>Vul je gegevens in, zodat we je kunnen antwoorden.</p>
+        <form action="https://formsubmit.co/timbertik@outlook.com" method="POST">
+          <input type="hidden" name="_subject" value="Vraag via TimberTik website">
+          <input type="hidden" name="_template" value="table">
+          <div class="honeypot" aria-hidden="true"><label for="helpHoney">Laat dit veld leeg</label><input id="helpHoney" name="_honey" tabindex="-1" autocomplete="off"></div>
+          <div class="field"><label for="helpName">Naam *</label><input id="helpName" name="name" type="text" autocomplete="name" maxlength="120" required></div>
+          <div class="field"><label for="helpEmail">E-mailadres *</label><input id="helpEmail" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+          <div class="field"><label for="helpTopic">Waarover gaat je vraag?</label><select id="helpTopic" name="onderwerp"><option value="Ontwerp">Ontwerp</option><option value="Bestelling">Bestelling</option><option value="QR of NFC">QR of NFC</option><option value="Anders">Anders</option></select></div>
+          <div class="field"><label for="helpOrder">Naam op je bestelling, indien van toepassing</label><input id="helpOrder" name="naam_op_bestelling" type="text" maxlength="120" autocomplete="off"></div>
+          <div class="field"><label for="helpQuestion">Je vraag *</label><textarea id="helpQuestion" name="vraag" maxlength="5000" required></textarea></div>
+          <button class="submit" type="submit">Verstuur je vraag →</button>
+          <p class="note">Je bericht gaat via FormSubmit naar timbertik@outlook.com. We gebruiken je gegevens alleen om je vraag te beantwoorden. De verzenddienst kan om een spamcontrole vragen.</p>
+        </form>
+      </section>
+      <aside class="panel" aria-labelledby="quickTitle">
+        <h2 id="quickTitle">Meteen verder</h2>
+        <p>Bekijk de uitleg of ga terug naar je ontwerp.</p>
+        <div class="quick-links"><a href="index.html#hoe">Hoe werkt het bestellen? →</a><a href="index.html#smart">QR-code en NFC →</a><a href="ontwerpen.html">Ontwerp je kaartje →</a></div>
+        <p class="side-note">Liever rechtstreeks mailen? <a href="mailto:timbertik@outlook.com">timbertik@outlook.com</a></p>
+      </aside>
+    </div>
+  </main>
+  <footer>TimberTik • Nature Connects • Wooden Smart Cards</footer>
+  <script>
+    const menuButton=document.getElementById('menuButton');
+    const navLinks=document.getElementById('navLinks');
+    menuButton.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Menu sluiten':'Menu openen');menuButton.textContent=open?'×':'☰';});
+  </script>
+</body>
+</html>
