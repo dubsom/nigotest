@@ -1,370 +1,30 @@
 <!DOCTYPE html>
-<html lang="nl">
-<head>
-<meta charset="UTF-8">
-<meta name="description" content="Ontwerp jouw TimberTik houten visitekaartje met persoonlijke lasergravure, QR en NFC.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Ontwerp je TimberTik | Wooden Smart Cards</title>
-
-<style>
-:root{--dark:#063f2c;--green:#168146;--light:#eef5e9;--pale:#fbfaf3;--border:#dbe7d9;--muted:#60736b;--brown:#402615;--shadow:0 12px 32px rgba(25,48,30,.08)}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#143628;background:var(--pale);font-size:16px}button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-color:transparent}button{cursor:pointer;min-height:44px}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #53a45d;outline-offset:3px}button:hover{filter:brightness(.96)}header{background:white;border-bottom:1px solid #edf0eb}.nav{max-width:1280px;min-height:94px;padding:10px 24px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand img{display:block;width:310px;max-width:58vw;max-height:76px;object-fit:contain;object-position:left center}.home-link{font-weight:800}.intro{max-width:1280px;margin:auto;padding:26px 24px 14px}.intro-badge{color:var(--green);font-size:13px;letter-spacing:1.5px;font-weight:800}.intro h1{font-size:clamp(30px,4vw,46px);letter-spacing:-1.5px;margin:9px 0;color:var(--dark)}.intro p{color:var(--muted);line-height:1.6;margin:0}.mode-wrap{max-width:1280px;margin:4px auto 22px;padding:0 24px}.mode-grid{display:flex;gap:8px}.mode-btn{flex:1;border:1px solid var(--border);background:white;color:var(--dark);border-radius:12px;padding:12px 16px;text-align:left}.mode-btn strong{display:block;font-size:16px}.mode-btn span{display:block;font-size:14px;margin-top:5px;line-height:1.4;color:var(--muted)}.mode-btn.active{background:var(--dark);color:white;border-color:var(--dark)}.mode-btn.active span{color:#dcebdc}.app{max-width:1280px;margin:auto;padding:0 24px 48px;display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:start}.panel{min-width:0;background:white;border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:var(--shadow)}.panel h2{margin:0 0 16px;font-size:21px;color:var(--dark)}.section-title{margin:24px 0 10px;padding-top:18px;border-top:1px solid var(--border);font-size:16px;color:var(--dark)}label{display:block;margin:14px 0 7px;font-size:14px;font-weight:700}input,select{width:100%;min-width:0;min-height:46px;padding:10px;border:1px solid #bdcdbb;border-radius:9px;background:white;color:#143628}input[type=file]{font-size:14px}.help{font-size:14px;line-height:1.55;color:var(--muted);margin-top:10px}.preview-panel{grid-row:1}.preview-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}.preview-head h2{margin:0}.small-btn{border:1px solid var(--border);border-radius:9px;padding:8px 12px;background:var(--light);color:var(--dark);font-weight:700}.scene{display:grid;place-items:center;padding:26px 12px;background:radial-gradient(circle at 12% 12%,#dcebd7,transparent 55%),linear-gradient(120deg,#f4f8ef,#fffdf7);border:1px solid #e4ecdf;border-radius:14px;min-width:0}#card{display:block;width:100%;max-width:680px;height:auto;aspect-ratio:85/55;border-radius:15px;box-shadow:0 24px 45px rgba(25,48,30,.22);user-select:none;overflow:hidden}#card.portrait{max-width:350px;aspect-ratio:55/85}.element{outline:none}body.professional .element{cursor:grab;touch-action:none}body.professional .element:active{cursor:grabbing}.selection-frame{fill:none;stroke:var(--green);stroke-width:2;stroke-dasharray:7 5;pointer-events:none}.stepper{display:flex;align-items:center;gap:6px}.stepper button{width:46px;border:1px solid #bdcdbb;background:var(--light);border-radius:8px;color:var(--dark);font-size:20px}.stepper span{min-width:65px;text-align:center;font-weight:700}.position-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.position-grid button{border:1px solid var(--border);background:var(--light);color:var(--dark);border-radius:8px;padding:8px 2px;font-size:14px}.element-list{display:grid;grid-template-columns:1fr 1fr;gap:7px}.element-list button{border:1px solid var(--border);background:var(--light);color:var(--dark);border-radius:8px;padding:9px;text-align:left;font-size:14px}.element-list button[aria-pressed=true]{background:var(--dark);color:white}.selected-title{background:var(--light);padding:12px;border-radius:9px;font-weight:700}#professionalPanel{display:none}body.professional #professionalPanel{display:block}.order-box{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:22px;padding-top:20px;border-top:1px solid var(--border)}.summary{font-size:14px;color:var(--muted);line-height:1.7;margin-top:6px}.price{font-size:34px;font-weight:800;color:var(--dark);white-space:nowrap}.save-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}.save-actions button{flex:1;border:1px solid var(--border);border-radius:10px;padding:12px;font-weight:700}.save-btn{background:white;color:var(--dark)}.export-btn{background:linear-gradient(135deg,#20894d,#08743b);color:white}#status{min-height:24px;font-size:14px;line-height:1.5;color:var(--dark);margin:12px 0 0}.dimension{display:flex;justify-content:space-between;gap:8px;margin-top:14px;color:var(--muted);font-size:14px}footer{padding:26px 20px;background:var(--dark);color:white;text-align:center;font-size:14px}.trust{padding:16px;background:var(--dark);color:white;display:flex;justify-content:center;gap:28px;font-size:14px;flex-wrap:wrap}.logo-actions{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
-#professionalPanel{grid-row:2}
-@media(min-width:900px){.app{grid-template-columns:300px minmax(0,1fr)}.preview-panel{grid-column:2;grid-row:1}.scene{padding:40px 24px;min-height:410px}.data-panel{grid-column:1;grid-row:1 / span 2}#professionalPanel{grid-column:2}.mode-grid{max-width:780px}.intro{padding-top:30px}}
-@media(max-width:540px){.nav{min-height:74px;padding:8px 16px}.brand img{width:215px;max-height:58px}.home-link{font-size:14px}.intro{padding:20px 16px 12px}.intro p{font-size:14px}.mode-wrap{padding:0 16px;margin-bottom:16px}.mode-btn{padding:10px}.mode-btn strong{font-size:14px}.mode-btn span{font-size:13px}.app{padding:0 12px 30px;gap:16px}.panel{padding:14px;border-radius:14px}.scene{padding:22px 8px}.dimension{font-size:12px}.order-box{align-items:start}.price{font-size:28px}.trust{gap:12px}}
-
-/* Transparant TT-teken met dezelfde woordmarkering als op de homepage. */
-.brand{display:flex;align-items:center;gap:12px;min-width:0}
-.brand img{width:64px;height:64px;max-width:none;max-height:none;object-fit:contain;flex:none}
-.brand-name{font-family:Georgia,serif;font-size:34px;font-weight:700;letter-spacing:-1.4px;color:var(--dark);white-space:nowrap}
-@media(max-width:600px){.brand{gap:8px}.brand img{width:45px;height:45px}.brand-name{font-size:25px}}
-.wood-step{max-width:1280px;margin:8px auto 24px;padding:0 24px}.wood-step fieldset{min-width:0;border:1px solid var(--border);border-radius:16px;background:white;padding:16px 20px 20px}.wood-step legend{font-size:22px;font-weight:800;color:var(--dark);padding:0 8px}.wood-step .help{margin:0 0 16px}.wood-options{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.wood-choice{position:relative;margin:0;cursor:pointer}.wood-choice input{position:absolute;opacity:0;width:1px;height:1px;min-height:0;padding:0}.wood-tile{display:block;padding:8px;border:2px solid var(--border);border-radius:12px;background:white}.wood-swatch{display:block;aspect-ratio:85/55;border-radius:8px;background:repeating-linear-gradient(2deg,transparent 0 7px,#58341915 8px,transparent 9px 14px),linear-gradient(105deg,#ffffff28,transparent 60%),var(--swatch)}.wood-label{display:flex;justify-content:space-between;gap:5px;align-items:center;padding:10px 2px 2px;font-size:14px;line-height:1.4}.wood-check{visibility:hidden;color:var(--green);font-weight:900}.wood-choice input:checked+.wood-tile{border-color:var(--green);background:var(--light)}.wood-choice input:checked+.wood-tile .wood-check{visibility:visible}.wood-choice input:focus-visible+.wood-tile{outline:3px solid var(--green);outline-offset:3px}.wood-choice:hover .wood-tile{border-color:var(--green)}
-@media(max-width:650px){.wood-step{padding:0 12px}.wood-step fieldset{padding:12px}.wood-step legend{font-size:20px}.wood-options{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.wood-tile{padding:5px}.wood-label{font-size:13px}.wood-step .help{font-size:13px}}
-
-.border-step{max-width:1280px;margin:0 auto 24px;padding:0 24px}.border-step details{border:1px solid var(--border);border-radius:16px;background:white;padding:16px 20px}.border-step summary{cursor:pointer;color:var(--dark);font-size:21px;font-weight:800;list-style-position:inside}.border-current{font-size:14px;color:var(--green);font-weight:700;margin-left:10px}.border-step .help{margin:10px 0 16px}.border-options{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.border-choice{margin:0;position:relative;cursor:pointer}.border-choice input{position:absolute;opacity:0;width:1px;height:1px;min-height:0;padding:0}.border-tile{display:block;border:2px solid var(--border);border-radius:10px;padding:8px;background:white}.border-tile svg{display:block;width:100%;aspect-ratio:85/55;border-radius:6px;background:#e9c68e}.border-tile strong{display:block;font-size:13px;line-height:1.3;margin-top:7px}.border-choice input:checked+.border-tile{border-color:var(--green);background:var(--light)}.border-choice input:focus-visible+.border-tile{outline:3px solid var(--green);outline-offset:2px}.border-choice:hover .border-tile{border-color:var(--green)}
-@media(max-width:650px){.border-step{padding:0 12px;margin-bottom:16px}.border-step details{padding:12px}.border-step summary{font-size:18px}.border-current{display:block;margin:5px 0 0 20px}.border-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
-.social-step{max-width:1280px;margin:0 auto 24px;padding:0 24px}.social-step fieldset{min-width:0;border:1px solid var(--border);border-radius:16px;background:white;padding:12px 20px 20px}.social-step legend{font-size:22px;font-weight:800;color:var(--dark);padding:0 8px}.social-step .help{margin:0 0 10px}.social-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.social-fields label{margin-top:0}.social-fields input{margin:0}.quantity-control{min-width:180px}.quantity-control label{margin:0 0 6px}.quantity-control select{min-width:180px}
-@media(max-width:650px){.social-step{padding:0 12px;margin-bottom:16px}.social-step fieldset{padding:12px}.social-step legend{font-size:20px}.social-fields{grid-template-columns:1fr;gap:10px}.order-box{flex-direction:column}.quantity-control,.quantity-control select{width:100%}}
-</style>
-</head>
-
-<body>
-
-<header><nav class="nav" aria-label="Hoofdnavigatie">
-
-  <a class="brand" href="index.html" aria-label="TimberTik homepage">
-    <img
-      src="TimberTik-TT-rond.png"
-      alt=""
-    >
-    <span class="brand-name">TimberTik</span>
-  </a>
-
-  <a href="index.html" class="home-link">
-    ← Home
-  </a>
-
-</nav></header>
-
-
-<section class="intro">
-
-  <div class="intro-badge">
-    🌿 NATURE CONNECTS
-  </div>
-
-  <h1>
-    Ontwerp jouw TimberTik
-  </h1>
-
-  <p>
-    Maak een houten visitekaartje met logo, QR-code en optionele NFC.
-  </p>
-
-</section>
-
-
-<section class="wood-step" aria-labelledby="woodHeading"><fieldset><legend id="woodHeading">1. Kies jouw houtkleur</legend><p class="help">Kies de uitstraling van je kaartje. Houtnerf en kleur kunnen per kaartje verschillen.</p><div class="wood-options"><label class="wood-choice"><input type="radio" name="wood" value="#efd9ae"><span class="wood-tile"><span class="wood-swatch" style="--swatch:#efd9ae" aria-hidden="true"></span><span class="wood-label">Licht naturel<span class="wood-check" aria-hidden="true">✓</span></span></span></label><label class="wood-choice"><input type="radio" name="wood" value="#e3b25a"><span class="wood-tile"><span class="wood-swatch" style="--swatch:#e3b25a" aria-hidden="true"></span><span class="wood-label">Goudgeel<span class="wood-check" aria-hidden="true">✓</span></span></span></label><label class="wood-choice"><input type="radio" name="wood" value="#c79a5b"><span class="wood-tile"><span class="wood-swatch" style="--swatch:#c79a5b" aria-hidden="true"></span><span class="wood-label">Honingbruin<span class="wood-check" aria-hidden="true">✓</span></span></span></label><label class="wood-choice"><input type="radio" name="wood" value="#b56d43"><span class="wood-tile"><span class="wood-swatch" style="--swatch:#b56d43" aria-hidden="true"></span><span class="wood-label">Roodbruin<span class="wood-check" aria-hidden="true">✓</span></span></span></label><label class="wood-choice"><input type="radio" name="wood" value="#956347"><span class="wood-tile"><span class="wood-swatch" style="--swatch:#956347" aria-hidden="true"></span><span class="wood-label">Donkerbruin<span class="wood-check" aria-hidden="true">✓</span></span></span></label></div><select id="woodSelect" hidden aria-label="Houtkleur"><option value="#efd9ae">Licht naturel</option><option value="#e3b25a">Goudgeel</option><option value="#c79a5b">Honingbruin</option><option value="#b56d43">Roodbruin</option><option value="#956347">Donkerbruin</option></select></fieldset></section><section class="social-step"><fieldset><legend>2. Facebook, Instagram en X</legend><p class="help">Vul een profielnaam of link in. Alleen ingevulde profielen verschijnen op het kaartje.</p><div class="social-fields"><div><label for="facebookInput">Facebook</label><input id="facebookInput" type="text" placeholder="facebook.com/jouwpagina" autocomplete="off"></div><div><label for="instagramInput">Instagram</label><input id="instagramInput" type="text" placeholder="@jouwprofiel" autocomplete="off"></div><div><label for="xInput">X</label><input id="xInput" type="text" placeholder="@jouwprofiel" autocomplete="off"></div></div></fieldset></section><section class="border-step"><details id="borderPicker"><summary>3. Kies een gegraveerde rand <span id="borderCurrent" class="border-current">Geen rand</span></summary><p class="help">De rand wordt op het kaartje gegraveerd en verschijnt ook in de SVG-export. Kies Geen rand voor een rustig ontwerp.</p><div id="borderOptions" class="border-options" role="radiogroup" aria-label="Gegraveerde rand"></div></details></section><section class="mode-wrap">
-
-  <div class="mode-grid">
-
-    <button
-      id="simpleMode" aria-pressed="true"
-      class="mode-btn active"
-      type="button"
-    >
-      <strong>✎ Eenvoudig ontwerpen</strong>
-      <span>
-        Vul je gegevens in en wij plaatsen alles automatisch.
-      </span>
-    </button>
-
-    <button
-      id="professionalMode" aria-pressed="false"
-      class="mode-btn"
-      type="button"
-    >
-      <strong>☷ Professioneel ontwerpen</strong>
-      <span>
-        Sleep elementen en bepaal zelf grootte en positie.
-      </span>
-    </button>
-
-  </div>
-
-</section>
-
-
-<main class="app">
-
-<!-- LINKS -->
-
-<aside class="panel data-panel">
-
-  <h2>4. Jouw gegevens</h2>
-
-  <label for="nameInput">Naam</label>
-  <input id="nameInput" value="Jan Peeters">
-
-  <label for="companyInput">Bedrijf / functie</label>
-  <input id="companyInput" value="JP Houtwerken">
-
-  <label for="phoneInput">Telefoon</label>
-  <input id="phoneInput" value="0470 12 34 56">
-
-  <label for="emailInput">E-mail</label>
-  <input id="emailInput" value="jan@jphout.be">
-
-  <label for="websiteInput">Website</label>
-  <input id="websiteInput" value="www.jphout.be">
-
-  <h3 class="section-title">
-    Lettertype
-  </h3>
-
-  <select id="fontSelect" aria-label="Lettertype">
-
-    <option value="Arial, sans-serif">
-      Arial
-    </option>
-
-    <option value="Verdana, sans-serif">
-      Verdana
-    </option>
-
-    <option value="Georgia, serif">
-      Georgia
-    </option>
-
-    <option value="Trebuchet MS, sans-serif">
-      Trebuchet
-    </option>
-
-    <option value="Courier New, monospace">
-      Courier
-    </option>
-
-  </select>
-
-
-  <h3 class="section-title">
-    QR-code
-  </h3>
-
-  <select id="qrType" aria-label="QR-code actie">
-
-    <option value="contact">
-      Contact opslaan (vCard)
-    </option>
-
-    <option value="website">
-      Website openen
-    </option>
-
-    <option value="email">
-      E-mail sturen
-    </option>
-
-    <option value="phone">
-      Telefoon bellen
-    </option>
-
-    <option value="whatsapp">
-      WhatsApp openen
-    </option>
-
-    <option value="facebook">Facebook-profiel openen</option>
-    <option value="instagram">Instagram-profiel openen</option>
-    <option value="x">X-profiel openen</option>
-
-    <option value="none">
-      Geen QR-code
-    </option>
-
-  </select>
-
-  <label>QR-grootte</label>
-
-  <div class="stepper">
-
-    <button id="qrMinus" aria-label="QR-code kleiner" type="button">−</button>
-
-    <span id="qrSizeLabel">
-      120
-    </span>
-
-    <button id="qrPlus" aria-label="QR-code groter" type="button">+</button>
-
-  </div>
-
-
-  <h3 class="section-title">
-    NFC
-  </h3>
-
-  <label for="nfcSelect">NFC-optie</label>
-
-  <select id="nfcSelect">
-
-    <option value="none">
-      Geen NFC
-    </option>
-
-    <option value="nfc">
-      NFC
-    </option>
-
-    <option value="both">
-      NFC + QR
-    </option>
-
-  </select>
-
-  <div class="help">
-    NFC zelf wordt niet gegraveerd. De fysieke NFC-chip wordt later
-    in of achter het houten kaartje verwerkt. Het NFC-symbool kan wel
-    in het ontwerp worden gegraveerd.
-  </div>
-
-
-  <h3 class="section-title">
-    Logo
-  </h3>
-
-  <label for="logoInput">Eigen logo uploaden</label><input
-    id="logoInput"
-    type="file"
-    accept="image/png,image/jpeg,image/webp"
-  ><div class="logo-actions"><button type="button" id="brandLogo" class="small-btn">TimberTik-logo</button><button type="button" id="removeLogo" class="small-btn">Logo weglaten</button></div>
-
-  <label for="logoThreshold">Logo vrijmaken · <output id="thresholdValue">115</output></label><input id="logoThreshold" type="range" min="1" max="254" value="115"><label for="logoPolarity">Welke delen graveren?</label><select id="logoPolarity"><option value="dark">Donkere delen — lichte achtergrond verwijderen</option><option value="light">Lichte delen — donkere achtergrond verwijderen</option></select><p class="help">Schuif tot alleen het logo zichtbaar is. Donkere of lichte achtergrondvlekken kunnen blijven bij foto's. Een effen logo met transparante achtergrond geeft het beste resultaat.</p><label>Logo-grootte</label>
-
-  <div class="stepper">
-
-    <button id="logoMinus" aria-label="Logo kleiner" type="button">−</button>
-
-    <span id="logoSizeLabel">
-      95
-    </span>
-
-    <button id="logoPlus" aria-label="Logo groter" type="button">+</button>
-
-  </div>
-
-
-  <h3 class="section-title">
-    Kaartje
-  </h3>
-
-  
-
-  <label for="orientationSelect">Oriëntatie</label>
-
-  <select id="orientationSelect">
-
-    <option value="landscape">
-      Liggend 85 × 55 mm
-    </option>
-
-    <option value="portrait">
-      Staand 55 × 85 mm
-    </option>
-
-  </select>
-
-</aside>
-
-
-<!-- MIDDEN -->
-
-<section class="panel preview-panel">
-
-  <div class="preview-head">
-
-    <h2>
-      Live voorbeeld
-    </h2>
-
-    <button
-      id="resetPositions"
-      class="small-btn"
-      type="button"
-    >
-      ↻ Reset
-    </button>
-
-  </div>
-
-
-  <label for="previewMode">Weergave</label><select id="previewMode"><option value="engraved">Gravurevoorbeeld op hout</option><option value="flat">Vlak ontwerp</option></select><p class="help">Indicatie van lasergravure. De echte kleur en diepte hangen af van hout, laser en instellingen. Een proefgravure blijft nodig voor een exacte beoordeling.</p><div class="scene"><svg id="card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 550" role="img" aria-label="Live voorbeeld van jouw TimberTik-kaartje"></svg></div><div class="dimension"><span id="dimensions">85 × 55 mm</span><span>Voorbeeld lasergravure</span></div>
-<div class="order-box">
-
-    <div>
-
-      <strong>
-        Jouw TimberTik
-      </strong>
-
-      <div class="summary">
-
-        <span id="summaryWood">
-          Esdoorn
-        </span>
-
-        •
-
-        <span id="summaryOrientation">
-          Liggend
-        </span>
-
-        •
-
-        <span id="summaryAmount">
-          100 kaartjes
-        </span>
-
-      </div>
-
-      <div id="price" class="price">
-        €59
-      </div>
-
-    </div>
-
-    <div class="quantity-control">
-      <label for="amountSelect">Aantal kaartjes</label>
-      <select id="amountSelect">
-        <option value="1">1 kaartje — € 25</option>
-        <option value="25">25 kaartjes</option>
-        <option value="50">50 kaartjes</option>
-        <option value="100" selected>100 kaartjes</option>
-        <option value="250">250 kaartjes</option>
-      </select>
-    </div>
-
-  </div>
-
-<div class="save-actions">
-
-      <button
-        id="saveDesign"
-        class="save-btn"
-      >
-        💾 Ontwerp opslaan
-      </button>
-
-      <button
-        id="exportSvg"
-        class="export-btn"
-      >
-        ⇧ Exporteren als SVG
-      </button>
-
-    </div><button id="exportEngraving" type="button" class="small-btn">Gravurebestand zonder hout (SVG)</button><p id="status" role="status" aria-live="polite"></p></section>
-<!-- PROFESSIONEEL -->
-
-<aside id="professionalPanel">
+<html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Ontwerp je TimberTik houten visitekaartje met lasergravure, QR en NFC."><title>Ontwerp je TimberTik | Houten visitekaartjes</title><style>
+:root{--dark:#063f2c;--green:#168146;--light:#eef5e9;--pale:#fbfaf3;--border:#dbe7d9;--muted:#60736b;--brown:#402615;--shadow:0 14px 36px rgba(25,48,30,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px Arial,Helvetica,sans-serif;color:#143628;background:var(--pale)}a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer;min-height:44px}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #53a45d;outline-offset:3px}button:hover{filter:brightness(.97)}
+header{background:#fff;border-bottom:1px solid #edf0eb}.nav{max-width:1280px;min-height:78px;margin:auto;padding:8px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px}.brand img{width:58px;height:58px;object-fit:contain}.brand-name{font:700 31px Georgia,serif;letter-spacing:-1.4px;color:var(--dark)}.home-link{font-weight:800}
+.intro{max-width:1280px;margin:auto;padding:28px 24px 18px}.intro-badge{font-size:12px;color:var(--green);letter-spacing:1.5px;font-weight:800}.intro h1{font-size:clamp(30px,4vw,48px);letter-spacing:-1.5px;color:var(--dark);margin:8px 0}.intro p{color:var(--muted);line-height:1.55;margin:0;max-width:650px}
+.app{max-width:1280px;margin:auto;padding:0 24px 64px;display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.92fr);gap:22px;align-items:start}.workflow{display:grid;gap:18px;min-width:0}.panel{background:white;border:1px solid var(--border);border-radius:18px;padding:22px;box-shadow:var(--shadow);min-width:0}.panel h2{font-size:22px;line-height:1.25;color:var(--dark);margin:0 0 9px}.step-kicker{display:block;font-size:12px;letter-spacing:1.1px;text-transform:uppercase;color:var(--green);font-weight:800;margin-bottom:7px}.help{font-size:14px;line-height:1.55;color:var(--muted);margin:4px 0 15px}.section-title{font-size:17px;color:var(--dark);border-top:1px solid var(--border);padding-top:18px;margin:22px 0 10px}label{display:block;font-size:14px;font-weight:700;margin:15px 0 6px}input,select{width:100%;min-width:0;min-height:45px;border:1px solid #bdcdbb;border-radius:9px;background:#fff;color:#143628;padding:10px}input[type=file]{font-size:14px}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.field-grid>div{min-width:0}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mode-btn,.template-btn{border:2px solid var(--border);background:#fff;border-radius:13px;text-align:left;padding:14px;color:var(--dark)}.mode-btn strong,.template-btn strong{display:block;font-size:16px}.mode-btn span,.template-btn span{display:block;color:var(--muted);font-size:13px;line-height:1.4;margin-top:5px}.mode-btn.active,.template-btn.active{border-color:var(--green);background:var(--light)}.template-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:16px}.template-btn{padding:9px}.template-swatch{display:block;aspect-ratio:85/55;border-radius:7px;margin-bottom:8px;box-shadow:inset 0 0 0 1px #5d351c22;background:linear-gradient(2deg,#b7825414 0 15%,transparent 15% 32%,#b7825414 33% 35%,transparent 35%),var(--tile)}.template-btn[data-template=portrait] .template-swatch{width:43%;aspect-ratio:55/85;margin-inline:auto}.template-swatch::before{content:'TT';display:inline-grid;place-items:center;color:#402615;border:2px solid #402615;border-radius:50%;width:28px;height:28px;margin:12px;font:700 14px Georgia,serif}
+.wood-options{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.wood-choice{position:relative;margin:0;cursor:pointer}.wood-choice input,.border-choice input{position:absolute;opacity:0;width:1px;height:1px;min-height:0}.wood-tile,.border-tile{display:block;border:2px solid var(--border);border-radius:10px;padding:5px;background:#fff}.wood-swatch{display:block;aspect-ratio:85/55;border-radius:6px;background:repeating-linear-gradient(2deg,transparent 0 7px,#58341915 8px,transparent 9px 14px),var(--swatch)}.wood-label{display:block;font-size:12px;line-height:1.3;padding:7px 2px 2px}.wood-check{float:right;visibility:hidden;color:var(--green)}.wood-choice input:checked+.wood-tile,.border-choice input:checked+.border-tile{border-color:var(--green);background:var(--light)}.wood-choice input:checked+.wood-tile .wood-check{visibility:visible}.wood-choice input:focus-visible+.wood-tile,.border-choice input:focus-visible+.border-tile{outline:3px solid #53a45d;outline-offset:2px}.border-picker summary{font-weight:700;cursor:pointer;margin-bottom:12px}.border-current{color:var(--green);font-size:13px;margin-left:8px}.border-options{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-height:440px;overflow:auto}.border-choice{position:relative;margin:0;cursor:pointer}.border-tile svg{width:100%;aspect-ratio:85/55;display:block;border-radius:5px;background:#e9c68e}.border-tile strong{display:block;font-size:12px;line-height:1.25;margin-top:5px}
+.social-fields{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.social-fields>div{min-width:0}.logo-actions,.stepper,.save-actions{display:flex;gap:8px;flex-wrap:wrap}.small-btn,.stepper button{border:1px solid var(--border);background:var(--light);color:var(--dark);border-radius:9px;padding:9px 12px;font-weight:700}.stepper{align-items:center}.stepper button{min-width:45px;font-size:19px}.stepper span{min-width:65px;text-align:center;font-weight:700}.position-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.position-grid button,.element-list button{border:1px solid var(--border);border-radius:8px;background:var(--light);color:var(--dark);padding:8px}.element-list{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.element-list button[aria-pressed=true]{background:var(--dark);color:#fff}.selected-title{padding:11px;border-radius:9px;background:var(--light);font-weight:700}#professionalStep,#professionalPanel{display:none}body.professional #professionalStep,body.professional #professionalPanel{display:block}#professionalPanel .panel{box-shadow:none;padding:0;border:0}
+.preview-panel{position:sticky;top:18px}.preview-head,.dimension,.order-box{display:flex;align-items:center;justify-content:space-between;gap:10px}.preview-head h2{margin:0}.scene{display:grid;place-items:center;min-height:310px;padding:22px 12px;border:1px solid #e4ecdf;border-radius:14px;background:radial-gradient(circle at 12% 12%,#dcebd7,transparent 55%),linear-gradient(120deg,#f4f8ef,#fffdf7)}#card{display:block;width:100%;max-width:580px;height:auto;aspect-ratio:85/55;border-radius:15px;box-shadow:0 20px 35px rgba(25,48,30,.2);user-select:none;overflow:hidden}#card.portrait{max-width:260px;aspect-ratio:55/85}.element{outline:none}body.professional .element{cursor:grab;touch-action:none}body.professional .element:active{cursor:grabbing}.selection-frame{fill:none;stroke:var(--green);stroke-width:2;stroke-dasharray:7 5;pointer-events:none}.dimension{color:var(--muted);font-size:13px;margin-top:9px}.preview-control{display:flex;align-items:center;gap:10px;margin-top:12px}.preview-control label{margin:0;white-space:nowrap}.preview-control select{min-height:40px}.preview-note{font-size:12px;color:var(--muted);line-height:1.4;margin:9px 0 0}
+.quantity-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.quantity-options button{border:2px solid var(--border);border-radius:10px;background:#fff;color:var(--dark);font-weight:800}.quantity-options button.active{border-color:var(--green);background:var(--light)}.quantity-options small{display:block;font-weight:400;margin-top:4px}.custom-quantity{margin-top:14px}.order-box{margin:18px 0;border-top:1px solid var(--border);padding-top:16px}.price{font-size:34px;font-weight:800;color:var(--dark)}.summary{font-size:14px;color:var(--muted);line-height:1.6}.save-actions button{flex:1;min-width:155px;padding:11px;border-radius:9px;border:1px solid var(--border);font-weight:700}.save-btn{background:white;color:var(--dark)}.export-btn{background:linear-gradient(135deg,#20894d,#08743b);color:white}.export-engraving{margin-top:8px;width:100%}#status{min-height:22px;font-size:14px;color:var(--dark);line-height:1.4}.trust{background:var(--dark);color:#fff;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;padding:16px;font-size:14px}footer{background:var(--dark);color:#fff;text-align:center;padding:20px}
+@media(max-width:950px){.app{grid-template-columns:1fr}.preview-panel{grid-row:1;top:8px;z-index:5;box-shadow:0 14px 30px #19301e26}.workflow{grid-row:2}.scene{min-height:0;padding:10px}#card{max-width:460px}.preview-panel{padding:12px}.preview-panel .preview-note{display:none}.preview-control{margin-top:6px}.dimension{margin-top:5px}}
+@media(max-width:600px){.nav{min-height:65px;padding:6px 15px}.brand img{width:43px;height:43px}.brand-name{font-size:24px}.home-link{font-size:14px}.intro{padding:18px 15px}.intro p{font-size:14px}.app{padding:0 10px 38px;gap:10px}.workflow{gap:12px}.panel{padding:16px;border-radius:13px}.panel h2{font-size:19px}.field-grid,.social-fields{grid-template-columns:1fr}.wood-options{grid-template-columns:repeat(3,1fr)}.border-options{grid-template-columns:repeat(2,1fr)}.mode-btn{padding:10px}.mode-btn strong{font-size:14px}.template-grid{gap:6px}.template-btn{padding:6px}.template-btn strong{font-size:12px}.template-btn span{font-size:11px}.preview-head h2{font-size:17px}.preview-head button{min-height:36px;padding:5px 8px}.scene{padding:8px}#card{max-width:360px}#card.portrait{max-width:132px}.preview-control{font-size:12px}.preview-control select{font-size:12px}.dimension{font-size:11px}.quantity-options{gap:5px}.quantity-options button{padding:5px;font-size:13px}.price{font-size:29px}}
+@media(max-height:650px) and (max-width:950px){.preview-panel{position:relative;top:auto}}
+</style></head>
+<body><header><nav class="nav" aria-label="Hoofdnavigatie"><a class="brand" href="index.html" aria-label="TimberTik homepage"><img src="TimberTik-TT-rond.png" alt=""><span class="brand-name">TimberTik</span></a><a href="index.html" class="home-link">← Home</a></nav></header>
+<section class="intro"><div class="intro-badge">ECHT HOUT • JOUW ONTWERP</div><h1>Ontwerp jouw TimberTik</h1><p>Kies een voorbeeld of ontwerp zelf. Je ziet bij elke stap meteen hoe je lasergravure op het hout oogt.</p></section>
+<main class="app"><div class="workflow">
+<section class="panel" id="start"><span class="step-kicker">Start</span><h2>Hoe wil je ontwerpen?</h2><p class="help">Kies een voorbereid kaartje en vul je gegevens in, of bepaal zelf de positie en grootte van elk onderdeel.</p><div class="mode-grid"><button id="simpleMode" class="mode-btn active" type="button" aria-pressed="true"><strong>Voorbeeld kiezen</strong><span>Een kant-en-klare indeling voor jouw gegevens.</span></button><button id="professionalMode" class="mode-btn" type="button" aria-pressed="false"><strong>Professioneel · zelf maken</strong><span>Sleep, vergroot en lijn elk onderdeel uit.</span></button></div><div id="templateChooser"><h3 class="section-title">Kies een voorbeeld</h3><div class="template-grid"><button class="template-btn active" data-template="classic" type="button" aria-pressed="true"><span class="template-swatch" style="--tile:#e3b25a"></span><strong>Klassiek</strong><span>Logo links, QR rechts</span></button><button class="template-btn" data-template="minimal" type="button" aria-pressed="false"><span class="template-swatch" style="--tile:#efd9ae"></span><strong>Minimal</strong><span>Rustig en ruim</span></button><button class="template-btn" data-template="portrait" type="button" aria-pressed="false"><span class="template-swatch" style="--tile:#b56d43"></span><strong>Staand</strong><span>Compact portret</span></button></div></div></section>
+<section class="panel" id="woodStep"><span class="step-kicker">Stap 1</span><h2>Kies jouw houtkleur</h2><p class="help">Echt hout varieert per kaartje in kleur en nerf.</p><div class="wood-options"><label class="wood-choice"><input type="radio" name="wood" value="#efd9ae"><span class="wood-tile"><span class="wood-swatch" style="--swatch:#efd9ae" aria-hidden="true"></span><span class="wood-label">Licht naturel<span class="wood-check" aria-hidden="true">✓</span></span></span></label><label class="wood-choice"><input type="radio" name="wood" value="#e3b25a"><span class="wood-tile"><span class="wood-swatch" style="--swatch:#e3b25a" aria-hidden="true"></span><span class="wood-label">Goudgeel<span class="wood-check" aria-hidden="true">✓</span></span></span></label><label class="wood-choice"><input type="radio" name="wood" value="#c79a5b"><span class="wood-tile"><span class="wood-swatch" style="--swatch:#c79a5b" aria-hidden="true"></span><span class="wood-label">Honingbruin<span class="wood-check" aria-hidden="true">✓</span></span></span></label><label class="wood-choice"><input type="radio" name="wood" value="#b56d43"><span class="wood-tile"><span class="wood-swatch" style="--swatch:#b56d43" aria-hidden="true"></span><span class="wood-label">Roodbruin<span class="wood-check" aria-hidden="true">✓</span></span></span></label><label class="wood-choice"><input type="radio" name="wood" value="#956347"><span class="wood-tile"><span class="wood-swatch" style="--swatch:#956347" aria-hidden="true"></span><span class="wood-label">Donkerbruin<span class="wood-check" aria-hidden="true">✓</span></span></span></label></div><select id="woodSelect" hidden aria-label="Houtkleur"><option value="#efd9ae">Licht naturel</option><option value="#e3b25a">Goudgeel</option><option value="#c79a5b">Honingbruin</option><option value="#b56d43">Roodbruin</option><option value="#956347">Donkerbruin</option></select></section>
+<section class="panel" id="borderStep"><span class="step-kicker">Stap 2</span><h2>Kies een gegraveerde rand</h2><p class="help">De rand wordt mee gegraveerd. Je kunt ook geen rand kiezen.</p><details id="borderPicker" class="border-picker"><summary>Bekijk 20 randen <span id="borderCurrent" class="border-current">Geen rand</span></summary><div id="borderOptions" class="border-options" role="radiogroup" aria-label="Gegraveerde rand"></div></details></section>
+<section class="panel" id="detailsStep"><span class="step-kicker">Stap 3</span><h2>Gegevens en logo</h2><div class="field-grid"><div><label for="nameInput">Naam</label><input id="nameInput" value="Gommaire Van Sande" autocomplete="name"></div><div><label for="companyInput">Bedrijf / functie</label><input id="companyInput" value="TimberTik"></div><div><label for="phoneInput">Telefoon</label><input id="phoneInput" value="+32 495 56 58 91" autocomplete="tel"></div><div><label for="emailInput">E-mail</label><input id="emailInput" value="timbertik@outlook.com" autocomplete="email"></div><div><label for="websiteInput">Website</label><input id="websiteInput" value="www.timbertik.be" autocomplete="url"></div><div><label for="fontSelect">Lettertype</label><select id="fontSelect"><option value="Arial, sans-serif">Arial</option><option value="Verdana, sans-serif">Verdana</option><option value="Georgia, serif">Georgia</option><option value="Trebuchet MS, sans-serif">Trebuchet</option><option value="Courier New, monospace">Courier</option></select></div></div>
+<h3 class="section-title">Facebook, Instagram en X</h3><p class="help">Alleen ingevulde profielen verschijnen op het kaartje en in de QR-keuze.</p><div class="social-fields"><div><label for="facebookInput">Facebook</label><input id="facebookInput" placeholder="facebook.com/jouwpagina"></div><div><label for="instagramInput">Instagram</label><input id="instagramInput" placeholder="@jouwprofiel"></div><div><label for="xInput">X</label><input id="xInput" placeholder="@jouwprofiel"></div></div>
+<h3 class="section-title">Jouw logo</h3><label for="logoInput">Eigen logo uploaden</label><input id="logoInput" type="file" accept="image/png,image/jpeg,image/webp"><div class="logo-actions"><button id="brandLogo" type="button" class="small-btn">TimberTik-logo</button><button id="removeLogo" type="button" class="small-btn">Logo weglaten</button></div><label for="logoThreshold">Achtergrond van logo verwijderen · <output id="thresholdValue">115</output></label><input id="logoThreshold" type="range" min="1" max="254" value="115"><label for="logoPolarity">Welke delen graveren?</label><select id="logoPolarity"><option value="dark">Donkere delen</option><option value="light">Lichte delen</option></select><p class="help">Een transparante PNG of SVG met donkere lijnen geeft het zuiverste gravurebestand.</p><label>Logo-grootte</label><div class="stepper"><button id="logoMinus" type="button" aria-label="Logo kleiner">−</button><span id="logoSizeLabel">14,5 mm</span><button id="logoPlus" type="button" aria-label="Logo groter">+</button></div>
+<h3 class="section-title">Kaartformaat</h3><label for="orientationSelect">Oriëntatie</label><select id="orientationSelect"><option value="landscape">Liggend 85 × 55 mm</option><option value="portrait">Staand 55 × 85 mm</option></select></section>
+<section class="panel" id="professionalStep"><span class="step-kicker">Professioneel</span><h2>Elementen plaatsen</h2><p class="help">Selecteer een onderdeel en sleep het op het kaartje, of gebruik de uitlijning hieronder.</p><aside id="professionalPanel">
 
   <section class="panel">
 
@@ -478,18 +138,13 @@
   </section>
 
 
-  
-
-</aside>
-
-</main>
 
 
-<div class="trust"><span>Natuurlijk hout</span><span>Persoonlijke lasergravure</span><span>QR & NFC</span></div><footer>
-  🌿 TimberTik • Nature connects • Wooden Smart Cards
-</footer>
-
-
+</aside></section>
+<section class="panel" id="smartStep"><span class="step-kicker">Stap 4</span><h2>QR-code en NFC</h2><p class="help">Kies op het einde welke slimme functies je op het kaartje wilt.</p><label for="qrType">QR-code</label><select id="qrType"><option value="contact">Contact opslaan (vCard)</option><option value="website">Website openen</option><option value="email">E-mail sturen</option><option value="phone">Telefoon bellen</option><option value="whatsapp">WhatsApp openen</option><option value="facebook">Facebook-profiel openen</option><option value="instagram">Instagram-profiel openen</option><option value="x">X-profiel openen</option><option value="none">Geen QR-code</option></select><label>QR-grootte</label><div class="stepper"><button id="qrMinus" type="button" aria-label="QR kleiner">−</button><span id="qrSizeLabel">20 mm</span><button id="qrPlus" type="button" aria-label="QR groter">+</button></div><label for="nfcSelect">NFC</label><select id="nfcSelect"><option value="none">Geen NFC</option><option value="both">NFC met QR-code</option><option value="nfc">Alleen NFC</option></select><p class="help">De chip wordt later in of achter het hout verwerkt. Op het kaartje tonen we alleen het NFC-symbool, zonder de letters “NFC”.</p></section>
+<section class="panel" id="orderStep"><span class="step-kicker">Tot slot</span><h2>Aantal en prijs</h2><div class="quantity-options"><button type="button" data-amount="1" class="active" aria-pressed="true">1 kaartje<small>€ 25</small></button><button type="button" data-amount="2" aria-pressed="false">2 kaartjes<small>€ 40</small></button><button type="button" data-amount="5" aria-pressed="false">5 kaartjes<small>€ 100</small></button></div><div class="custom-quantity"><label for="customAmount">Of vul zelf een aantal in</label><input id="customAmount" type="number" min="1" max="10000" step="1" inputmode="numeric" placeholder="Aantal kaartjes"></div><select id="amountSelect" hidden aria-label="Aantal kaartjes"><option value="1">1</option><option value="2">2</option><option value="5">5</option><option value="custom">Ander aantal</option></select><div class="order-box"><div><strong>Jouw TimberTik</strong><div class="summary"><span id="summaryWood">Licht naturel</span> • <span id="summaryOrientation">Liggend</span> • <span id="summaryAmount">1 kaartje</span></div></div><div id="price" class="price">€ 25</div></div><p class="help">Voor andere aantallen rekenen we € 20 per kaartje vanaf 2 stuks. Dit is een indicatieve kaartprijs.</p><div class="save-actions"><button id="saveDesign" class="save-btn" type="button">Ontwerp opslaan</button><button id="exportSvg" class="export-btn" type="button">Ontwerp als SVG</button></div><button id="exportEngraving" type="button" class="small-btn export-engraving">Gravurebestand zonder hout (SVG)</button><p id="status" role="status" aria-live="polite"></p></section>
+</div><aside class="panel preview-panel" aria-label="Live kaartvoorbeeld"><div class="preview-head"><h2>Jouw kaartje · live</h2><button id="resetPositions" class="small-btn" type="button">↻ Reset</button></div><div class="scene"><svg id="card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 550" role="img" aria-label="Live voorbeeld van jouw TimberTik-kaartje"></svg></div><div class="dimension"><span id="dimensions">85 × 55 mm</span><span>Lasergravure op hout</span></div><div class="preview-control"><label for="previewMode">Weergave</label><select id="previewMode"><option value="engraved">Gravurevoorbeeld</option><option value="flat">Vlak ontwerp</option></select></div><p class="preview-note">Kleur en diepte zijn een indicatie. Een proefgravure toont het exacte resultaat op jouw houtsoort.</p></aside></main>
+<div class="trust"><span>Natuurlijk hout</span><span>Persoonlijke lasergravure</span><span>QR & NFC</span></div><footer>TimberTik • Nature connects • Wooden Smart Cards</footer>
 <script>
 //---------------------------------------------------------------------
 //
@@ -2796,7 +2451,7 @@ const fields={name:'nameInput',company:'companyInput',phone:'phoneInput',email:'
 const borderDesigns=[{"id":"01-fijne-lijn","label":"Fijne lijn","art":"<rect x=\"3\" y=\"3\" width=\"79\" height=\"49\" rx=\"3\"/>"},{"id":"02-dubbele-lijn","label":"Dubbele lijn","art":"<rect x=\"3\" y=\"3\" width=\"79\" height=\"49\" rx=\"3\"/><rect x=\"5\" y=\"5\" width=\"75\" height=\"45\" rx=\"2\"/>"},{"id":"03-driedubbele-lijn","label":"Drie lijnen","art":"<rect x=\"3\" y=\"3\" width=\"79\" height=\"49\" rx=\"3\"/><rect x=\"4.5\" y=\"4.5\" width=\"76\" height=\"46\" rx=\"2.5\"/><rect x=\"6\" y=\"6\" width=\"73\" height=\"43\" rx=\"2\"/>"},{"id":"04-hoekaccenten","label":"Hoekaccenten","art":"<path d=\"M16 3H6Q3 3 3 6V16 M69 3H79Q82 3 82 6V16 M3 39V49Q3 52 6 52H16 M82 39V49Q82 52 79 52H69\"/>"},{"id":"05-lange-hoeken","label":"Lange hoeken","art":"<path d=\"M29 3H7Q3 3 3 7V20 M56 3H78Q82 3 82 7V20 M3 35V48Q3 52 7 52H29 M82 35V48Q82 52 78 52H56\"/>"},{"id":"06-stippellijn","label":"Stippellijn","art":"<rect x=\"3\" y=\"3\" width=\"79\" height=\"49\" rx=\"3\" stroke-dasharray=\"0.5 1.6\" stroke-linecap=\"round\"/>"},{"id":"07-streepjes","label":"Streepjes","art":"<rect x=\"3\" y=\"3\" width=\"79\" height=\"49\" rx=\"3\" stroke-dasharray=\"2.5 1.5\"/>"},{"id":"08-streep-punt","label":"Streep + punt","art":"<rect x=\"3\" y=\"3\" width=\"79\" height=\"49\" rx=\"3\" stroke-dasharray=\"3 1 0.4 1\"/>"},{"id":"09-schuine-hoeken","label":"Schuine hoeken","art":"<path d=\"M10 3H75L82 10V45L75 52H10L3 45V10Z\"/>"},{"id":"10-dubbele-facet","label":"Dubbele facet","art":"<path d=\"M10 3H75L82 10V45L75 52H10L3 45V10Z M11 5H74L80 11V44L74 50H11L5 44V11Z\"/>"},{"id":"11-art-deco-trap","label":"Art deco trap","art":"<path d=\"M12 3H73V8H78V13H82V42H78V47H73V52H12V47H7V42H3V13H7V8H12Z\"/>"},{"id":"12-deco-hoeklijnen","label":"Deco hoeklijnen","art":"<path d=\"M20 3H7V8H3V21 M65 3H78V8H82V21 M3 34V47H7V52H20 M82 34V47H78V52H65 M24 5H10V11H5V25 M61 5H75V11H80V25 M5 30V44H10V50H24 M80 30V44H75V50H61\"/>"},{"id":"13-ovale-bogen","label":"Ovale bogen","art":"<path d=\"M18 3C9 3 3 8 3 17V38C3 47 9 52 18 52H67C76 52 82 47 82 38V17C82 8 76 3 67 3Z\"/>"},{"id":"14-open-zijkanten","label":"Open zijkanten","art":"<path d=\"M3 21V7Q3 3 7 3H78Q82 3 82 7V21 M3 34V48Q3 52 7 52H78Q82 52 82 48V34\"/>"},{"id":"15-open-boven-onder","label":"Open boven/onder","art":"<path d=\"M3 23V7Q3 3 7 3H31 M54 3H78Q82 3 82 7V23 M3 32V48Q3 52 7 52H31 M54 52H78Q82 52 82 48V32\"/>"},{"id":"16-diamant-hoeken","label":"Diamant hoeken","art":"<rect x=\"5\" y=\"5\" width=\"75\" height=\"45\" rx=\"2\"/><path d=\"M8 8L11 11L8 14L5 11Z M77 8L80 11L77 14L74 11Z M8 41L11 44L8 47L5 44Z M77 41L80 44L77 47L74 44Z\"/>"},{"id":"17-bladhoeken","label":"Bladhoeken","art":"<path d=\"M16 3H7Q3 3 3 7V16 M69 3H78Q82 3 82 7V16 M3 39V48Q3 52 7 52H16 M82 39V48Q82 52 78 52H69\"/><path d=\"M6 15Q10 12 12 8Q8 8 6 15 M79 15Q75 12 73 8Q77 8 79 15 M6 40Q10 43 12 47Q8 47 6 40 M79 40Q75 43 73 47Q77 47 79 40\"/>"},{"id":"18-takjes","label":"Takjes","art":"<path d=\"M3 17V7Q3 3 7 3H19 M66 3H78Q82 3 82 7V17 M3 38V48Q3 52 7 52H19 M82 38V48Q82 52 78 52H66\"/><path d=\"M6 12L12 6 M8 10L8 6 M10 8L14 8 M79 12L73 6 M77 10L77 6 M75 8L71 8 M6 43L12 49 M8 45L8 49 M10 47L14 47 M79 43L73 49 M77 45L77 49 M75 47L71 47\"/>"},{"id":"19-dubbele-bogen","label":"Dubbele bogen","art":"<path d=\"M3 18Q3 3 18 3H67Q82 3 82 18V37Q82 52 67 52H18Q3 52 3 37Z M5 18Q5 5 18 5H67Q80 5 80 18V37Q80 50 67 50H18Q5 50 5 37Z\"/>"},{"id":"20-parel-hoeken","label":"Parelhoeken","art":"<path d=\"M22 3H63 M3 22V33 M82 22V33 M22 52H63\"/><path d=\"M3 15Q3 3 15 3 M82 15Q82 3 70 3 M3 40Q3 52 15 52 M82 40Q82 52 70 52\"/><circle cx=\"17.5\" cy=\"3\" r=\"0.7\"/><circle cx=\"67.5\" cy=\"3\" r=\"0.7\"/><circle cx=\"3\" cy=\"18.5\" r=\"0.7\"/><circle cx=\"82\" cy=\"18.5\" r=\"0.7\"/><circle cx=\"3\" cy=\"36.5\" r=\"0.7\"/><circle cx=\"82\" cy=\"36.5\" r=\"0.7\"/><circle cx=\"17.5\" cy=\"52\" r=\"0.7\"/><circle cx=\"67.5\" cy=\"52\" r=\"0.7\"/>"}];
 const names={name:'Naam',company:'Bedrijf / functie',contact:'Contactgegevens',social:'Sociale media',logo:'Logo',qr:'QR-code',nfc:'NFC-symbool'};
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
-const defaults=()=>({name:'Jan Peeters',company:'JP Houtwerken',phone:'0470 12 34 56',email:'jan@jphout.be',website:'www.jphout.be',facebook:'',instagram:'',x:'',font:'Arial, sans-serif',qrType:'contact',nfc:'none',wood:'#efd9ae',border:'none',orientation:'landscape',amount:'100',logo:'TimberTik-TT-rond.png',threshold:'115',polarity:'dark',preview:'engraved',mode:false,layouts:{}});
+const defaults=()=>({name:'Gommaire Van Sande',company:'TimberTik',phone:'+32 495 56 58 91',email:'timbertik@outlook.com',website:'www.timbertik.be',facebook:'',instagram:'',x:'',font:'Arial, sans-serif',qrType:'contact',nfc:'none',wood:'#e3b25a',border:'none',orientation:'landscape',amount:'1',quantity:'1',template:'classic',logo:'TimberTik-TT-rond.png',threshold:'115',polarity:'dark',preview:'engraved',mode:false,layouts:{}});
 let state=defaults(),selected='name',qrCache={data:null,markup:''},drag=null,brandData=null;
 const card=$('card');
 function tell(message){$('status').textContent=message;}
@@ -2835,11 +2490,11 @@ content+=`<g ${state.preview==='engraved'&&key!=='qr'?'filter="url(#engravedInk)
 card.innerHTML=content;
 for(const el of card.querySelectorAll('.element')){const key=el.dataset.key,p=items[key];let box=el.getBBox();if(box.width>w-40||box.height>h-40){const factor=Math.min((w-40)/Math.max(1,box.width),(h-40)/Math.max(1,box.height));el.firstElementChild.setAttribute('transform',`scale(${factor})`);box=el.getBBox();}p.x=Math.max(10,Math.min(w-box.width-10,p.x));p.y=Math.max(10,Math.min(h-box.height-10,p.y));el.setAttribute('transform',`translate(${p.x} ${p.y})`);}
 document.body.classList.toggle('professional',state.mode);$('simpleMode').classList.toggle('active',!state.mode);$('professionalMode').classList.toggle('active',state.mode);$('simpleMode').setAttribute('aria-pressed',!state.mode);$('professionalMode').setAttribute('aria-pressed',state.mode);
-$('dimensions').textContent=`${w/10} × ${h/10} mm`;$('summaryWood').textContent=$('woodSelect').selectedOptions[0].textContent.trim();$('summaryOrientation').textContent=state.orientation==='portrait'?'Staand':'Liggend';$('summaryAmount').textContent=state.amount==='1'?'1 kaartje':state.amount+' kaartjes';$('price').textContent=new Intl.NumberFormat('nl-BE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format({1:25,25:29,50:39,100:59,250:109}[state.amount]);$('qrSizeLabel').textContent=(items.qr.size/10).toFixed(1)+' mm';$('logoSizeLabel').textContent=(items.logo.size/10).toFixed(1)+' mm';selection();}
+$('dimensions').textContent=`${w/10} × ${h/10} mm`;$('summaryWood').textContent=$('woodSelect').selectedOptions[0].textContent.trim();$('summaryOrientation').textContent=state.orientation==='portrait'?'Staand':'Liggend';$('summaryAmount').textContent=state.amount==='1'?'1 kaartje':state.amount+' kaartjes';const quantity=state.amount==='custom'?Math.max(1,Math.min(10000,Number(state.quantity)||1)):Number(state.amount);$('summaryAmount').textContent=quantity===1?'1 kaartje':quantity+' kaartjes';$('price').textContent=new Intl.NumberFormat('nl-BE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(quantity===1?25:quantity*20);document.querySelectorAll('[data-amount]').forEach(b=>{b.classList.toggle('active',b.dataset.amount===state.amount);b.setAttribute('aria-pressed',b.dataset.amount===state.amount)});document.querySelectorAll('[data-template]').forEach(b=>{b.classList.toggle('active',b.dataset.template===state.template);b.setAttribute('aria-pressed',b.dataset.template===state.template)});$('templateChooser').hidden=state.mode;$('qrSizeLabel').textContent=(items.qr.size/10).toFixed(1)+' mm';$('logoSizeLabel').textContent=(items.logo.size/10).toFixed(1)+' mm';selection();}
 function selection(){card.querySelector('.selection-frame')?.remove();$('selectedTitle').textContent=names[selected];$('selectedSize').textContent=(layout()[selected].size/10).toFixed(1)+' mm';document.querySelectorAll('[data-select]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.select===selected));const el=card.querySelector(`[data-key="${selected}"]`);if(state.mode&&el){const box=el.getBBox(),p=layout()[selected],frame=document.createElementNS(NS,'rect');for(const [k,v]of Object.entries({x:p.x+box.x-5,y:p.y+box.y-5,width:box.width+10,height:box.height+10,class:'selection-frame'}))frame.setAttribute(k,v);card.append(frame);}}
 function size(key,delta){const item=layout()[key];const image=['logo','qr'].includes(key);item.size=Math.max(key==='qr'?150:image?40:16,Math.min(image?350:90,item.size+delta));render();}
 for(const [key,id]of Object.entries(fields)){const el=$(id);el.value=state[key];if(el.tagName==='INPUT'&&el.type!=='range')el.maxLength=180;el.addEventListener(el.tagName==='INPUT'?'input':'change',()=>{state[key]=el.value;if(key==='wood')qrCache.data=null;if(key==='threshold')$('thresholdValue').textContent=state.threshold;render();});}
-$('simpleMode').onclick=()=>{state.mode=false;render();};$('professionalMode').onclick=()=>{state.mode=true;render();};$('resetPositions').onclick=()=>{resetLayout();render();tell('De standaardposities zijn hersteld.');};
+$('simpleMode').onclick=()=>{state.mode=false;render();};$('professionalMode').onclick=()=>{state.mode=true;render();};document.querySelectorAll('[data-template]').forEach(button=>button.onclick=()=>{state.template=button.dataset.template;state.mode=false;state.orientation=state.template==='portrait'?'portrait':'landscape';state.border=state.template==='minimal'?'01-fijne-lijn':state.template==='portrait'?'04-hoekaccenten':'none';state.wood=state.template==='portrait'?'#b56d43':state.template==='minimal'?'#efd9ae':'#e3b25a';$('orientationSelect').value=state.orientation;$('woodSelect').value=state.wood;qrCache.data=null;resetLayout();if(state.template==='minimal'){const l=layout();l.logo={x:57,y:75,size:112};l.name={x:55,y:240,size:46};l.company={x:55,y:302,size:24};l.contact={x:55,y:385,size:22};l.social={x:310,y:385,size:19};l.qr={x:625,y:250,size:165};}render();});document.querySelectorAll('[data-amount]').forEach(button=>button.onclick=()=>{state.amount=button.dataset.amount;state.quantity=state.amount;$('amountSelect').value=state.amount;$('customAmount').value='';render();});$('customAmount').addEventListener('input',()=>{const n=Math.min(10000,Math.max(1,Math.floor(Number($('customAmount').value)||1)));state.amount='custom';state.quantity=String(n);$('amountSelect').value='custom';render();});$('resetPositions').onclick=()=>{resetLayout();render();tell('De standaardposities zijn hersteld.');};
 for(const [id,key,delta]of [['qrMinus','qr',-10],['qrPlus','qr',10],['logoMinus','logo',-10],['logoPlus','logo',10]])$(id).onclick=()=>size(key,delta);
 $('selectedMinus').onclick=()=>size(selected,-2);$('selectedPlus').onclick=()=>size(selected,2);
 document.querySelectorAll('[data-select]').forEach(button=>button.onclick=()=>{selected=button.dataset.select;selection();if(!visible(selected))tell('Dit element staat uit. Schakel het in bij jouw gegevens.');});
@@ -2852,8 +2507,8 @@ for(const event of ['pointerup','pointercancel','lostpointercapture'])card.addEv
 card.addEventListener('keydown',e=>{const el=e.target.closest('.element');if(!state.mode||!el)return;selected=el.dataset.key;if(e.key==='Enter'||e.key===' '){e.preventDefault();selection();return;}if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))return;e.preventDefault();const p=layout()[selected],step=e.shiftKey?10:2;p.x+=(e.key==='ArrowRight'?step:e.key==='ArrowLeft'?-step:0);p.y+=(e.key==='ArrowDown'?step:e.key==='ArrowUp'?-step:0);render();card.querySelector(`[data-key="${selected}"]`)?.focus();});
 $('brandLogo').onclick=()=>{state.logo='TimberTik-TT-rond.png';render();};$('removeLogo').onclick=()=>{state.logo='';render();};
 $('logoInput').onchange=async e=>{const file=e.target.files[0];if(!file)return;if(!['image/png','image/jpeg','image/webp'].includes(file.type)||file.size>10*1024*1024){tell('Kies een PNG, JPG of WebP tot 10 MB.');return;}try{const bitmap=await createImageBitmap(file);const scale=Math.min(1,1000/Math.max(bitmap.width,bitmap.height)),canvas=document.createElement('canvas');canvas.width=Math.round(bitmap.width*scale);canvas.height=Math.round(bitmap.height*scale);canvas.getContext('2d').drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close();state.logo=canvas.toDataURL('image/png');render();tell('Je logo is toegevoegd.');}catch{tell('Deze afbeelding kan niet worden geopend. Probeer een ander bestand.');}};
-$('saveDesign').onclick=()=>{try{localStorage.setItem('treetap-design',JSON.stringify({version:2,...state}));tell('Je TimberTik-ontwerp is opgeslagen in deze browser.');}catch{tell('Opslaan is niet gelukt. Maak je logo kleiner of exporteer je ontwerp.');}};
-function load(){try{const data=JSON.parse(localStorage.getItem('treetap-design')||'null');if(!data)return;if(data.wood==='#dcae70')data.wood='#c79a5b';const clean=defaults();if(typeof data.border==='string'&&(data.border==='none'||borderDesigns.some(item=>item.id===data.border)))clean.border=data.border;for(const [key,id]of Object.entries(fields)){if(typeof data[key]!=='string')continue;const el=$(id);if(el.tagName==='SELECT'&&![...el.options].some(o=>o.value===data[key]))continue;clean[key]=data[key].slice(0,180);}if(typeof data.logo==='string'&&(data.logo===''||data.logo==='TimberTik-TT-rond.png'||/^data:image\/(png|jpeg|webp);base64,[a-z0-9+/=]+$/i.test(data.logo)))clean.logo=data.logo;clean.threshold=String(Math.max(1,Math.min(254,Number(clean.threshold)||115)));clean.mode=data.mode===true;for(const orientation of ['landscape','portrait']){const l=data.layouts?.[orientation],oldKeys=Object.keys(names).filter(key=>key!=='social');if(l&&oldKeys.every(k=>l[k]&&['x','y','size'].every(n=>Number.isFinite(l[k][n]))&&l[k].size>0&&l[k].size<=350)){const social=l.social&&['x','y','size'].every(n=>Number.isFinite(l.social[n]))&&l.social.size>0&&l.social.size<=350?l.social:orientation==='portrait'?{x:45,y:490,size:22}:{x:320,y:380,size:22};clean.layouts[orientation]={...l,social};const nfc=clean.layouts[orientation].nfc;if(orientation==='portrait'&&nfc.x===408&&nfc.y===60)nfc.y=160;if(orientation==='landscape'&&nfc.x===718&&nfc.y===55)nfc.y=140;}}state=clean;for(const [k,id]of Object.entries(fields))$(id).value=state[k];tell('Je opgeslagen TimberTik-ontwerp is teruggeladen.');}catch{tell('Het opgeslagen ontwerp kan niet worden gelezen. Je kunt een nieuw ontwerp maken.');}}
+$('saveDesign').onclick=()=>{try{localStorage.setItem('timbertik-design',JSON.stringify({version:2,...state}));tell('Je TimberTik-ontwerp is opgeslagen in deze browser.');}catch{tell('Opslaan is niet gelukt. Maak je logo kleiner of exporteer je ontwerp.');}};
+function load(){try{const data=JSON.parse(localStorage.getItem('timbertik-design')||localStorage.getItem('treetap-design')||'null');if(!data)return;if(data.wood==='#dcae70')data.wood='#c79a5b';const clean=defaults();if(typeof data.border==='string'&&(data.border==='none'||borderDesigns.some(item=>item.id===data.border)))clean.border=data.border;for(const [key,id]of Object.entries(fields)){if(typeof data[key]!=='string')continue;const el=$(id);if(el.tagName==='SELECT'&&![...el.options].some(o=>o.value===data[key]))continue;clean[key]=data[key].slice(0,180);}if(typeof data.logo==='string'&&(data.logo===''||data.logo==='TimberTik-TT-rond.png'||/^data:image\/(png|jpeg|webp);base64,[a-z0-9+/=]+$/i.test(data.logo)))clean.logo=data.logo;clean.threshold=String(Math.max(1,Math.min(254,Number(clean.threshold)||115)));clean.mode=data.mode===true;clean.template=['classic','minimal','portrait'].includes(data.template)?data.template:'classic';clean.quantity=String(Math.max(1,Math.min(10000,Number(data.quantity)||Number(clean.amount)||1)));$('customAmount').value=clean.amount==='custom'?clean.quantity:'';for(const orientation of ['landscape','portrait']){const l=data.layouts?.[orientation],oldKeys=Object.keys(names).filter(key=>key!=='social');if(l&&oldKeys.every(k=>l[k]&&['x','y','size'].every(n=>Number.isFinite(l[k][n]))&&l[k].size>0&&l[k].size<=350)){const social=l.social&&['x','y','size'].every(n=>Number.isFinite(l.social[n]))&&l.social.size>0&&l.social.size<=350?l.social:orientation==='portrait'?{x:45,y:490,size:22}:{x:320,y:380,size:22};clean.layouts[orientation]={...l,social};const nfc=clean.layouts[orientation].nfc;if(orientation==='portrait'&&nfc.x===408&&nfc.y===60)nfc.y=160;if(orientation==='landscape'&&nfc.x===718&&nfc.y===55)nfc.y=140;}}state=clean;for(const [k,id]of Object.entries(fields))$(id).value=state[k];tell('Je opgeslagen TimberTik-ontwerp is teruggeladen.');}catch{tell('Het opgeslagen ontwerp kan niet worden gelezen. Je kunt een nieuw ontwerp maken.');}}
 async function embedBrand(){if(brandData)return brandData;const response=await fetch('TimberTik-TT-rond.png');if(!response.ok)throw Error('Logo ontbreekt');const blob=await response.blob();brandData=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(blob);});return brandData;}
 async function exportDesign(){if(visible('qr'))qrMarkup();const clone=card.cloneNode(true),[w,h]=dims();clone.querySelector('.selection-frame')?.remove();clone.removeAttribute('id');clone.removeAttribute('class');clone.removeAttribute('style');clone.setAttribute('width',w/10+'mm');clone.setAttribute('height',h/10+'mm');clone.querySelectorAll('.element').forEach(el=>{el.removeAttribute('tabindex');el.removeAttribute('role');el.removeAttribute('class');});const logo=clone.querySelector('image');if(logo){logo.setAttribute('href',await processedLogoData());logo.removeAttribute('filter');}return '<?xml version="1.0" encoding="UTF-8"?>\n'+new XMLSerializer().serializeToString(clone);}
 $('exportSvg').onclick=async()=>{try{const svg=await exportDesign(),link=document.createElement('a'),objectUrl=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'}));link.href=objectUrl;link.download='timbertik-ontwerp.svg';link.click();setTimeout(()=>URL.revokeObjectURL(objectUrl),1000);tell('Je complete TimberTik-ontwerp is geëxporteerd als SVG.');}catch{tell('Exporteren is niet gelukt. Controleer of het logo en de QR-code beschikbaar zijn.');}};
